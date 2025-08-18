@@ -23,34 +23,59 @@ export default function Footer() {
                 </p>
               </div>
             </div>
+
             <p className="font-dm-sans text-sm opacity-90 max-w-sm leading-6">
               Professional vehicle body repair services in Sheffield. Restoring your
               vehicle to perfection with quality craftsmanship and attention to detail.
             </p>
           </div>
 
-          {/* Services */}
+          {/* Services (link to sections on the page) */}
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Services</h4>
             <ul className="font-dm-sans text-sm space-y-2 opacity-90">
-              <li>Alloy Wheel Repair</li>
-              <li>Bodywork Scuffs &amp; Dents</li>
-              <li>Textured Plastic Repairs</li>
-              <li>Panel Damage</li>
-              <li>Full Respray</li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Alloy Wheel Repair</a></li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Bodywork Scuffs &amp; Dents</a></li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Textured Plastic Repairs</a></li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Panel Damage</a></li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Full Respray</a></li>
+              <li><a href="#services" className="hover:underline underline-offset-4">Quality Guarantee</a></li>
+
+              
             </ul>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Contact</h4>
-            <div className="font-dm-sans text-sm space-y-2 opacity-90">
+            <address className="not-italic font-dm-sans text-sm space-y-2 opacity-90">
               <p>Sheffield, UK</p>
-              <p>+44 114 XXX XXXX</p>
-              <p>info@scuffsetc.co.uk</p>
+
+              {/* Phone (clickable) */}
+              <p>
+                <a
+                  href="tel:+44114XXXXXXX"
+                  className="hover:underline underline-offset-4"
+                  aria-label="Call Scuffs ETC"
+                >
+                  +44 114 XXX XXXX
+                </a>
+              </p>
+
+              {/* Email (clickable) */}
+              <p>
+                <a
+                  href="mailto:info@scuffsetc.co.uk"
+                  className="hover:underline underline-offset-4 break-all"
+                  aria-label="Email Scuffs ETC"
+                >
+                  info@scuffsetc.co.uk
+                </a>
+              </p>
+
               <p>Mon–Fri: 8AM–6PM</p>
               <p>Sat: 9AM–4PM</p>
-            </div>
+            </address>
           </div>
         </div>
 
