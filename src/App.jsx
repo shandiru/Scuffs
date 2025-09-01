@@ -1,26 +1,23 @@
-// App.jsx
 // src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./components/HomeSection";
-import Service from "./components/ServicesSection";
-import Gallery from "./components/GallerySection";
-import Credential from "./components/CredentialsSection";
-import Contact from "./components/ContactSection";
 import Footer from "./components/Footer";
-
-
+import Home from "./page/homepage"; // fixed relative path
 
 function App() {
   return (
-    <>
-     <Header />
-     <Home />
-     <Service />
-     <Gallery />
-     <Credential />
-     <Contact />
-     <Footer />
-    </>
+    <Router>
+      <Header />
+
+      <main>
+        <Routes>
+          {/* Homepage route */}
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </Router>
   );
 }
 
