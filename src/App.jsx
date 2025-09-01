@@ -6,7 +6,7 @@ import Home from "./page/homepage"; // fixed relative path
 import Quality from "./page/Quality";
 import Alloywheelrepairpage from "./page/Alloywheelrepairpage";
 import Bodyworkrepairpage from "./page/Bodyworkrepairpage";
-
+import  Texturedplasticrepairpage from "./page/Texturedplasticrepairpage"
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
           <Route path="/services/quality-guarantee" element={<Quality />} />
            <Route path="/services/bodywork-repair" element={<Bodyworkrepairpage />} />
+            <Route path="/services/textured-plastic-repair" element={<Texturedplasticrepairpage />} />
         
 
 

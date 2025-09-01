@@ -1,0 +1,35 @@
+// File: PlasticComponentCTA.jsx
+export default function PlasticComponentCTA() {
+  return (
+    <section className="py-16 px-4" style={{ backgroundColor: "#F3FBF3" }}>
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold mb-4 text-gray-900">
+          Restore Your Plastic Components
+        </h2>
+        <p className="text-lg text-gray-600 mb-8">
+          Expert texture matching and restoration services
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            className="inline-flex items-center justify-center gap-2 font-medium transition-all 
+                       bg-green-700 text-white hover:bg-green-800 h-10 rounded-md 
+                       text-lg px-8 py-3 shadow-sm"
+          >
+            Get Quote
+          </button>
+
+          <button
+            className="inline-flex items-center justify-center gap-2 font-medium transition-all 
+                       border border-gray-300 bg-transparent hover:bg-gray-100 
+                       text-gray-800 h-10 rounded-md text-lg px-8 py-3"
+          >
+            Call (555) 123-4567
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
