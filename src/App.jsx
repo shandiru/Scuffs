@@ -15,7 +15,7 @@ function App() {
           {/* Homepage route */}
           <Route path="/" element={<Home />} />
 
-          <Route path="/Alloywheelrepairpage" element={<Alloywheelrepairpage />} />
+          <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
         
         </Routes>
       </main>
