@@ -7,6 +7,8 @@ import Quality from "./page/Quality";
 import Alloywheelrepairpage from "./page/Alloywheelrepairpage";
 import FullRespray from "./page/FullRespray";
 import Bodywork from "./page/Bodyworkrepairpage";
+import Textured from "./page/Texturedplasticrepairpage";
+import PanelDamage from "./page/PanelDamage";
 
 function App() {
   return (
@@ -17,9 +19,11 @@ function App() {
           {/* Homepage route */}
           <Route path="/" element={<Home />} />
           <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
+          <Route path="/services/textured-plastic-repair" element={<Textured />} />
+          <Route path="/services/bodywork-repair" element={<Bodywork />} />
+          <Route path="/services/panel-damage" element={<PanelDamage />} />
           <Route path="/services/full-respray" element={<FullRespray />} />
           <Route path="/services/quality-guarantee" element={<Quality />} />
-          <Route path="/services/bodywork-repair" element={<Bodywork />} />
 
 
 
