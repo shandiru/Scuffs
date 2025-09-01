@@ -1,5 +1,5 @@
 import React from 'react'
-import QualityAbout from '../components/ServiceSection/QualityGuarantee/Quality'
+import QualityAbout from '../components/ServiceSection/QualityGuarantee/QualityAbout'
 import QualityStandards from '../components/ServiceSection/QualityGuarantee/standards'
 import WarrantyTerms from '../components/ServiceSection/QualityGuarantee/Warranty'
 import WarrantyClaimSection from '../components/ServiceSection/QualityGuarantee/Claim'
