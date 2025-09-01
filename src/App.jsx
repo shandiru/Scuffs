@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./page/homepage"; // fixed relative path
 import Quality from "./page/Quality";
+import Alloywheelrepairpage from "./page/Alloywheelrepairpage";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Routes>
           {/* Homepage route */}
           <Route path="/" element={<Home />} />
-          <Route path="/quality" element={<Quality />} />
+          <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
+          <Route path="/services/quality-guarantee" element={<Quality />} />
         </Routes>
       </main>
       <Footer />
