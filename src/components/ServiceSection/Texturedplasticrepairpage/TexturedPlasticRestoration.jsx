@@ -27,7 +27,7 @@ export default function TexturedPlasticRestoration() {
                 "Trim piece restoration",
               ].map((t) => (
                 <div key={t} className="flex items-center gap-3">
-                  <FaCheckCircle className="h-5 w-5 text-green-600" />
+                  <FaCheckCircle className="h-5 w-5 text-pink-600" />
                   <span className="text-gray-800">{t}</span>
                 </div>
               ))}
@@ -91,7 +91,7 @@ export default function TexturedPlasticRestoration() {
         {/* Bottom highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaClock className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaClock className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">2–3 Day Service</div>
             <p className="text-sm text-gray-600 px-6">
               Specialized repairs completed within 2–3 days
@@ -99,7 +99,7 @@ export default function TexturedPlasticRestoration() {
           </div>
 
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaShieldAlt className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaShieldAlt className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">Perfect Match Guarantee</div>
             <p className="text-sm text-gray-600 px-6">
               Texture and color matching guaranteed
@@ -107,7 +107,7 @@ export default function TexturedPlasticRestoration() {
           </div>
 
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaStar className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaStar className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">Cost Effective</div>
             <p className="text-sm text-gray-600 px-6">
               Save up to 70% versus replacement costs

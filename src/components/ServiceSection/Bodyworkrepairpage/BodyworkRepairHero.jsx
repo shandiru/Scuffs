@@ -1,10 +1,10 @@
 // File: BodyworkRepairHero.jsx
 export default function BodyworkRepairHero() {
   return (
-    <section className="bg-[#0B6605] text-white py-16 px-4">
+    <section className="bg-[#b30086] text-white py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
         {/* Badge */}
-        <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium bg-green-200 text-green-900 mb-4">
+        <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium bg-pink-200 text-pink-900 mb-4">
           Expert Repair
         </span>
 

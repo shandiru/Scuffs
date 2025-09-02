@@ -26,7 +26,7 @@ export default function AlloyWheelRepair() {
                 "Powder coating and protective finishes",
               ].map((point, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <FaCheckCircle className="h-5 w-5 text-green-600" />
+                  <FaCheckCircle className="h-5 w-5 text-pink-600" />
                   <span>{point}</span>
                 </div>
               ))}
@@ -60,7 +60,7 @@ export default function AlloyWheelRepair() {
                            transition-transform duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <div className="px-6">
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                  <div className="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
                     {p.step}
                   </div>
                   <div className="font-semibold text-lg">{p.title}</div>
@@ -75,7 +75,7 @@ export default function AlloyWheelRepair() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center
                           transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-            <FaClock className="h-8 w-8 text-green-600 mx-auto mb-3" />
+            <FaClock className="h-8 w-8 text-pink-600 mx-auto mb-3" />
             <div className="font-semibold">Quick Turnaround</div>
             <p className="text-sm text-gray-600 px-6">
               Most repairs completed within 24–48 hours
@@ -84,7 +84,7 @@ export default function AlloyWheelRepair() {
 
           <div className="bg-white flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center
                           transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-            <FaShieldAlt className="h-8 w-8 text-green-600 mx-auto mb-3" />
+            <FaShieldAlt className="h-8 w-8 text-pink-600 mx-auto mb-3" />
             <div className="font-semibold">12 Month Warranty</div>
             <p className="text-sm text-gray-600 px-6">
               All repairs backed by comprehensive warranty
@@ -93,7 +93,7 @@ export default function AlloyWheelRepair() {
 
           <div className="bg-white flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center
                           transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-            <FaStar className="h-8 w-8 text-green-600 mx-auto mb-3" />
+            <FaStar className="h-8 w-8 text-pink-600 mx-auto mb-3" />
             <div className="font-semibold">Expert Craftsmen</div>
             <p className="text-sm text-gray-600 px-6">
               Highly skilled technicians with years of experience

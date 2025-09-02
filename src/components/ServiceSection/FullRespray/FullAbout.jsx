@@ -1,8 +1,9 @@
 import React from "react";
+import { FiCheckCircle } from "react-icons/fi";
 
 const FullAbout = () => {
   return (
-    <div className="bg-green-50 p-8 py-10">
+    <div className="bg-pink-50 p-8 py-10">
       <div className="container mx-auto max-w-6xl flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-8">
         <div className="flex-1">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -16,19 +17,19 @@ const FullAbout = () => {
           </p>
           <ul className="space-y-4 text-gray-600">
             <li className="flex items-center">
-              <span className="text-green-500 mr-2">✔</span>
+              <FiCheckCircle className="text-pink-500 mr-2" /> {/* React Icon Check Circle */}
               Complete paint system removal
             </li>
             <li className="flex items-center">
-              <span className="text-green-500 mr-2">✔</span>
+              <FiCheckCircle className="text-pink-500 mr-2" /> {/* React Icon Check Circle */}
               Professional surface preparation
             </li>
             <li className="flex items-center">
-              <span className="text-green-500 mr-2">✔</span>
+              <FiCheckCircle className="text-pink-500 mr-2" /> {/* React Icon Check Circle */}
               Multi-coat paint application
             </li>
             <li className="flex items-center">
-              <span className="text-green-500 mr-2">✔</span>
+              <FiCheckCircle className="text-pink-500 mr-2" /> {/* React Icon Check Circle */}
               UV-resistant clear coat finish
             </li>
           </ul>

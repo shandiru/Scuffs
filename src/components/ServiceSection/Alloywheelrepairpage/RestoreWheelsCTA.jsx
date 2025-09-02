@@ -12,7 +12,7 @@ export default function RestoreWheelsCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Free Quote Button */}
-          <button className="inline-flex items-center justify-center gap-2 font-medium bg-green-700 text-white shadow-sm hover:bg-green-800 transition h-10 rounded-md text-lg px-8 py-3">
+          <button className="inline-flex items-center justify-center gap-2 font-medium bg-pink-500 text-white shadow-sm hover:bg-pink-800 transition h-10 rounded-md text-lg px-8 py-3">
             Get Free Quote
           </button>
 

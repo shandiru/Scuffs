@@ -1,4 +1,5 @@
 import React from "react";
+import { FiCheckCircle } from "react-icons/fi";
 
 const PaintOptions = () => {
     const options = [
@@ -49,10 +50,7 @@ const PaintOptions = () => {
                                 <ul className="space-y-2">
                                     {option.features.map((feature, idx) => (
                                         <li key={idx} className="flex items-center gap-2 text-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check-big h-4 w-4 text-accent">
-                                                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                                <path d="m9 11 3 3L22 4"></path>
-                                            </svg>
+                                            <FiCheckCircle className="h-4 w-4 text-accent text-pink-500" /> {/* React Icon Check Circle */}
                                             {feature}
                                         </li>
                                     ))}

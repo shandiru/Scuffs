@@ -1,10 +1,10 @@
 // File: TexturedPlasticRepairs.jsx
 export default function TexturedPlasticRepairs() {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#006400" }}>
+    <section className="py-16 px-4" style={{ backgroundColor: "#b30086" }}>
       <div className="max-w-4xl mx-auto text-center text-white">
         {/* Badge */}
-        <span className="inline-block mb-4 px-3 py-1 text-sm rounded-md bg-green-700 text-white font-medium">
+        <span className="inline-block mb-4 px-3 py-1 text-sm rounded-md bg-pink-400 text-white font-medium">
           Specialized Service
         </span>
 

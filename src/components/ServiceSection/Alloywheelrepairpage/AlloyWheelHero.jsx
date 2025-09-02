@@ -3,10 +3,10 @@
 
 export default function AlloyWheelHero() {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#006400" }}>
+    <section className="py-16 px-4" style={{ backgroundColor: "#b30086" }}>
       <div className="max-w-4xl mx-auto text-center text-white">
         {/* Badge */}
-        <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4 bg-green-200 text-green-900">
+        <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4 bg-pink-200 text-pink-900">
           Professional Service
         </span>
 

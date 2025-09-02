@@ -16,9 +16,9 @@ export default function QualityHeader() {
       </div>
 
       {/* Main Content */}
-      <div className="bg-green-700 text-center py-16 md:py-24 px-4">
+      <div className="bg-[#b30086] text-center py-16 md:py-24 px-4">
         {/* Tag */}
-        <span className="inline-block bg-green-600 text-white text-xs md:text-sm px-3 py-1 rounded mb-4">
+        <span className="inline-block bg-pink-600 text-white text-xs md:text-sm px-3 py-1 rounded mb-4">
           Our Promise
         </span>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { FiCheckCircle } from "react-icons/fi";
 
 const PanelRestoration = () => {
   return (
@@ -12,31 +13,19 @@ const PanelRestoration = () => {
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check-big h-5 w-5 text-accent">
-                <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                <path d="m9 11 3 3L22 4" />
-              </svg>
+              <FiCheckCircle className="h-5 w-5 text-accent text-pink-500" /> {/* React Icon Check Circle */}
               <span>Panel replacement and alignment</span>
             </div>
             <div className="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check-big h-5 w-5 text-accent">
-                <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                <path d="m9 11 3 3L22 4" />
-              </svg>
+              <FiCheckCircle className="h-5 w-5 text-accent text-pink-500" /> {/* React Icon Check Circle */}
               <span>Structural damage repair</span>
             </div>
             <div className="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check-big h-5 w-5 text-accent">
-                <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                <path d="m9 11 3 3L22 4" />
-              </svg>
+              <FiCheckCircle className="h-5 w-5 text-accent text-pink-500" /> {/* React Icon Check Circle */}
               <span>Frame straightening and alignment</span>
             </div>
             <div className="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check-big h-5 w-5 text-accent">
-                <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-                <path d="m9 11 3 3L22 4" />
-              </svg>
+              <FiCheckCircle className="h-5 w-5 text-accent text-pink-500" /> {/* React Icon Check Circle */}
               <span>Welding and fabrication services</span>
             </div>
           </div>

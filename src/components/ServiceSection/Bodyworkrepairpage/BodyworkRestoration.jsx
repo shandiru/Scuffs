@@ -27,7 +27,7 @@ export default function BodyworkRestoration() {
                 "Color matching and blending",
               ].map((t) => (
                 <div key={t} className="flex items-center gap-3">
-                  <FaCheckCircle className="h-5 w-5 text-green-600" />
+                  <FaCheckCircle className="h-5 w-5 text-pink-600" />
                   <span className="text-gray-800">{t}</span>
                 </div>
               ))}
@@ -86,7 +86,7 @@ export default function BodyworkRestoration() {
         {/* Bottom highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaClock className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaClock className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">Same Day Service</div>
             <p className="text-sm text-gray-600 px-6">
               Many repairs completed the same day
@@ -94,7 +94,7 @@ export default function BodyworkRestoration() {
           </div>
 
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaShieldAlt className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaShieldAlt className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">Lifetime Warranty</div>
             <p className="text-sm text-gray-600 px-6">
               Guaranteed workmanship for peace of mind
@@ -102,7 +102,7 @@ export default function BodyworkRestoration() {
           </div>
 
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaStar className="h-8 w-8 text-green-600 mx-auto mb-1" />
+            <FaStar className="h-8 w-8 text-pink-600 mx-auto mb-1" />
             <div className="font-semibold">Insurance Approved</div>
             <p className="text-sm text-gray-600 px-6">
               Work with all major insurance companies

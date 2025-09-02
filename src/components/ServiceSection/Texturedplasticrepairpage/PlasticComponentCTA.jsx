@@ -15,7 +15,7 @@ export default function PlasticComponentCTA() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             className="inline-flex items-center justify-center gap-2 font-medium transition-all 
-                       bg-green-700 text-white hover:bg-green-800 h-10 rounded-md 
+                       bg-pink-700 text-white hover:bg-pink-800 h-10 rounded-md 
                        text-lg px-8 py-3 shadow-sm"
           >
             Get Quote

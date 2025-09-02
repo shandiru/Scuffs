@@ -15,7 +15,7 @@ const services = [
     desc:
       "Professional restoration of damaged alloy wheels, from minor scuffs to major damage.",
     href: "/services/alloy-wheel-repair",
-    icon: <FaWrench className="h-6 w-6 text-green-600" />,
+    icon: <FaWrench className="h-6 w-6 text-[#b30086]" />,
     chips: ["Scuff Repair", "Crack Welding", "Diamond Cutting", "Color Matching"],
   },
   {
@@ -23,7 +23,7 @@ const services = [
     desc:
       "Expert repair of vehicle bodywork damage, restoring your car to its original condition.",
     href: "/services/bodywork-repair",
-    icon: <FaCar className="h-6 w-6 text-green-600" />,
+    icon: <FaCar className="h-6 w-6 text-[#b30086]" />,
     chips: ["Dent Removal", "Scratch Repair", "Panel Beating", "Surface Preparation"],
   },
   {
@@ -31,7 +31,7 @@ const services = [
     desc:
       "Specialized repair and restoration of textured plastic components and trim.",
     href: "/services/textured-plastic-repair",
-    icon: <FaMagic className="h-6 w-6 text-green-600" />,
+    icon: <FaMagic className="h-6 w-6 text-[#b30086]" />,
     chips: ["Trim Restoration", "Texture Matching", "Color Restoration", "UV Protection"],
   },
   {
@@ -39,7 +39,7 @@ const services = [
     desc:
       "Comprehensive panel repair services for all types of vehicle damage.",
     href: "/services/panel-damage",
-    icon: <FaShieldAlt className="h-6 w-6 text-green-600" />,
+    icon: <FaShieldAlt className="h-6 w-6 text-[#b30086]" />,
     chips: ["Panel Replacement", "Structural Repair", "Alignment", "Reinforcement"],
   },
   {
@@ -47,7 +47,7 @@ const services = [
     desc:
       "Complete vehicle respraying services with professional paint matching.",
     href: "/services/full-respray",
-    icon: <FaPalette className="h-6 w-6 text-green-600" />,
+    icon: <FaPalette className="h-6 w-6 text-[#b30086]" />,
     chips: ["Color Matching", "Multi-coat System", "Primer Application", "Clear Coat Finish"],
   },
   {
@@ -55,14 +55,14 @@ const services = [
     desc:
       "All our work comes with a comprehensive warranty and satisfaction guarantee.",
     href: "/services/quality-guarantee",
-    icon: <FaCheckCircle className="h-6 w-6 text-green-600" />,
+    icon: <FaCheckCircle className="h-6 w-6 text-[#b30086]" />,
     chips: ["12 Month Warranty", "Satisfaction Guarantee", "Quality Assurance", "Follow-up Service"],
   },
 ];
 
 export default function OurServices() {
   return (
-    <section className="py-16 px-4 bg-[#edf9ee]">
+    <section className="py-16 px-4 bg-[#b30086]/5">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -80,7 +80,7 @@ export default function OurServices() {
             <article
               key={s.title}
               className="bg-white text-gray-900 flex flex-col justify-between rounded-xl border border-gray-200 shadow-sm
-                         hover:scale-105 hover:shadow-[0_8px_24px_rgba(47,125,51,0.25)] hover:ring-1 hover:ring-green-600/30 
+                         hover:scale-105 hover:shadow-[0_8px_24px_rgba(47,125,51,0.25)] hover:ring-1 hover:ring-[#b30086]/30 
                          transition-all duration-300"
             >
               {/* Card header */}
@@ -123,8 +123,8 @@ export default function OurServices() {
                   <button
                     type="button"
                     className="w-full h-9 px-4 py-2 inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium
-                               bg-green-700 text-white shadow-sm transition-all duration-200 hover:bg-green-700/90 hover:scale-[1.02]
-                               focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40"
+                               bg-[#b30086] text-white shadow-sm transition-all duration-200 hover:bg-pink-700/90 hover:scale-[1.02]
+                               focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b30086]/40"
                   >
                     Learn More
                   </button>

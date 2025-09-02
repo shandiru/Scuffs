@@ -1,5 +1,6 @@
 // File: BodyworkCTA.jsx
-export default function BodyworkCTA() {
+export default function 
+BodyworkCTA() {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F1FAF1" }}>
       <div className="max-w-4xl mx-auto text-center">
@@ -16,8 +17,8 @@ export default function BodyworkCTA() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            className="bg-green-700 text-white font-semibold px-8 py-3 rounded-md text-lg
-                       hover:bg-green-800 transition"
+            className="bg-pink-700 text-white font-semibold px-8 py-3 rounded-md text-lg
+                       hover:bg-pink-800 transition"
           >
             Book Assessment
           </button>
