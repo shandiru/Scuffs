@@ -4,17 +4,17 @@ import { FaClock, FaShieldAlt, FaStar } from "react-icons/fa"; // Import the req
 const ServiceOptions = () => {
     const services = [
         {
-            icon: <FaClock className="text-green-500 w-50" />, // React Icon for clock
+            icon: <FaClock className="text-pink-500" size={40}/>, // React Icon for clock
             title: "7-10 Day Service",
             description: "Complete respray finished within 7-10 days"
         },
         {
-            icon: <FaShieldAlt className="text-green-500" />, // React Icon for shield
+            icon: <FaShieldAlt className="text-pink-500" size={40}/>, // React Icon for shield
             title: "5 Year Warranty",
             description: "Extended warranty on paint and finish"
         },
         {
-            icon: <FaStar className="text-green-500" />, // React Icon for star
+            icon: <FaStar className="text-pink-500" size={40}/>, // React Icon for star
             title: "Showroom Quality",
             description: "Professional-grade paint booth and equipment"
         }
