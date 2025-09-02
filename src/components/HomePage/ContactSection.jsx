@@ -56,7 +56,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Phone</p>
                     <a
-                      href="tel:+44114XXXXXXX"
+                      href="tel:+44 7776 300300"
                       className="font-dm-sans text-muted-foreground hover:underline"
                     >
                       +44 114 XXX XXXX
@@ -115,7 +115,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Location</p>
-                    <p className="font-dm-sans text-muted-foreground">Sheffield, UK</p>
+                    <p className="font-dm-sans text-muted-foreground">Unit 7,Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom</p>
                   </div>
                 </div>
 

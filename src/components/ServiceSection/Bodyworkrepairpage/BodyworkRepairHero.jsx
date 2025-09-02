@@ -1,8 +1,19 @@
+import { ArrowLeft } from "lucide-react";
+
 // File: BodyworkRepairHero.jsx
 export default function BodyworkRepairHero() {
   return (
-    <section className="bg-[#b30086] text-white py-16 px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="text-white">
+         <div className="max-w-6xl mx-auto px-4 py-4">
+        <a
+          href="/"
+          className="flex items-center text-sm md:text-base text-gray-700 hover:text-black transition"
+        >
+          <ArrowLeft size={18} className="mr-2" />
+          Back to Services
+        </a>
+      </div>
+      <div className="text-center py-16 md:py-24 px-4" style={{ backgroundColor: "#b30086" }}>
         {/* Badge */}
         <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium bg-pink-200 text-pink-900 mb-4">
           Expert Repair

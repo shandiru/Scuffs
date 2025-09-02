@@ -34,14 +34,12 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Services</h4>
             <ul className="font-dm-sans text-sm space-y-2 opacity-90">
-              <li><a href="#services" className="hover:underline underline-offset-4">Alloy Wheel Repair</a></li>
-              <li><a href="#services" className="hover:underline underline-offset-4">Bodywork Scuffs &amp; Dents</a></li>
-              <li><a href="#services" className="hover:underline underline-offset-4">Textured Plastic Repairs</a></li>
-              <li><a href="#services" className="hover:underline underline-offset-4">Panel Damage</a></li>
-              <li><a href="#services" className="hover:underline underline-offset-4">Full Respray</a></li>
-              <li><a href="#services" className="hover:underline underline-offset-4">Quality Guarantee</a></li>
-
-              
+              <li><a href="/services/alloy-wheel-repair" className="hover:underline underline-offset-4">Alloy Wheel Repair</a></li>
+              <li><a href="/services/bodywork-repair" className="hover:underline underline-offset-4">Bodywork Scuffs &amp; Dents</a></li>
+              <li><a href="/services/textured-plastic-repair" className="hover:underline underline-offset-4">Textured Plastic Repairs</a></li>
+              <li><a href="/services/panel-damage" className="hover:underline underline-offset-4">Panel Damage</a></li>
+              <li><a href="/services/full-respray" className="hover:underline underline-offset-4">Full Respray</a></li>
+              <li><a href="/services/quality-guarantee" className="hover:underline underline-offset-4">Quality Guarantee</a></li>
             </ul>
           </div>
 
@@ -49,16 +47,16 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Contact</h4>
             <address className="not-italic font-dm-sans text-sm space-y-2 opacity-90">
-              <p>Sheffield, UK</p>
+              <p>Unit 7,Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom</p>
 
               {/* Phone (clickable) */}
               <p>
                 <a
-                  href="tel:+44114XXXXXXX"
+                  href="tel: +44 7776 300300"
                   className="hover:underline underline-offset-4"
                   aria-label="Call Scuffs ETC"
                 >
-                  +44 114 XXX XXXX
+                  +44 7776 300300
                 </a>
               </p>
 

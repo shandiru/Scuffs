@@ -1,6 +1,6 @@
 // File: BodyworkCTA.jsx
-export default function 
-BodyworkCTA() {
+export default function
+  BodyworkCTA() {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F1FAF1" }}>
       <div className="max-w-4xl mx-auto text-center">
@@ -23,12 +23,12 @@ BodyworkCTA() {
             Book Assessment
           </button>
 
-          <button
-            className="border border-gray-300 text-gray-800 font-medium px-8 py-3 rounded-md text-lg
-                       hover:bg-gray-100 transition"
+          <a
+            href="tel:+447776300300" // This will open the phone dialer with the number
+            className="inline-flex items-center justify-center gap-2 font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition h-10 rounded-md text-lg px-8 py-3"
           >
-            Call (555) 123-4567
-          </button>
+            Call +44 7776 300300
+          </a>
         </div>
       </div>
     </section>
