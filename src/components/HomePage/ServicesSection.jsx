@@ -3,10 +3,10 @@ import React from "react";
 import {
   FaWrench,
   FaCar,
-  FaMagic,        // used instead of "sparkles"
+  FaMagic,
   FaShieldAlt,
   FaPalette,
-  FaCheckCircle, // used instead of "circle-check"
+  FaCheckCircle,
 } from "react-icons/fa";
 
 const services = [
@@ -79,18 +79,17 @@ export default function OurServices() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm group 
-                         transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_24px_rgba(47,125,51,0.25)] 
-                         hover:ring-1 hover:ring-green-600/30"
+              className="bg-white text-gray-900 flex flex-col justify-between rounded-xl border border-gray-200 shadow-sm
+                         hover:scale-105 hover:shadow-[0_8px_24px_rgba(47,125,51,0.25)] hover:ring-1 hover:ring-green-600/30 
+                         transition-all duration-300"
             >
               {/* Card header */}
-              <div className="grid auto-rows-min items-start gap-1.5 px-6 pb-4">
+              <div className="grid auto-rows-min items-start gap-1.5 px-6 py-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-green-50 rounded-lg transition-all duration-300 group-hover:bg-green-100 group-hover:scale-110">
                     {s.icon}
                   </div>
-                  <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium
-                                   bg-gray-900 text-white">
+                  <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium bg-gray-900 text-white">
                     Professional
                   </span>
                 </div>
@@ -103,10 +102,9 @@ export default function OurServices() {
                 </p>
               </div>
 
-              {/* Card content */}
-              <div className="px-6 pt-0 space-y-4">
-                {/* Chips */}
-                <div className="flex flex-wrap gap-2">
+              {/* Spacer pushes content */}
+              <div className="flex-grow px-6">
+                <div className="flex flex-wrap gap-2 pb-6">
                   {s.chips.map((c) => (
                     <span
                       key={c}
@@ -117,8 +115,10 @@ export default function OurServices() {
                     </span>
                   ))}
                 </div>
+              </div>
 
-                {/* CTA */}
+              {/* CTA fixed to bottom */}
+              <div className="px-6 pb-6 mt-auto">
                 <a href={s.href} className="block">
                   <button
                     type="button"
