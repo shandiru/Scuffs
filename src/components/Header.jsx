@@ -30,7 +30,7 @@ export default function Header() {
             height={60}
             decoding="async"
             className="rounded-full"
-            src="Scuffs-etc-logo.png"   // keep your file path
+            src="/Scuffs-etc-logo.png"   // keep your file path
             style={{ color: "transparent" }}
           />
           <div>

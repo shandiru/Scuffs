@@ -36,7 +36,7 @@ export default function BodyworkRestoration() {
 
           <div className="bg-[#eaf3ea] rounded-lg p-8">
             <img
-              src="/automotive-bodywork-repair-showing-before-and-afte.png"
+              src="/body.png"
               alt="Bodywork repair process"
               className="w-full h-64 object-cover rounded-lg"
             />

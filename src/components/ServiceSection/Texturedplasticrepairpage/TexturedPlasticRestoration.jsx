@@ -36,7 +36,7 @@ export default function TexturedPlasticRestoration() {
 
           <div className="bg-[#EAF3EA] rounded-lg p-8">
             <img
-              src="/textured-plastic-car-bumper-repair-showing-texture.png"
+              src="/textured.png"
               alt="Textured plastic repair process"
               className="w-full h-64 object-cover rounded-lg"
             />

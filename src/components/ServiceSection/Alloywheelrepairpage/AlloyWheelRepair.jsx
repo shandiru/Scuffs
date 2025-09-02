@@ -37,7 +37,7 @@ export default function AlloyWheelRepair() {
             <img
               alt="Alloy wheel repair process"
               className="w-full h-64 object-cover rounded-lg"
-              src="/professional-alloy-wheel-repair-workshop-with-dama.png"
+              src="/alloy.png"
             />
           </div>
         </div>

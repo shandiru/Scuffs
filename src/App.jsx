@@ -16,7 +16,6 @@ function App() {
       <Header />
       <main>
         <Routes>
-          {/* Homepage route */}
           <Route path="/" element={<Home />} />
           <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
           <Route path="/services/textured-plastic-repair" element={<Textured />} />
@@ -24,9 +23,6 @@ function App() {
           <Route path="/services/panel-damage" element={<PanelDamage />} />
           <Route path="/services/full-respray" element={<FullRespray />} />
           <Route path="/services/quality-guarantee" element={<Quality />} />
-
-
-
         </Routes>
       </main>
       <Footer />
