@@ -19,7 +19,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Left: Logo + Brand */}
         <div className="flex items-center space-x-3">
@@ -49,7 +49,7 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="font-dm-sans text-gray-900 hover:text-[#b30086] transition-colors"
+              className="font-dm-sans font-semibold text-gray-900 hover:text-[#b30086] transition-colors"
             >
               {l.label}
             </a>
@@ -91,7 +91,7 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-md px-3 py-2 text-base font-dm-sans text-gray-900 hover:text-[#b30086] transition-colors"
+                className="block rounded-md px-3 py-2 text-base font-dm-sans font-semibold text-gray-900 hover:text-[#b30086] transition-colors"
               >
                 {l.label}
               </a>

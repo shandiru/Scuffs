@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CredentialsSection() {
   return (
-    <section id="credentials" className="py-20 bg-muted">
+    <section id="credentials" className="py-20 bg-muted scroll-m-10">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-16">

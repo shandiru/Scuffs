@@ -71,7 +71,7 @@ export default function GallerySection() {
   const slide = SLIDES[index];
 
   return (
-    <section id="gallery" className="py-20 bg-background">
+    <section id="gallery" className="py-20 bg-background scroll-m-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-space-grotesk font-bold text-4xl md:text-5xl text-foreground mb-4">

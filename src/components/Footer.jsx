@@ -47,12 +47,22 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Contact</h4>
             <address className="not-italic font-dm-sans text-sm space-y-2 opacity-90">
-              <p>Unit 7,Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom</p>
+              {/* Link to Google Maps */}
+              <p>
+                <a
+                  href="https://www.google.com/maps?q=Unit+7%2CElliot+Business+Park%2C+Chambers+Ln%2C+Sheffield+S4+8DA%2C+United+Kingdom"
+                  target="_blank"
+                  className="hover:underline underline-offset-4"
+                  aria-label="View address on Google Maps"
+                >
+                  Unit 7, Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom
+                </a>
+              </p>
 
               {/* Phone (clickable) */}
               <p>
                 <a
-                  href="tel: +44 7776 300300"
+                  href="tel:+44 7776 300300"
                   className="hover:underline underline-offset-4"
                   aria-label="Call Scuffs ETC"
                 >

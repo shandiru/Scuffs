@@ -13,10 +13,9 @@ export default function BodyworkRestoration() {
             </h2>
 
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Our expert technicians specialize in repairing all types of
-              bodywork damage, from minor scratches and scuffs to major dents
-              and cracks. We use industry-leading techniques to ensure invisible
-              repairs that restore your vehicle&apos;s original appearance.
+              Our expert technicians specialise in repairing all types of bodywork damage, from minor scratches and scuffs to major dents
+              and cracks. We use industry-leading techniques, including SMART repair (Small to Medium Area Repair Technology), to deliver fast,
+              cost-effective, and invisible results that restore your vehicle's original appearance.
             </p>
 
             <div className="space-y-4">
@@ -25,6 +24,8 @@ export default function BodyworkRestoration() {
                 "Scratch and scuff repair",
                 "Panel beating and reshaping",
                 "Color matching and blending",
+                "SMART repair – quick and affordable small-area restoration",
+                "Bodywork repair process"
               ].map((t) => (
                 <div key={t} className="flex items-center gap-3">
                   <FaCheckCircle className="h-5 w-5 text-pink-600" />
@@ -84,6 +85,9 @@ export default function BodyworkRestoration() {
         </div>
 
         {/* Bottom highlights */}
+          <h3 className="text-2xl font-bold mb-8 text-center text-gray-900">
+            Why Choose Us
+          </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
             <FaClock className="h-8 w-8 text-pink-600 mx-auto mb-1" />

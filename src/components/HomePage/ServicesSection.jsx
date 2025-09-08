@@ -24,7 +24,7 @@ const services = [
       "Expert repair of vehicle bodywork damage, restoring your car to its original condition.",
     href: "/services/bodywork-repair",
     icon: <FaCar className="h-6 w-6 text-[#b30086]" />,
-    chips: ["Dent Removal", "Scratch Repair", "Panel Beating", "Surface Preparation"],
+    chips: ["Dent Removal", "Scratch Repair", "Panel Beating", "Surface Preparation", "Smart Repair"],
   },
   {
     title: "Textured Plastic Repairs",
@@ -62,7 +62,7 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="py-16 px-4 bg-[#b30086]/5">
+    <section className="py-16 px-4 bg-[#b30086]/5" id="services">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">

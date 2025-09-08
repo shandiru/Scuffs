@@ -7,6 +7,7 @@ import Gallery from "../components/HomePage/GallerySection";
 import Credential from "../components/HomePage/CredentialsSection";
 import Contact from "../components/HomePage/ContactSection";
 import Testimonials from "../components/HomePage/Testimonial";
+import FindUs from "../components/HomePage/Findus";
 
 
 
@@ -21,6 +22,7 @@ function App() {
      <Credential />
      <Testimonials />
      <Contact />
+     <FindUs />
     
     </>
   );

@@ -1,8 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaRegClock } from "react-icons/fa"; // Importing React Icons
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  // Corrected phone regex
+  const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = { ...errors };
+
+    // Validate first name
+    if (!formData.firstName) {
+      newErrors.firstName = "First name is required.";
+    } else {
+      newErrors.firstName = "";
+    }
+
+    // Validate last name
+    if (!formData.lastName) {
+      newErrors.lastName = "Last name is required.";
+    } else {
+      newErrors.lastName = "";
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email.";
+    } else {
+      newErrors.email = "";
+    }
+
+    // Validate phone number with regex
+    if (!formData.phone) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number (e.g., +44 or 0 followed by 9 digits).";
+    } else {
+      newErrors.phone = "";
+    }
+
+    // Validate service selection
+    if (!formData.service) {
+      newErrors.service = "Please select a service.";
+    } else {
+      newErrors.service = "";
+    }
+
+    // Validate message
+    if (!formData.message) {
+      newErrors.message = "Message is required.";
+    } else {
+      newErrors.message = "";
+    }
+
+    setErrors(newErrors);
+
+    // If there are no errors, submit the form (mock submission here)
+    if (Object.values(newErrors).every((error) => error === "")) {
+      alert("Form submitted successfully!");
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-background scroll-m-10">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -28,38 +126,15 @@ export default function ContactSection() {
                 {/* Phone */}
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-phone w-5 h-5 text-primary"
-                    >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 
-                        19.79 19.79 0 0 1-8.63-3.07 
-                        19.5 19.5 0 0 1-6-6 
-                        19.79 19.79 0 0 1-3.07-8.67
-                        A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 
-                        1.72 12.84 12.84 0 0 0 .7 2.81 
-                        2 2 0 0 1-.45 2.11L8.09 9.91
-                        a16 16 0 0 0 6 6l1.27-1.27
-                        a2 2 0 0 1 2.11-.45 
-                        12.84 12.84 0 0 0 2.81.7
-                        A2 2 0 0 1 22 16.92z"
-                      ></path>
-                    </svg>
+                    <FaPhoneAlt className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Phone</p>
                     <a
-                      href="tel:+44 7776 300300"
+                      href="tel:+447776300300"
                       className="font-dm-sans text-muted-foreground hover:underline"
                     >
-                      +44 114 XXX XXXX
+                      +44 7776 300300
                     </a>
                   </div>
                 </div>
@@ -67,20 +142,7 @@ export default function ContactSection() {
                 {/* Email */}
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-mail w-5 h-5 text-primary"
-                    >
-                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
+                    <FaEnvelope className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Email</p>
@@ -96,46 +158,25 @@ export default function ContactSection() {
                 {/* Location */}
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-map-pin w-5 h-5 text-primary"
-                    >
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12
-                        a8 8 0 0 1 16 0Z"
-                      ></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
+                    <FaMapMarkerAlt className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Location</p>
-                    <p className="font-dm-sans text-muted-foreground">Unit 7,Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom</p>
+                    <a
+                      href="https://www.google.com/maps?q=Unit+7%2CElliot+Business+Park%2C+Chambers+Ln%2C+Sheffield+S4+8DA%2C+United+Kingdom"
+                      target="_blank"
+                      className="font-dm-sans text-muted-foreground hover:underline"
+                      aria-label="View location on Google Maps"
+                    >
+                      Unit 7, Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom
+                    </a>
                   </div>
                 </div>
 
                 {/* Hours */}
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-clock w-5 h-5 text-primary"
-                    >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
+                    <FaRegClock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Hours</p>
@@ -155,59 +196,80 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="px-6">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                      First Name
+                      First Name*
                     </label>
                     <input
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
                       className="bg-input border-border flex h-9 w-full rounded-md border px-3 py-1 text-base shadow-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
                       placeholder="John"
                     />
+                    {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                   </div>
                   <div>
                     <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                      Last Name
+                      Last Name*
                     </label>
                     <input
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
                       className="bg-input border-border flex h-9 w-full rounded-md border px-3 py-1 text-base shadow-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
                       placeholder="Doe"
                     />
+                    {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                   </div>
                 </div>
 
                 {/* Email */}
                 <div>
                   <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                    Email
+                    Email*
                   </label>
                   <input
                     type="email"
-                    placeholder="john@example.com"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="bg-input border-border flex h-9 w-full rounded-md border px-3 py-1 text-base shadow-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                    placeholder="john@example.com"
                   />
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                 </div>
 
                 {/* Phone */}
                 <div>
                   <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                    Phone
+                    Phone*
                   </label>
                   <input
                     type="tel"
-                    placeholder="+44 XXX XXX XXXX"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="bg-input border-border flex h-9 w-full rounded-md border px-3 py-1 text-base shadow-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                    placeholder="+44 XXX XXX XXXX"
                   />
+                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                 </div>
 
                 {/* Service Select */}
                 <div>
                   <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                    Service Required
+                    Service Required*
                   </label>
-                  <select className="w-full px-3 py-2 bg-input border border-border rounded-md font-dm-sans text-card-foreground">
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 bg-input border border-border rounded-md font-dm-sans text-card-foreground"
+                  >
                     <option>Select a service</option>
                     <option>Alloy Wheel Repair</option>
                     <option>Bodywork Scuffs, Cracks and Dents</option>
@@ -215,23 +277,28 @@ export default function ContactSection() {
                     <option>Panel Damage</option>
                     <option>Full Respray</option>
                   </select>
+                  {errors.service && <p className="text-red-500 text-sm">{errors.service}</p>}
                 </div>
 
                 {/* Message */}
                 <div>
                   <label className="font-dm-sans text-sm font-medium text-card-foreground mb-2 block">
-                    Message
+                    Message*
                   </label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Please describe the damage and any specific requirements..."
                     className="bg-input border-border flex w-full rounded-md border px-3 py-2 text-base shadow-xs min-h-[120px] focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
                   ></textarea>
+                  {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                 </div>
 
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-md text-sm font-medium h-9 px-4 py-2 shadow-xs"
+                  className="w-full bg-[#b30086] text-primary-foreground hover:bg-primary/90 rounded-md text-sm font-medium h-9 px-4 py-2 shadow-xs"
                 >
                   Send Quote Request
                 </button>

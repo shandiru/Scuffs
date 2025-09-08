@@ -14,7 +14,7 @@ export default function HomeSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
         <h1 className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6">
           Revive Your Ride with <span className="text-primary">Scuffs ETC</span>
         </h1>
