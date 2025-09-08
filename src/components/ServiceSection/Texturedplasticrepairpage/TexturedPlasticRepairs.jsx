@@ -2,8 +2,11 @@ import { ArrowLeft } from "lucide-react";
 
 // File: TexturedPlasticRepairs.jsx
 export default function TexturedPlasticRepairs() {
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   return (
-    <section className="w-full  bg-white">
+    <section className="w-full bg-white">
       <div className="max-w-6xl mx-auto px-4 py-4">
         <a
           href="/"
@@ -14,9 +17,18 @@ export default function TexturedPlasticRepairs() {
         </a>
       </div>
 
-      <div className="text-center py-16 md:py-24 px-4" style={{ backgroundColor: "#b30086" }}>
+      <div
+        className="text-center py-16 md:py-24 px-4 text-white"
+        style={{ backgroundColor: PINK }}
+      >
         {/* Badge */}
-        <span className="inline-block mb-4 px-3 py-1 text-sm rounded-md bg-pink-400 text-white font-medium">
+        <span
+          className="inline-block mb-4 px-3 py-1 text-sm rounded-md font-medium"
+          style={{
+            backgroundColor: LIME,
+            color: "#000",
+          }}
+        >
           Specialized Service
         </span>
 
@@ -32,8 +44,21 @@ export default function TexturedPlasticRepairs() {
 
         {/* Button */}
         <button
-          className="bg-gray-900 text-white font-semibold px-8 py-3 rounded-md text-lg
-                     hover:bg-gray-800 transition"
+          className="font-semibold px-8 py-3 rounded-md text-lg transition shadow-sm"
+          style={{
+            backgroundColor: LIME,
+            color: "#000",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#fff";
+            e.currentTarget.style.color = PINK;
+            e.currentTarget.style.border = `2px solid ${LIME}`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = LIME;
+            e.currentTarget.style.color = "#000";
+            e.currentTarget.style.border = "none";
+          }}
         >
           Get Expert Quote
         </button>

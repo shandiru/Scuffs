@@ -1,5 +1,8 @@
 // File: RestoreWheelsCTA.jsx
 export default function RestoreWheelsCTA() {
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F5FFF7" }}>
       <div className="max-w-4xl mx-auto text-center">
@@ -12,14 +15,41 @@ export default function RestoreWheelsCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Free Quote Button */}
-          <button className="inline-flex items-center justify-center gap-2 font-medium bg-pink-500 text-white shadow-sm hover:bg-pink-800 transition h-10 rounded-md text-lg px-8 py-3">
+          <button
+            className="inline-flex items-center justify-center gap-2 font-medium shadow-sm transition h-10 rounded-md text-lg px-8 py-3"
+            style={{
+              backgroundColor: PINK,
+              color: "#fff",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = PINK;
+              e.currentTarget.style.color = "#fff";
+            }}
+          >
             Get Free Quote
           </button>
 
           {/* Call Button */}
           <a
-            href="tel:+447776300300" // This will open the phone dialer with the number
-            className="inline-flex items-center justify-center gap-2 font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition h-10 rounded-md text-lg px-8 py-3"
+            href="tel:+447776300300"
+            className="inline-flex items-center justify-center gap-2 font-medium transition h-10 rounded-md text-lg px-8 py-3 border"
+            style={{
+              borderColor: PINK,
+              color: PINK,
+              backgroundColor: "#fff",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#fff";
+              e.currentTarget.style.color = PINK;
+            }}
           >
             Call +44 7776 300300
           </a>

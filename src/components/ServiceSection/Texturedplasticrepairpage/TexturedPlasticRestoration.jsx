@@ -2,6 +2,9 @@
 import { FaCheckCircle, FaClock, FaShieldAlt, FaStar } from "react-icons/fa";
 
 export default function TexturedPlasticRestoration() {
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F1FAF1" }}>
       <div className="max-w-6xl mx-auto">
@@ -27,14 +30,17 @@ export default function TexturedPlasticRestoration() {
                 "Trim piece restoration",
               ].map((t) => (
                 <div key={t} className="flex items-center gap-3">
-                  <FaCheckCircle className="h-5 w-5 text-pink-600" />
+                  <FaCheckCircle className="h-5 w-5" style={{ color: PINK }} />
                   <span className="text-gray-800">{t}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-[#EAF3EA] rounded-lg p-8">
+          <div
+            className="rounded-lg p-8"
+            style={{ backgroundColor: `${LIME}30` }}
+          >
             <img
               src="/textured.png"
               alt="Textured plastic repair process"
@@ -51,31 +57,18 @@ export default function TexturedPlasticRestoration() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                title: "Bumpers",
-                desc: "Front and rear bumper texture restoration",
-              },
-              {
-                title: "Side Trim",
-                desc: "Door trim and side molding repair",
-              },
-              {
-                title: "Wheel Arches",
-                desc: "Textured wheel arch liner restoration",
-              },
-              {
-                title: "Mirror Housings",
-                desc: "Side mirror casing repair and refinishing",
-              },
+              { title: "Bumpers", desc: "Front and rear bumper texture restoration" },
+              { title: "Side Trim", desc: "Door trim and side molding repair" },
+              { title: "Wheel Arches", desc: "Textured wheel arch liner restoration" },
+              { title: "Mirror Housings", desc: "Side mirror casing repair and refinishing" },
               { title: "Spoilers", desc: "Rear spoiler repair" },
-              {
-                title: "Interior Trim",
-                desc: "Dashboard and interior plastic restoration",
-              },
+              { title: "Interior Trim", desc: "Dashboard and interior plastic restoration" },
             ].map((card) => (
               <div
                 key={card.title}
-                className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm"
+                className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl border py-6 shadow-sm 
+                           transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                style={{ borderColor: `${PINK}40` }}
               >
                 <div className="px-6">
                   <div className="font-semibold text-lg">{card.title}</div>
@@ -90,29 +83,34 @@ export default function TexturedPlasticRestoration() {
 
         {/* Bottom highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaClock className="h-8 w-8 text-pink-600 mx-auto mb-1" />
-            <div className="font-semibold">2–3 Day Service</div>
-            <p className="text-sm text-gray-600 px-6">
-              Specialized repairs completed within 2–3 days
-            </p>
-          </div>
-
-          <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaShieldAlt className="h-8 w-8 text-pink-600 mx-auto mb-1" />
-            <div className="font-semibold">Perfect Match Guarantee</div>
-            <p className="text-sm text-gray-600 px-6">
-              Texture and color matching guaranteed
-            </p>
-          </div>
-
-          <div className="bg-white flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm text-center">
-            <FaStar className="h-8 w-8 text-pink-600 mx-auto mb-1" />
-            <div className="font-semibold">Cost Effective</div>
-            <p className="text-sm text-gray-600 px-6">
-              Save up to 70% versus replacement costs
-            </p>
-          </div>
+          {[
+            {
+              icon: <FaClock className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              title: "2–3 Day Service",
+              desc: "Specialized repairs completed within 2–3 days",
+            },
+            {
+              icon: <FaShieldAlt className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              title: "Perfect Match Guarantee",
+              desc: "Texture and color matching guaranteed",
+            },
+            {
+              icon: <FaStar className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              title: "Cost Effective",
+              desc: "Save up to 70% versus replacement costs",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="bg-white flex flex-col gap-4 rounded-xl border py-6 shadow-sm text-center 
+                         transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+              style={{ borderColor: `${PINK}40` }}
+            >
+              {item.icon}
+              <div className="font-semibold">{item.title}</div>
+              <p className="text-sm text-gray-600 px-6">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
