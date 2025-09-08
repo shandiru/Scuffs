@@ -8,7 +8,7 @@ import Credential from "../components/HomePage/CredentialsSection";
 import Contact from "../components/HomePage/ContactSection";
 import Testimonials from "../components/HomePage/Testimonial";
 import FindUs from "../components/HomePage/Findus";
-
+import WhyChooseUs from "../components/HomePage/WhyChooseUs"
 
 
 
@@ -21,6 +21,7 @@ function App() {
      <Gallery />
      <Credential />
      <Testimonials />
+     <WhyChooseUs />
      <Contact />
      <FindUs />
     
