@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export default function GallerySection() {
-  const MAGENTA = "#b30086";
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
   const SLIDES = [
     {
       title: "Alloy Wheel Restoration",
@@ -51,7 +52,6 @@ export default function GallerySection() {
     const onKey = (e) => {
       if (e.key === "ArrowRight") next();
       if (e.key === "ArrowLeft") prev();
-      if (e.key === "Escape") /* noop but available for consistency */ null;
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -74,7 +74,8 @@ export default function GallerySection() {
     <section id="gallery" className="py-20 bg-background scroll-m-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-space-grotesk font-bold text-4xl md:text-5xl text-foreground mb-4">
+          <h2 className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
+              style={{ color: PINK }}>
             Our Work Gallery
           </h2>
           <p className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -85,22 +86,26 @@ export default function GallerySection() {
 
         <div className="relative max-w-6xl mx-auto">
           <div
-            className="bg-card rounded-lg shadow-lg overflow-hidden"
+            className="bg-card rounded-lg shadow-lg overflow-hidden border"
+            style={{ borderColor: PINK }}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
             <div className="p-6">
-              <h3 className="font-space-grotesk font-bold text-2xl text-center text-card-foreground mb-6">
+              <h3 className="font-space-grotesk font-bold text-2xl text-center mb-6"
+                  style={{ color: PINK }}>
                 {slide.title}
               </h3>
 
               {/* Slide */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="text-center">
-                  <h4 className="font-dm-sans font-semibold text-lg text-muted-foreground mb-4">
+                  <h4 className="font-dm-sans font-semibold text-lg mb-4"
+                      style={{ color: LIME }}>
                     Before
                   </h4>
-                  <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
+                  <div className="relative aspect-[3/2] rounded-lg overflow-hidden border"
+                       style={{ borderColor: PINK }}>
                     <img
                       alt={`Before repair - ${slide.title}`}
                       loading="lazy"
@@ -110,10 +115,12 @@ export default function GallerySection() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h4 className="font-dm-sans font-semibold text-lg text-muted-foreground mb-4">
+                  <h4 className="font-dm-sans font-semibold text-lg mb-4"
+                      style={{ color: LIME }}>
                     After
                   </h4>
-                  <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
+                  <div className="relative aspect-[3/2] rounded-lg overflow-hidden border"
+                       style={{ borderColor: PINK }}>
                     <img
                       alt={`After repair - ${slide.title}`}
                       loading="lazy"
@@ -132,9 +139,12 @@ export default function GallerySection() {
             onClick={prev}
             className="inline-flex items-center justify-center size-9 absolute left-4 top-1/2 -translate-y-1/2
                        rounded-md border shadow-xs bg-background/80 backdrop-blur-sm
-                       border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+                       transition"
+            style={{ borderColor: PINK, color: PINK }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
@@ -143,9 +153,12 @@ export default function GallerySection() {
             onClick={next}
             className="inline-flex items-center justify-center size-9 absolute right-4 top-1/2 -translate-y-1/2
                        rounded-md border shadow-xs bg-background/80 backdrop-blur-sm
-                       border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+                       transition"
+            style={{ borderColor: PINK, color: PINK }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m9 18 6-6-6-6" />
             </svg>
           </button>
@@ -159,8 +172,8 @@ export default function GallerySection() {
                 onClick={() => goTo(i)}
                 className="w-3 h-3 rounded-full transition-colors"
                 style={{
-                  backgroundColor:
-                    i === index ? MAGENTA : "rgba(148,163,184,0.5)", // purple active, grey inactive
+                  backgroundColor: i === index ? PINK : LIME,
+                  opacity: i === index ? 1 : 0.5,
                 }}
               />
             ))}

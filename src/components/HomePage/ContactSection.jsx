@@ -20,6 +20,10 @@ export default function ContactSection() {
     message: "",
   });
 
+  // Brand colors
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   // Corrected phone regex
   const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
 
@@ -68,8 +72,8 @@ export default function ContactSection() {
       newErrors.phone = "";
     }
 
-    // Validate service selection
-    if (!formData.service) {
+    // Validate service selection (treat default text as invalid too)
+    if (!formData.service || formData.service === "Select a service") {
       newErrors.service = "Please select a service.";
     } else {
       newErrors.service = "";
@@ -104,7 +108,10 @@ export default function ContactSection() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-space-grotesk font-bold text-4xl md:text-5xl text-foreground mb-4">
+          <h2
+            className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
+            style={{ color: PINK }}
+          >
             Get In Touch
           </h2>
           <p className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -116,7 +123,10 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info Card */}
           <div className="space-y-8">
-            <div className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card border-border">
+            <div
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
+              style={{ borderColor: PINK }}
+            >
               <div className="grid auto-rows-min items-start gap-1.5 px-6">
                 <div className="font-space-grotesk font-bold text-2xl text-card-foreground">
                   Contact Information
@@ -125,14 +135,18 @@ export default function ContactSection() {
               <div className="px-6 space-y-6">
                 {/* Phone */}
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <FaPhoneAlt className="w-5 h-5 text-primary" />
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${LIME}55` }}
+                  >
+                    <FaPhoneAlt className="w-5 h-5" style={{ color: PINK }} />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Phone</p>
                     <a
                       href="tel:+447776300300"
-                      className="font-dm-sans text-muted-foreground hover:underline"
+                      className="font-dm-sans hover:underline"
+                      style={{ color: PINK }}
                     >
                       +44 7776 300300
                     </a>
@@ -141,14 +155,18 @@ export default function ContactSection() {
 
                 {/* Email */}
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <FaEnvelope className="w-5 h-5 text-primary" />
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${LIME}55` }}
+                  >
+                    <FaEnvelope className="w-5 h-5" style={{ color: PINK }} />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Email</p>
                     <a
                       href="mailto:info@scuffsetc.co.uk"
-                      className="font-dm-sans text-muted-foreground hover:underline"
+                      className="font-dm-sans hover:underline"
+                      style={{ color: PINK }}
                     >
                       info@scuffsetc.co.uk
                     </a>
@@ -157,16 +175,21 @@ export default function ContactSection() {
 
                 {/* Location */}
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <FaMapMarkerAlt className="w-5 h-5 text-primary" />
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${LIME}55` }}
+                  >
+                    <FaMapMarkerAlt className="w-5 h-5" style={{ color: PINK }} />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Location</p>
                     <a
                       href="https://www.google.com/maps?q=Unit+7%2CElliot+Business+Park%2C+Chambers+Ln%2C+Sheffield+S4+8DA%2C+United+Kingdom"
                       target="_blank"
-                      className="font-dm-sans text-muted-foreground hover:underline"
+                      className="font-dm-sans hover:underline"
                       aria-label="View location on Google Maps"
+                      style={{ color: PINK }}
+                      rel="noreferrer"
                     >
                       Unit 7, Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom
                     </a>
@@ -175,8 +198,11 @@ export default function ContactSection() {
 
                 {/* Hours */}
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <FaRegClock className="w-5 h-5 text-primary" />
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${LIME}55` }}
+                  >
+                    <FaRegClock className="w-5 h-5" style={{ color: PINK }} />
                   </div>
                   <div>
                     <p className="font-dm-sans font-semibold text-card-foreground">Hours</p>
@@ -189,7 +215,10 @@ export default function ContactSection() {
           </div>
 
           {/* Form Card */}
-          <div className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card border-border">
+          <div
+            className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
+            style={{ borderColor: PINK }}
+          >
             <div className="grid auto-rows-min items-start gap-1.5 px-6">
               <div className="font-space-grotesk font-bold text-2xl text-card-foreground">
                 Request a Quote
@@ -298,7 +327,19 @@ export default function ContactSection() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full bg-[#b30086] text-primary-foreground hover:bg-primary/90 rounded-md text-sm font-medium h-9 px-4 py-2 shadow-xs"
+                  className="w-full rounded-md text-sm font-medium h-9 px-4 py-2 shadow-xs transition-all"
+                  style={{
+                    backgroundColor: PINK,
+                    color: "#fff",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = LIME;
+                    e.currentTarget.style.color = "#000";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = PINK;
+                    e.currentTarget.style.color = "#fff";
+                  }}
                 >
                   Send Quote Request
                 </button>

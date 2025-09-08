@@ -16,7 +16,8 @@ export default function HomeSection() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
         <h1 className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6">
-          Revive Your Ride with <span className="text-primary">Scuffs ETC</span>
+          Revive Your Ride with{" "}
+          <span className="text-[#E066E6]">Scuffs ETC</span>
         </h1>
         <p className="font-dm-sans text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Professional vehicle body repair specialists in Sheffield. From minor
@@ -29,7 +30,7 @@ export default function HomeSection() {
           <a
             href="#contact"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all
-                       shadow-xs h-10 rounded-md bg-[#b30086] text-white hover:bg-[#990074]
+                       shadow-xs h-10 rounded-md bg-[#E066E6] text-white hover:bg-[#b84dbf]
                        font-dm-sans text-lg px-8 py-4"
           >
             Get a Free Quote
@@ -39,8 +40,8 @@ export default function HomeSection() {
           <a
             href="#gallery"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all
-                       border shadow-xs h-10 rounded-md border-[#b30086] text-[#b30086]
-                       hover:bg-[#b30086] hover:text-white
+                       border shadow-xs h-10 rounded-md border-[#CCFF66] text-[#CCFF66]
+                       hover:bg-[#CCFF66] hover:text-black
                        font-dm-sans text-lg px-8 py-4 bg-transparent"
           >
             View Our Work
