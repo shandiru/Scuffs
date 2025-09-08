@@ -1,8 +1,10 @@
 import React from "react";
 
 export default function Footer() {
+  const PINK = "#E066E6"; // brand pink/purple
+
   return (
-    <footer className="py-12 text-white" style={{ backgroundColor: "#b30086" }}>
+    <footer className="py-12 text-white" style={{ backgroundColor: PINK }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo & About */}
