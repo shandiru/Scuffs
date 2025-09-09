@@ -6,7 +6,7 @@ export default function BodyworkRepairHero() {
   const LIME = "#CCFF66";
 
   return (
-    <section className="text-white">
+    <section className="text-white mt-25">
       <div className="max-w-6xl mx-auto px-4 py-4">
         <a
           href="/"

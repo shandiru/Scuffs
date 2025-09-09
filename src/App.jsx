@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services/alloy-wheel-repair" element={<Alloywheelrepairpage />} />
-          <Route path="/services/textured-plastic-repair" element={<Textured />} />
           <Route path="/services/bodywork-repair" element={<Bodywork />} />
+          <Route path="/services/textured-plastic-repair" element={<Textured />} />
           <Route path="/services/panel-damage" element={<PanelDamage />} />
           <Route path="/services/full-respray" element={<FullRespray />} />
           <Route path="/services/quality-guarantee" element={<Quality />} />
