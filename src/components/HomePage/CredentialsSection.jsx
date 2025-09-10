@@ -5,7 +5,7 @@ export default function CredentialsSection() {
   const LIME = "#CCFF66";
 
   return (
-    <section id="credentials" className="py-20 bg-muted scroll-m-10">
+    <section id="credentials" className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-muted scroll-m-10">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-16">

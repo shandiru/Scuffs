@@ -1,17 +1,20 @@
 import React from "react";
-import { FaClock, FaShieldAlt, FaStar } from "react-icons/fa"; // Import the required React Icons
+import { FaClock, FaShieldAlt, FaStar } from "react-icons/fa";
 
 const ServiceOptions = () => {
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   const services = [
     {
       icon: <FaClock size={40} />,
-      title: "7-10 Day Service",
-      description: "Complete respray finished within 7-10 days",
+      title: "7–10 Day Service",
+      description: "Complete respray finished within 7–10 days",
     },
     {
       icon: <FaShieldAlt size={40} />,
-      title: "5 Year Warranty",
-      description: "Extended warranty on paint and finish",
+      title: "Lifetime Warranty",
+      description: "Lifetime warranty on paintwork (excludes rust repairs)",
     },
     {
       icon: <FaStar size={40} />,
@@ -19,9 +22,6 @@ const ServiceOptions = () => {
       description: "Professional-grade paint booth and equipment",
     },
   ];
-
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
 
   return (
     <div className="mb-16 py-12 px-6" style={{ backgroundColor: `${LIME}20` }}>
@@ -51,7 +51,12 @@ const ServiceOptions = () => {
           ))}
         </div>
 
-        {/* Accent gradient underline */}
+        {/* Optional: Add global note below */}
+        <div className="text-center text-sm mt-8 text-gray-600 italic">
+          *Rust-related repairs are not covered under warranty.
+        </div>
+
+        {/* Gradient underline */}
         <div
           className="mt-10 h-1 w-full rounded-full"
           style={{

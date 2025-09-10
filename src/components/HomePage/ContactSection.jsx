@@ -105,7 +105,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-background scroll-m-10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2

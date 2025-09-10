@@ -12,7 +12,7 @@ const WarrantyTerms = () => {
     },
     {
       title: "Bodywork Repair",
-      details: "Workmanship, paint adhesion, rust-through",
+      details: "Workmanship, paint adhesion",
       duration: "Lifetime",
     },
     {

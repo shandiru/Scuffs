@@ -41,6 +41,7 @@ const panelRepairData = [
       { name: "Panel patching" },
       { name: "Protective coating" },
     ],
+    disclaimer: "*Rust repairs are not covered under warranty.",
   },
 ];
 
@@ -67,9 +68,11 @@ const PanelRepairs = () => {
                 color: "#000",
               }}
             >
-              <div className="px-6 pb-6">
+              <div className="px-6 pb-2">
                 <div className="font-semibold text-xl">{repair.title}</div>
-                <div className="text-gray-800 text-base">{repair.description}</div>
+                <div className="text-gray-800 text-base">
+                  {repair.description}
+                </div>
               </div>
 
               <div className="px-6">
@@ -87,6 +90,13 @@ const PanelRepairs = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Disclaimer (only shows if present) */}
+                {repair.disclaimer && (
+                  <p className="text-sm text-gray-700 italic mt-4">
+                    {repair.disclaimer}
+                  </p>
+                )}
               </div>
             </div>
           ))}

@@ -17,7 +17,8 @@ export default function HomeSection() {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
         <h1 className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6">
           Revive Your Ride with{" "}
-          <span className="text-[#E066E6]">Scuffs ETC</span>
+ <span className="text-[#CCFF66]">Scuffs</span>{" "}
+  <span className="text-[#E066E6]">ETC</span>
         </h1>
         <p className="font-dm-sans text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Professional vehicle body repair specialists in Sheffield. From minor

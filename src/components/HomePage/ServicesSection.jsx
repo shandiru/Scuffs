@@ -16,7 +16,7 @@ const services = [
       "Professional restoration of damaged alloy wheels, from minor scuffs to major damage.",
     href: "/services/alloy-wheel-repair",
     icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
-    chips: ["Scuff Repair", "Crack Welding", "Diamond Cutting", "Color Matching"],
+    chips: ["Scuff Repair", "Crack Welding", "Diamond Cut Cosmetic", "Color Matching"],
   },
   {
     title: "Bodywork Scuffs, Cracks and Dents",
