@@ -14,7 +14,7 @@ const ServiceOptions = () => {
     {
       icon: <FaShieldAlt size={40} />,
       title: "Lifetime Warranty",
-      description: "Lifetime warranty on paintwork (excludes rust repairs)",
+      description: "Lifetime warranty on all paintwork (rust repairs excluded)",
     },
     {
       icon: <FaStar size={40} />,
@@ -24,8 +24,12 @@ const ServiceOptions = () => {
   ];
 
   return (
-    <div className="mb-16 py-12 px-6" style={{ backgroundColor: `${LIME}20` }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="service-options"
+      className="py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mb-16"
+      style={{ backgroundColor: `${LIME}20` }}
+    >
+      <div className="max-w-7xl mx-auto">
         <h3 className="text-3xl font-bold mb-8 text-center text-gray-900">
           Service Options Available
         </h3>
@@ -43,18 +47,18 @@ const ServiceOptions = () => {
               >
                 {service.icon}
               </div>
-              <div className="text-xl font-semibold mb-3 text-gray-900">
+              <h4 className="text-xl font-semibold mb-3 text-gray-900">
                 {service.title}
-              </div>
-              <div className="text-sm text-gray-600">{service.description}</div>
+              </h4>
+              <p className="text-sm text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Optional: Add global note below */}
-        <div className="text-center text-sm mt-8 text-gray-600 italic">
-          *Rust-related repairs are not covered under warranty.
-        </div>
+        {/* Global Note */}
+        <p className="text-center text-sm mt-8 text-gray-600 italic">
+          *Rust-related repairs are not covered under any warranty due to the unpredictable nature of corrosion.
+        </p>
 
         {/* Gradient underline */}
         <div
@@ -64,7 +68,7 @@ const ServiceOptions = () => {
           }}
         />
       </div>
-    </div>
+    </section>
   );
 };
 
