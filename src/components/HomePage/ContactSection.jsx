@@ -111,7 +111,8 @@ export default function ContactSection() {
 
           {/* Form */}
           <div className="rounded-xl border p-6 shadow-sm bg-card" style={{ borderColor: PINK }}>
-            <h3 className="text-2xl font-bold mb-4">Request a Quote</h3>
+            <h3 className="text-2xl font-bold mb-4">Request a Quote
+             Pop by between 9 AM and 1 PM to get a free quote!</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
