@@ -17,7 +17,7 @@ const services = [
     title: "Alloy Wheel Repair",
     desc: "Professional restoration of damaged alloy wheels, from minor scuffs to major damage.",
     href: "/services/alloy-wheel-repair",
-   icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
+    icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
     chips: ["Scuff Repair", "Crack Welding", "Diamond Cut Cosmetic", "Color Matching"],
   },
   {
@@ -62,8 +62,8 @@ export default function OurServices() {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
-      once: false, // ✅ animate every time
-      mirror: true, // ✅ re-animate when scrolling up
+      once: false,
+      mirror: true,
     });
   }, []);
 
@@ -73,8 +73,8 @@ export default function OurServices() {
         {`
           @keyframes pulseSpin {
             0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+            40%  { transform: rotate(180deg) scale(1.6); opacity: 1; } /* bigger zoom */
+            70%  { transform: rotate(270deg) scale(1.2); opacity: 0.7; }
             100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
           }
           .bg-icon {
@@ -85,6 +85,14 @@ export default function OurServices() {
             z-index: 0;
             pointer-events: none;
           }
+          /* ✅ Make spray gun bigger on mobile */
+          .spray-icon {
+            position: absolute;
+            animation: pulseSpin 25s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(224,102,230,0.9));
+            z-index: 0;
+            pointer-events: none;
+          }
           @media (max-width: 768px) {
             .bg-icon {
               width: 2rem !important;
@@ -92,8 +100,11 @@ export default function OurServices() {
               animation-duration: 18s;
               opacity: 0.15;
             }
-            .hide-mobile {
-              display: none;
+            .spray-icon {
+              width: 6rem !important;   /* ~96px on mobile */
+              height: 6rem !important;
+              opacity: 0.3;
+              animation-duration: 18s;
             }
           }
         `}
@@ -116,11 +127,11 @@ export default function OurServices() {
 
       {/* ✅ Animated background icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        {/* ✅ Spray Gun image instead of FaWrench */}
+        {/* ✅ Spray Gun stays bigger on mobile */}
         <img
           src="/spray.png"
           alt="Spray Gun Background"
-          className="absolute w-30 h-30 top-8 left-8 bg-icon"
+          className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
           style={{ animationDelay: "0s" }}
         />
 
@@ -149,7 +160,7 @@ export default function OurServices() {
                          hover:scale-105 hover:shadow-[0_8px_24px_rgba(224,102,230,0.35)] hover:ring-1 hover:ring-[#E066E6]/40 
                          transition-all duration-300 group relative z-10"
               data-aos="zoom-in-up"
-              data-aos-delay={i * 100} // staggered animations
+              data-aos-delay={i * 100}
             >
               <div className="grid auto-rows-min items-start gap-1.5 px-6 py-6">
                 <div className="flex items-center gap-3 mb-3">
