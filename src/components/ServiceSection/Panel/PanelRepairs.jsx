@@ -1,5 +1,8 @@
+// File: PanelRepairs.jsx
+"use client";
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
+import { FaCarCrash, FaTools, FaHammer, FaRulerCombined } from "react-icons/fa";
 
 const panelRepairData = [
   {
@@ -50,8 +53,72 @@ const PanelRepairs = () => {
   const LIME = "#CCFF66";
 
   return (
-    <div className="mb-16">
-      <div className="max-w-6xl mx-auto px-4 py-16">
+    <section
+      className="relative w-full py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: "#F9FFFA" }}
+    >
+      <style>
+        {`
+          @keyframes panelSpin {
+            0%   { transform: rotate(0deg); opacity: 0.4; }
+            100% { transform: rotate(360deg); opacity: 0.4; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: panelSpin 36s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 20s;
+              opacity: 0.2;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Animated panel-repair themed icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaCarCrash
+          className="bg-icon w-24 h-24 top-12 left-10"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaTools
+          className="bg-icon w-20 h-20 top-1/3 right-12"
+          style={{ animationDelay: "6s" }}
+        />
+        <FaHammer
+          className="bg-icon w-20 h-20 bottom-1/3 left-14"
+          style={{ animationDelay: "12s" }}
+        />
+        <FaRulerCombined
+          className="bg-icon w-24 h-24 bottom-10 right-8"
+          style={{ animationDelay: "18s" }}
+        />
+      </div>
+
+      {/* ✅ Content */}
+      <div className="relative max-w-6xl mx-auto z-10">
         <h3 className="text-2xl font-bold mb-8 text-center text-gray-900">
           Types of Panel Repairs
         </h3>
@@ -102,7 +169,7 @@ const PanelRepairs = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

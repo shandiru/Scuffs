@@ -1,13 +1,80 @@
+// File: PanelRestoration.jsx
+"use client";
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
+import { FaCarCrash, FaTools, FaHammer, FaRulerCombined } from "react-icons/fa";
 
 const PanelRestoration = () => {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+    <section
+      className="relative w-full py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: "#F9FFFA" }}
+    >
+      <style>
+        {`
+          @keyframes panelSpin {
+            0%   { transform: rotate(0deg); opacity: 0.4; }
+            100% { transform: rotate(360deg); opacity: 0.4; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: panelSpin 34s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 20s;
+              opacity: 0.2;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted full background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Animated full-width icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaCarCrash
+          className="bg-icon w-24 h-24 top-8 left-8"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaTools
+          className="bg-icon w-20 h-20 top-1/3 right-10"
+          style={{ animationDelay: "6s" }}
+        />
+        <FaHammer
+          className="bg-icon w-20 h-20 bottom-1/3 left-12"
+          style={{ animationDelay: "12s" }}
+        />
+        <FaRulerCombined
+          className="bg-icon w-24 h-24 bottom-8 right-8"
+          style={{ animationDelay: "18s" }}
+        />
+      </div>
+
+      {/* ✅ Content container */}
+      <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
         {/* Left content */}
         <div>
           <h2 className="text-3xl font-bold mb-6 text-gray-900">
@@ -39,7 +106,10 @@ const PanelRestoration = () => {
         </div>
 
         {/* Right image */}
-        <div className="rounded-lg p-2" style={{ backgroundColor: `${LIME}50` }}>
+        <div
+          className="rounded-lg p-2"
+          style={{ backgroundColor: `${LIME}50` }}
+        >
           <img
             alt="Panel damage repair process"
             className="w-full h-64 object-cover rounded-lg shadow-md"
@@ -47,7 +117,7 @@ const PanelRestoration = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

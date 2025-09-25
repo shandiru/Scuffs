@@ -1,13 +1,87 @@
 // File: TexturedPlasticRestoration.jsx
-import { FaCheckCircle, FaClock, FaShieldAlt, FaStar } from "react-icons/fa";
+"use client";
+import {
+  FaCheckCircle,
+  FaClock,
+  FaShieldAlt,
+  FaStar,
+  FaCubes,
+  FaGripLines,
+  FaPuzzlePiece,
+  FaMagic,
+} from "react-icons/fa";
 
 export default function TexturedPlasticRestoration() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
 
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#F1FAF1" }}>
-      <div className="max-w-6xl mx-auto">
+    <section
+      className="relative py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: "#F1FAF1" }}
+    >
+      <style>
+        {`
+          @keyframes plasticSpin {
+            0%   { transform: rotate(0deg); opacity: 0.4; }
+            100% { transform: rotate(360deg); opacity: 0.4; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: plasticSpin 32s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 20s;
+              opacity: 0.2;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Animated background icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaCubes
+          className="bg-icon w-20 h-20 top-8 left-8"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaGripLines
+          className="bg-icon w-24 h-24 top-1/4 right-10"
+          style={{ animationDelay: "6s" }}
+        />
+        <FaPuzzlePiece
+          className="bg-icon w-20 h-20 bottom-1/3 left-12"
+          style={{ animationDelay: "12s" }}
+        />
+        <FaMagic
+          className="bg-icon w-24 h-24 bottom-8 right-8"
+          style={{ animationDelay: "18s" }}
+        />
+      </div>
+
+      {/* ✅ Content */}
+      <div className="relative max-w-6xl mx-auto z-10">
         {/* Top grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
@@ -85,17 +159,32 @@ export default function TexturedPlasticRestoration() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              icon: <FaClock className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              icon: (
+                <FaClock
+                  className="h-8 w-8 mx-auto mb-1"
+                  style={{ color: LIME }}
+                />
+              ),
               title: "2–3 Day Service",
               desc: "Specialized repairs completed within 2–3 days",
             },
             {
-              icon: <FaShieldAlt className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              icon: (
+                <FaShieldAlt
+                  className="h-8 w-8 mx-auto mb-1"
+                  style={{ color: LIME }}
+                />
+              ),
               title: "Perfect Match Guarantee",
               desc: "Texture and color matching guaranteed",
             },
             {
-              icon: <FaStar className="h-8 w-8 mx-auto mb-1" style={{ color: LIME }} />,
+              icon: (
+                <FaStar
+                  className="h-8 w-8 mx-auto mb-1"
+                  style={{ color: LIME }}
+                />
+              ),
               title: "Cost Effective",
               desc: "Save up to 70% versus replacement costs",
             },

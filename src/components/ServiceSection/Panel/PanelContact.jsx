@@ -1,13 +1,71 @@
+// File: ServiceCards.jsx
+"use client";
 import React from "react";
-import { FaClock, FaShieldAlt, FaStar } from "react-icons/fa"; // Importing the required React Icons
+import { FaClock, FaShieldAlt, FaStar, FaTools, FaCarCrash } from "react-icons/fa";
 
 const ServiceCards = () => {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
 
   return (
-    <div className="py-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <section
+      className="relative w-full py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: "#F9FFFA" }}
+    >
+      <style>
+        {`
+          @keyframes spinSlow {
+            0%   { transform: rotate(0deg); opacity: 0.4; }
+            100% { transform: rotate(360deg); opacity: 0.4; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinSlow 38s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 22s;
+              opacity: 0.2;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Only 2 animated icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaTools
+          className="bg-icon w-20 h-20 top-10 left-10"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaCarCrash
+          className="bg-icon w-24 h-24 bottom-12 right-12"
+          style={{ animationDelay: "10s" }}
+        />
+      </div>
+
+      {/* ✅ Content */}
+      <div className="relative max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 z-10">
         {/* 3-5 Day Service Card */}
         <div
           className="flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-white text-gray-900 
@@ -59,7 +117,7 @@ const ServiceCards = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

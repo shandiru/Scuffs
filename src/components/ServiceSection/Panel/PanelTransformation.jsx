@@ -1,12 +1,71 @@
+// File: PanelTransformation.jsx
+"use client";
 import React from "react";
+import { FaPhoneAlt, FaClipboardCheck } from "react-icons/fa";
 
 const PanelTransformation = () => {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
 
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#F8FFF8" }}>
-      <div className="max-w-4xl mx-auto text-center">
+    <section
+      className="relative w-full py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: "#F8FFF8" }}
+    >
+      <style>
+        {`
+          @keyframes spinSlow {
+            0%   { transform: rotate(0deg); opacity: 0.3; }
+            100% { transform: rotate(360deg); opacity: 0.3; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinSlow 42s linear infinite;
+            filter: drop-shadow(0 0 12px rgba(224,102,230,0.4));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 24s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Background icons (2 only) */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaClipboardCheck
+          className="bg-icon w-20 h-20 top-12 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaPhoneAlt
+          className="bg-icon w-24 h-24 bottom-10 right-12"
+          style={{ animationDelay: "12s" }}
+        />
+      </div>
+
+      {/* ✅ Content */}
+      <div className="relative max-w-4xl mx-auto text-center z-10">
         {/* Heading */}
         <h2 className="text-3xl font-bold mb-4 text-gray-900">
           Professional Panel Repair Services
