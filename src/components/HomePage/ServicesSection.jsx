@@ -56,28 +56,44 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section
-      id="services"
-      className="relative py-16 px-4 scroll-m-10 overflow-hidden"
-    >
-      {/* Lime green dots background (dense corners -> sparse middle -> dense again) */}
-      <div
-        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "cover",
-          maskImage:
-            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
-          maskRepeat: "no-repeat",
-          maskSize: "cover",
-        }}
-      ></div>
+    <section id="services" className="relative py-16 px-4 scroll-m-10 overflow-hidden">
+      <style>
+        {`
+          @keyframes pulseSpin {
+            0%   { transform: rotate(0deg) scale(0.9); opacity: 0.2; }
+            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
+            70%  { transform: rotate(270deg) scale(1.2); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(0.9); opacity: 0.2; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: #E066E6 !important;
+            animation: pulseSpin 25s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(224,102,230,0.8));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2.5rem !important;
+              height: 2.5rem !important;
+              animation-duration: 18s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* Background icons - corner & diagonal placement */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaWrench className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
+        <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+        <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
+        <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
+      </div>
 
       {/* Content */}
-      <div className="relative max-w-6xl mx-auto">
-        {/* Heading */}
+      <div className="relative max-w-6xl mx-auto z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Our Services
@@ -88,16 +104,14 @@ export default function OurServices() {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <article
               key={s.title}
               className="bg-white text-gray-900 flex flex-col justify-between rounded-xl border border-gray-200 shadow-sm
                          hover:scale-105 hover:shadow-[0_8px_24px_rgba(224,102,230,0.35)] hover:ring-1 hover:ring-[#E066E6]/40 
-                         transition-all duration-300 group"
+                         transition-all duration-300 group relative z-10"
             >
-              {/* Card header */}
               <div className="grid auto-rows-min items-start gap-1.5 px-6 py-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-[#CCFF66]/40 rounded-lg transition-all duration-300 group-hover:bg-[#CCFF66]/60 group-hover:scale-110">
@@ -113,7 +127,6 @@ export default function OurServices() {
                 <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
 
-              {/* Chips */}
               <div className="flex-grow px-6">
                 <div className="flex flex-wrap gap-2 pb-6">
                   {s.chips.map((c) => (
@@ -128,7 +141,6 @@ export default function OurServices() {
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="px-6 pb-6 mt-auto">
                 <a href={s.href} className="block">
                   <button
