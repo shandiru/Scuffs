@@ -6,7 +6,7 @@ import {
   FaMagic,
   FaShieldAlt,
   FaPalette,
-  FaCheckCircle,
+  FaCheckCircle
 } from "react-icons/fa";
 
 const services = [
@@ -52,6 +52,7 @@ const services = [
     icon: <FaCheckCircle className="h-6 w-6 text-[#E066E6]" />,
     chips: ["12 Month Warranty", "Satisfaction Guarantee", "Quality Assurance", "Follow-up Service"],
   },
+  
 ];
 
 export default function OurServices() {
@@ -60,31 +61,49 @@ export default function OurServices() {
       <style>
         {`
           @keyframes pulseSpin {
-            0%   { transform: rotate(0deg) scale(0.9); opacity: 0.2; }
+            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
             40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-            70%  { transform: rotate(270deg) scale(1.2); opacity: 0.7; }
-            100% { transform: rotate(360deg) scale(0.9); opacity: 0.2; }
+            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
           }
           .bg-icon {
             position: absolute;
             color: #E066E6 !important;
             animation: pulseSpin 25s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(224,102,230,0.8));
+            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
             z-index: 0;
             pointer-events: none;
           }
           @media (max-width: 768px) {
             .bg-icon {
-              width: 2.5rem !important;
-              height: 2.5rem !important;
+              width: 2rem !important;
+              height: 2rem !important;
               animation-duration: 18s;
               opacity: 0.15;
+            }
+            .hide-mobile {
+              display: none;
             }
           }
         `}
       </style>
 
-      {/* Background icons - corner & diagonal placement */}
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Animated background icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <FaWrench className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
         <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
@@ -92,7 +111,7 @@ export default function OurServices() {
         <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
-      {/* Content */}
+      {/* ✅ Content */}
       <div className="relative max-w-6xl mx-auto z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
