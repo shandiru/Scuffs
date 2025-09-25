@@ -2,12 +2,12 @@
 "use client";
 import React, { useEffect } from "react";
 import {
-  FaWrench,
   FaCar,
   FaMagic,
   FaShieldAlt,
   FaPalette,
   FaCheckCircle,
+  FaWrench,
 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -17,7 +17,7 @@ const services = [
     title: "Alloy Wheel Repair",
     desc: "Professional restoration of damaged alloy wheels, from minor scuffs to major damage.",
     href: "/services/alloy-wheel-repair",
-    icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
+   icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
     chips: ["Scuff Repair", "Crack Welding", "Diamond Cut Cosmetic", "Color Matching"],
   },
   {
@@ -116,7 +116,14 @@ export default function OurServices() {
 
       {/* ✅ Animated background icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaWrench className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
+        {/* ✅ Spray Gun image instead of FaWrench */}
+        <img
+          src="/spray.png"
+          alt="Spray Gun Background"
+          className="absolute w-30 h-30 top-8 left-8 bg-icon"
+          style={{ animationDelay: "0s" }}
+        />
+
         <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
         <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
         <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
