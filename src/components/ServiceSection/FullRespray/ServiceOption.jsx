@@ -1,5 +1,7 @@
+// File: ServiceOptions.jsx
+"use client";
 import React from "react";
-import { FaClock, FaShieldAlt, FaStar } from "react-icons/fa";
+import { FaClock, FaShieldAlt } from "react-icons/fa";
 
 const ServiceOptions = () => {
   const PINK = "#E066E6";
@@ -17,7 +19,7 @@ const ServiceOptions = () => {
       description: "Lifetime warranty on all paintwork (rust repairs excluded)",
     },
     {
-      icon: <FaStar size={40} />,
+      icon: <FaClock size={40} />, // kept FaStar originally, but background icons already cover warranty/clock
       title: "Showroom Quality",
       description: "Professional-grade paint booth and equipment",
     },
@@ -26,10 +28,63 @@ const ServiceOptions = () => {
   return (
     <section
       id="service-options"
-      className="py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mb-16"
+      className="relative py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden"
       style={{ backgroundColor: `${LIME}20` }}
     >
-      <div className="max-w-7xl mx-auto">
+      <style>
+        {`
+          @keyframes spinIcon {
+            0%   { transform: rotate(0deg); opacity: 0.25; }
+            100% { transform: rotate(360deg); opacity: 0.25; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinIcon 28s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 16s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted overlay background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Background icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaClock
+          className="bg-icon w-24 h-24 top-12 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaShieldAlt
+          className="bg-icon w-20 h-20 bottom-12 right-12"
+          style={{ animationDelay: "10s" }}
+        />
+      </div>
+
+      {/* ✅ Foreground content */}
+      <div className="relative max-w-7xl mx-auto z-10">
         <h3 className="text-3xl font-bold mb-8 text-center text-gray-900">
           Service Options Available
         </h3>

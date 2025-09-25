@@ -1,5 +1,8 @@
+// File: PaintOptions.jsx
+"use client";
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
+import { FaPalette, FaCompactDisc } from "react-icons/fa";
 
 const PaintOptions = () => {
   const options = [
@@ -39,8 +42,64 @@ const PaintOptions = () => {
   const LIME = "#CCFF66";
 
   return (
-    <div className="mb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative  py-12 px-4 overflow-hidden"
+      style={{ backgroundColor: `${LIME}10` }}
+    >
+      <style>
+        {`
+          @keyframes spinIcon {
+            0%   { transform: rotate(0deg); opacity: 0.25; }
+            100% { transform: rotate(360deg); opacity: 0.25; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinIcon 28s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 16s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted overlay background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Background icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaPalette
+          className="bg-icon w-24 h-24 top-12 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaCompactDisc
+          className="bg-icon w-20 h-20 bottom-12 right-12"
+          style={{ animationDelay: "10s" }}
+        />
+      </div>
+
+      {/* ✅ Foreground content */}
+      <div className="relative max-w-7xl mx-auto sm:px-6 lg:px-8 z-10">
         <h3 className="text-2xl font-bold mb-8 text-center text-gray-900">
           Paint Options Available
         </h3>
@@ -84,7 +143,7 @@ const PaintOptions = () => {
           }}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

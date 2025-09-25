@@ -1,4 +1,7 @@
+// File: PaintProcess.jsx
+"use client";
 import React from "react";
+import { FaPalette, FaShieldAlt } from "react-icons/fa";
 
 const PaintProcess = () => {
   const steps = [
@@ -13,8 +16,64 @@ const PaintProcess = () => {
   const LIME = "#CCFF66";
 
   return (
-    <div className="mb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+    <section
+      className="relative  py-12 px-4 overflow-hidden"
+      style={{ backgroundColor: `${LIME}10` }}
+    >
+      <style>
+        {`
+          @keyframes spinIcon {
+            0%   { transform: rotate(0deg); opacity: 0.25; }
+            100% { transform: rotate(360deg); opacity: 0.25; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinIcon 28s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 16s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted overlay background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Background icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaPalette
+          className="bg-icon w-24 h-24 top-10 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaShieldAlt
+          className="bg-icon w-20 h-20 bottom-10 right-12"
+          style={{ animationDelay: "8s" }}
+        />
+      </div>
+
+      {/* ✅ Foreground content */}
+      <div className="relative max-w-7xl mx-auto sm:px-6 lg:px-8 z-10">
         <h3 className="text-2xl font-bold mb-8 text-center text-gray-900">
           Our Paint Process
         </h3>
@@ -27,7 +86,7 @@ const PaintProcess = () => {
                          transition-transform duration-300 hover:scale-105 hover:shadow-lg"
               style={{ borderColor: `${PINK}40` }}
             >
-              <div className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6">
+              <div className="grid auto-rows-min items-start gap-1.5 px-6">
                 <div
                   className="w-12 h-12 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg"
                   style={{ backgroundColor: PINK }}
@@ -44,10 +103,13 @@ const PaintProcess = () => {
           ))}
         </div>
 
-        {/* Optional progress bar accent under the grid (purely visual, matches brand) */}
-        <div className="mt-8 h-1 w-full rounded-full" style={{ background: `linear-gradient(90deg, ${PINK}, ${LIME})` }} />
+        {/* Progress bar accent */}
+        <div
+          className="mt-8 h-1 w-full rounded-full"
+          style={{ background: `linear-gradient(90deg, ${PINK}, ${LIME})` }}
+        />
       </div>
-    </div>
+    </section>
   );
 };
 

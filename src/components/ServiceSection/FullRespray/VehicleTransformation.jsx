@@ -1,4 +1,7 @@
+// File: VehicleTransformation.jsx
+"use client";
 import React from "react";
+import { FaPalette, FaStar, FaPhoneAlt } from "react-icons/fa";
 
 const VehicleTransformation = () => {
   const PINK = "#E066E6";
@@ -6,10 +9,63 @@ const VehicleTransformation = () => {
 
   return (
     <section
-      className="py-16 px-4"
-      style={{ backgroundColor: `${LIME}20` }} // light lime tint background
+      className="relative py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: `${LIME}20` }}
     >
-      <div className="max-w-4xl mx-auto text-center">
+      <style>
+        {`
+          @keyframes spinIcon {
+            0%   { transform: rotate(0deg); opacity: 0.25; }
+            100% { transform: rotate(360deg); opacity: 0.25; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: spinIcon 28s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(224,102,230,0.5));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 16s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted overlay background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Background icons (content-related) */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaPalette
+          className="bg-icon w-24 h-24 top-12 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaStar
+          className="bg-icon w-20 h-20 bottom-12 right-12"
+          style={{ animationDelay: "10s" }}
+        />
+      </div>
+
+      {/* ✅ Foreground content */}
+      <div className="relative max-w-4xl mx-auto text-center z-10">
         {/* Heading */}
         <h2 className="text-3xl font-bold mb-4 text-gray-900">
           Transform Your Vehicle Today
@@ -24,8 +80,12 @@ const VehicleTransformation = () => {
           <button
             className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md px-8 py-3 text-lg text-white shadow-md transition-all duration-300"
             style={{ backgroundColor: PINK }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#c850c0")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = PINK)}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#c850c0")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = PINK)
+            }
           >
             Book Consultation
           </button>
@@ -36,7 +96,7 @@ const VehicleTransformation = () => {
             className="inline-flex items-center justify-center gap-2 font-medium border bg-white text-gray-800 hover:bg-gray-100 transition h-10 rounded-md text-lg px-8 py-3 shadow-sm"
             style={{ borderColor: PINK }}
           >
-            Call +44 7776 300300
+            <FaPhoneAlt className="text-[#E066E6]" /> Call +44 7776 300300
           </a>
         </div>
       </div>
