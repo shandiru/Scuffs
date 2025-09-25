@@ -1,12 +1,13 @@
-// File: ContactSection.jsx
-
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
   FaRegClock,
 } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -23,6 +24,15 @@ export default function ContactSection() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
   const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // run every time
+      mirror: true, // also on scroll up
+    });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -102,22 +112,10 @@ export default function ContactSection() {
 
       {/* ✅ Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaPhoneAlt
-          className="bg-icon w-20 h-20 top-8 left-8"
-          style={{ animationDelay: "0s" }}
-        />
-        <FaEnvelope
-          className="bg-icon w-24 h-24 top-1/4 right-8"
-          style={{ animationDelay: "5s" }}
-        />
-        <FaMapMarkerAlt
-          className="bg-icon w-20 h-20 bottom-1/4 left-8"
-          style={{ animationDelay: "10s" }}
-        />
-        <FaRegClock
-          className="bg-icon w-24 h-24 bottom-8 right-8"
-          style={{ animationDelay: "15s" }}
-        />
+        <FaPhoneAlt className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
+        <FaEnvelope className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+        <FaMapMarkerAlt className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
+        <FaRegClock className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
       {/* ✅ Main content above background */}
@@ -126,10 +124,15 @@ export default function ContactSection() {
           <h2
             className="font-bold text-4xl md:text-5xl mb-4"
             style={{ color: PINK }}
+            data-aos="fade-up"
           >
             Get In Touch
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p
+            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Ready to restore your vehicle? Contact us for a free quote and
             professional consultation.
           </p>
@@ -137,7 +140,7 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Info Card */}
-          <div className="space-y-6">
+          <div className="space-y-6" data-aos="fade-right">
             {[
               {
                 label: "Phone",
@@ -164,7 +167,7 @@ export default function ContactSection() {
                 href: null,
               },
             ].map((item, i) => (
-              <div key={i} className="flex items-center space-x-4">
+              <div key={i} className="flex items-center space-x-4" data-aos="fade-up" data-aos-delay={i * 150}>
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: `${LIME}55` }}
@@ -197,6 +200,7 @@ export default function ContactSection() {
           <div
             className="rounded-xl border p-6 shadow-sm bg-card"
             style={{ borderColor: PINK }}
+            data-aos="fade-left"
           >
             <h3 className="text-2xl font-bold mb-4">
               Request a Quote <br />
@@ -206,7 +210,7 @@ export default function ContactSection() {
             </h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
+                <div data-aos="fade-up">
                   <label>First Name*</label>
                   <input
                     name="firstName"
@@ -219,7 +223,7 @@ export default function ContactSection() {
                     <p className="text-red-500 text-sm">{errors.firstName}</p>
                   )}
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="100">
                   <label>Last Name*</label>
                   <input
                     name="lastName"
@@ -233,7 +237,7 @@ export default function ContactSection() {
                   )}
                 </div>
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <label>Email*</label>
                 <input
                   type="email"
@@ -246,7 +250,7 @@ export default function ContactSection() {
                   <p className="text-red-500 text-sm">{errors.email}</p>
                 )}
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="300">
                 <label>Phone*</label>
                 <input
                   name="phone"
@@ -258,7 +262,7 @@ export default function ContactSection() {
                   <p className="text-red-500 text-sm">{errors.phone}</p>
                 )}
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="400">
                 <label>Service Required*</label>
                 <select
                   name="service"
@@ -277,7 +281,7 @@ export default function ContactSection() {
                   <p className="text-red-500 text-sm">{errors.service}</p>
                 )}
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="500">
                 <label>Message*</label>
                 <textarea
                   name="message"
@@ -302,6 +306,8 @@ export default function ContactSection() {
                   e.currentTarget.style.backgroundColor = PINK;
                   e.currentTarget.style.color = "#fff";
                 }}
+                data-aos="zoom-in"
+                data-aos-delay="600"
               >
                 Send via WhatsApp
               </button>

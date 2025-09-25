@@ -1,13 +1,16 @@
 // File: OurServices.jsx
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import {
   FaWrench,
   FaCar,
   FaMagic,
   FaShieldAlt,
   FaPalette,
-  FaCheckCircle
+  FaCheckCircle,
 } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const services = [
   {
@@ -52,10 +55,18 @@ const services = [
     icon: <FaCheckCircle className="h-6 w-6 text-[#E066E6]" />,
     chips: ["12 Month Warranty", "Satisfaction Guarantee", "Quality Assurance", "Follow-up Service"],
   },
-  
 ];
 
 export default function OurServices() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // ✅ animate every time
+      mirror: true, // ✅ re-animate when scrolling up
+    });
+  }, []);
+
   return (
     <section id="services" className="relative py-16 px-4 scroll-m-10 overflow-hidden">
       <style>
@@ -113,7 +124,7 @@ export default function OurServices() {
 
       {/* ✅ Content */}
       <div className="relative max-w-6xl mx-auto z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Our Services
           </h2>
@@ -124,12 +135,14 @@ export default function OurServices() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => (
+          {services.map((s, i) => (
             <article
               key={s.title}
               className="bg-white text-gray-900 flex flex-col justify-between rounded-xl border border-gray-200 shadow-sm
                          hover:scale-105 hover:shadow-[0_8px_24px_rgba(224,102,230,0.35)] hover:ring-1 hover:ring-[#E066E6]/40 
                          transition-all duration-300 group relative z-10"
+              data-aos="zoom-in-up"
+              data-aos-delay={i * 100} // staggered animations
             >
               <div className="grid auto-rows-min items-start gap-1.5 px-6 py-6">
                 <div className="flex items-center gap-3 mb-3">

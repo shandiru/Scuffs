@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaWrench, FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function GallerySection() {
   const PINK = "#E066E6";
@@ -46,6 +48,16 @@ export default function GallerySection() {
   };
 
   const slide = SLIDES[index];
+
+  // ✅ Init AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // run every time
+      mirror: true, // ✅ animate on scroll up too
+    });
+  }, []);
 
   return (
     <section id="gallery" className="py-20 bg-background scroll-m-10 relative overflow-hidden">
@@ -103,21 +115,29 @@ export default function GallerySection() {
       {/* ✅ Main content stays above */}
       <div className="relative z-10">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2
               className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
               style={{ color: PINK }}
             >
               Our Work Gallery
             </h2>
-            <p className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p
+              className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               See the transformation - before and after examples of our
               professional repair work.
             </p>
           </div>
 
           {/* ✅ Gallery Content */}
-          <div className="relative max-w-6xl mx-auto">
+          <div
+            className="relative max-w-6xl mx-auto"
+            data-aos="zoom-in-up"
+            data-aos-delay="300"
+          >
             <div
               className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md p-6 transition-all duration-500"
               onTouchStart={onTouchStart}
@@ -136,7 +156,7 @@ export default function GallerySection() {
                 `}</style>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="text-center">
+                  <div className="text-center" data-aos="fade-right">
                     <h4
                       className="font-dm-sans font-semibold text-lg mb-4"
                       style={{ color: LIME }}
@@ -152,7 +172,7 @@ export default function GallerySection() {
                       />
                     </div>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center" data-aos="fade-left">
                     <h4
                       className="font-dm-sans font-semibold text-lg mb-4"
                       style={{ color: LIME }}
@@ -201,7 +221,7 @@ export default function GallerySection() {
             </button>
 
             {/* Dots */}
-            <div className="flex justify-center mt-6 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2" data-aos="fade-up" data-aos-delay="400">
               {SLIDES.map((_, i) => (
                 <button
                   key={i}

@@ -1,9 +1,21 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { FaWrench, FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function CredentialsSection() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // animate every scroll
+      mirror: true, // ✅ re-animate when scrolling up
+    });
+  }, []);
 
   return (
     <section
@@ -55,35 +67,27 @@ export default function CredentialsSection() {
 
       {/* ✅ Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaWrench
-          className="bg-icon w-20 h-20 top-8 left-8"
-          style={{ animationDelay: "0s" }}
-        />
-        <FaCar
-          className="bg-icon w-24 h-24 top-1/4 right-8"
-          style={{ animationDelay: "5s" }}
-        />
-        <FaMagic
-          className="bg-icon w-20 h-20 bottom-1/4 left-8"
-          style={{ animationDelay: "10s" }}
-        />
-        <FaShieldAlt
-          className="bg-icon w-24 h-24 bottom-8 right-8"
-          style={{ animationDelay: "15s" }}
-        />
+        <FaWrench className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
+        <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+        <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
+        <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
       {/* ✅ Main content */}
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2
             className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
             style={{ color: PINK }}
           >
             Our Credentials
           </h2>
-          <p className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p
+            className="font-dm-sans text-xl text-muted-foreground max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Recognized excellence in vehicle body repair services with
             industry-leading certifications.
           </p>
@@ -97,6 +101,7 @@ export default function CredentialsSection() {
             <div
               className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
               style={{ borderColor: PINK }}
+              data-aos="fade-right"
             >
               <div className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
@@ -142,6 +147,8 @@ export default function CredentialsSection() {
             <div
               className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
               style={{ borderColor: PINK }}
+              data-aos="fade-right"
+              data-aos-delay="150"
             >
               <div className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
@@ -185,6 +192,8 @@ export default function CredentialsSection() {
             <div
               className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
               style={{ borderColor: PINK }}
+              data-aos="fade-right"
+              data-aos-delay="300"
             >
               <div className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
@@ -227,7 +236,11 @@ export default function CredentialsSection() {
           </div>
 
           {/* Right Column - Images */}
-          <div className="space-y-8">
+          <div
+            className="space-y-8"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <div
               className="bg-card rounded-lg p-6 shadow-lg border"
               style={{ borderColor: PINK }}
@@ -242,6 +255,7 @@ export default function CredentialsSection() {
                 <div
                   className="relative aspect-[4/3] rounded-lg overflow-hidden border"
                   style={{ borderColor: LIME }}
+                  data-aos="zoom-in"
                 >
                   <img
                     alt="Best Business of 2025 - ThreeBest Rated Excellence Award"
@@ -252,6 +266,8 @@ export default function CredentialsSection() {
                 <div
                   className="relative aspect-[4/3] rounded-lg overflow-hidden border"
                   style={{ borderColor: LIME }}
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
                 >
                   <img
                     alt="Certificate of Excellence 2025 - Top 3 Car Body Shops Sheffield"

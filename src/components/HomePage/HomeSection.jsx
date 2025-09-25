@@ -1,7 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function HomeSection() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      easing: "ease-out-cubic", // easing style
+      once: true, // animate only once
+      mirror: false, // disable animation when scrolling back up
+    });
+  }, []);
+
   return (
     <section
       id="home"
@@ -14,19 +25,35 @@ export default function HomeSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
-        <h1 className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6">
+      <div
+        className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20"
+        data-aos="fade-up"
+      >
+        <h1
+          className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
           Revive Your Ride with{" "}
- <span className="text-[#CCFF66]">Scuffs</span>{" "}
-  <span className="text-[#E066E6]">ETC</span>
+          <span className="text-[#CCFF66]">Scuffs</span>{" "}
+          <span className="text-[#E066E6]">ETC</span>
         </h1>
-        <p className="font-dm-sans text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+
+        <p
+          className="font-dm-sans text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           Professional vehicle body repair specialists in Sheffield. From minor
           scuffs to full resprays, we restore your vehicle to perfection.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
           {/* Scroll to #contact */}
           <a
             href="#contact"

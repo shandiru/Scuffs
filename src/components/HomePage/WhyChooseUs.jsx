@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { FaCarCrash } from "react-icons/fa";
 import { GiCarDoor } from "react-icons/gi";
 import { MdBuild, MdFormatPaint } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function WhyChooseUs() {
   const PINK = "#E066E6";
@@ -29,6 +32,15 @@ export default function WhyChooseUs() {
       desc: "Quick, reliable fixes for minor accident damage.",
     },
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // run every scroll down
+      mirror: true, // run on scroll up
+    });
+  }, []);
 
   return (
     <section
@@ -80,31 +92,26 @@ export default function WhyChooseUs() {
 
       {/* ✅ Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <GiCarDoor
-          className="bg-icon w-20 h-20 top-8 left-8"
-          style={{ animationDelay: "0s" }}
-        />
-        <MdFormatPaint
-          className="bg-icon w-24 h-24 top-1/4 right-8"
-          style={{ animationDelay: "5s" }}
-        />
-        <MdBuild
-          className="bg-icon w-20 h-20 bottom-1/4 left-8"
-          style={{ animationDelay: "10s" }}
-        />
-        <FaCarCrash
-          className="bg-icon w-24 h-24 bottom-8 right-8"
-          style={{ animationDelay: "15s" }}
-        />
+        <GiCarDoor className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
+        <MdFormatPaint className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+        <MdBuild className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
+        <FaCarCrash className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
       {/* ✅ Main content */}
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Header */}
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <h2
+          className="text-4xl font-bold text-gray-900 mb-4"
+          data-aos="fade-up"
+        >
           Why Choose Us
         </h2>
-        <p className="text-lg text-gray-600 mb-12">
+        <p
+          className="text-lg text-gray-600 mb-12"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           Recognised for award-winning service, certified quality, and 5-star
           customer satisfaction.
         </p>
@@ -118,6 +125,8 @@ export default function WhyChooseUs() {
               style={{
                 borderColor: PINK,
               }}
+              data-aos="zoom-in-up"
+              data-aos-delay={index * 150}
             >
               <div
                 className="p-4 rounded-full mb-4"
