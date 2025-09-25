@@ -1,12 +1,80 @@
 import React from "react";
+import { FaWrench, FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
 
 export default function CredentialsSection() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
 
   return (
-    <section id="credentials" className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-muted scroll-m-10">
-      <div className="container mx-auto px-4">
+    <section
+      id="credentials"
+      className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-muted scroll-m-10 relative overflow-hidden"
+    >
+      {/* ✅ Background styles */}
+      <style>
+        {`
+          @keyframes pulseSpin {
+            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
+            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
+            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: pulseSpin 25s ease-in-out infinite;
+            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 18s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Floating animated icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaWrench
+          className="bg-icon w-20 h-20 top-8 left-8"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaCar
+          className="bg-icon w-24 h-24 top-1/4 right-8"
+          style={{ animationDelay: "5s" }}
+        />
+        <FaMagic
+          className="bg-icon w-20 h-20 bottom-1/4 left-8"
+          style={{ animationDelay: "10s" }}
+        />
+        <FaShieldAlt
+          className="bg-icon w-24 h-24 bottom-8 right-8"
+          style={{ animationDelay: "15s" }}
+        />
+      </div>
+
+      {/* ✅ Main content */}
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16">
           <h2
@@ -171,16 +239,20 @@ export default function CredentialsSection() {
                 Official Certifications
               </h3>
               <div className="space-y-6">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border"
-                     style={{ borderColor: LIME }}>
+                <div
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden border"
+                  style={{ borderColor: LIME }}
+                >
                   <img
                     alt="Best Business of 2025 - ThreeBest Rated Excellence Award"
                     className="object-contain w-full h-full"
                     src="/certificate1.png"
                   />
                 </div>
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border"
-                     style={{ borderColor: LIME }}>
+                <div
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden border"
+                  style={{ borderColor: LIME }}
+                >
                   <img
                     alt="Certificate of Excellence 2025 - Top 3 Car Body Shops Sheffield"
                     className="object-contain w-full h-full"

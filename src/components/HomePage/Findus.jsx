@@ -1,10 +1,80 @@
 import React from "react";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaRegClock } from "react-icons/fa";
 
 const FindUs = () => {
+  const PINK = "#E066E6";
+  const LIME = "#CCFF66";
+
   return (
-    <section className="py-10 px-4 bg-background">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-black">Find Us</h2>
+    <section className="py-10 px-4 bg-background relative overflow-hidden">
+      {/* ✅ Background styles */}
+      <style>
+        {`
+          @keyframes pulseSpin {
+            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
+            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
+            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK} !important;
+            animation: pulseSpin 25s ease-in-out infinite;
+            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 18s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Floating animated icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaMapMarkerAlt
+          className="bg-icon w-20 h-20 top-8 left-8"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaPhoneAlt
+          className="bg-icon w-24 h-24 top-1/4 right-8"
+          style={{ animationDelay: "5s" }}
+        />
+        <FaEnvelope
+          className="bg-icon w-20 h-20 bottom-1/4 left-8"
+          style={{ animationDelay: "10s" }}
+        />
+        <FaRegClock
+          className="bg-icon w-24 h-24 bottom-8 right-8"
+          style={{ animationDelay: "15s" }}
+        />
+      </div>
+
+      {/* ✅ Main content */}
+      <div className="max-w-7xl mx-auto text-center relative z-10">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-black">
+          Find Us
+        </h2>
 
         <div className="rounded-lg overflow-hidden shadow-lg w-full h-[400px]">
           <iframe
