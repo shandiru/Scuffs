@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#credentials", label: "Credentials" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#credentials", label: "Credentials" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -17,6 +17,14 @@ export default function Header() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  // Custom scroll offset so fixed header doesn't overlap the section
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust based on header height
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-50">
@@ -30,7 +38,7 @@ export default function Header() {
             height={60}
             decoding="async"
             className="rounded-full"
-            src="/Scuffs-etc-logo.png"   // keep your file path
+            src="/Scuffs-etc-logo.png"
             style={{ color: "transparent" }}
           />
           <div>
@@ -46,25 +54,29 @@ export default function Header() {
         {/* Center: Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           {LINKS.map((l) => (
-            <a
+            <HashLink
               key={l.href}
-              href={l.href}
+              smooth
+              to={l.href}
+              scroll={scrollWithOffset}
               className="font-dm-sans font-semibold text-gray-900 hover:text-[#b30086] transition-colors"
             >
               {l.label}
-            </a>
+            </HashLink>
           ))}
         </nav>
 
         {/* Right: CTA (desktop) */}
-        <a
-          href="#contact"
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
           className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md 
                      text-sm font-medium h-9 px-4 py-2 shadow-xs transition-colors
                      bg-[#b30086] hover:bg-[#990074] text-white font-dm-sans"
         >
           Get Free Quote
-        </a>
+        </HashLink>
 
         {/* Mobile hamburger */}
         <button
@@ -87,27 +99,31 @@ export default function Header() {
         <div className="md:hidden border-t border-gray-200 bg-white">
           <nav className="px-4 py-3 flex flex-col space-y-1">
             {LINKS.map((l) => (
-              <a
+              <HashLink
                 key={l.href}
-                href={l.href}
+                smooth
+                to={l.href}
+                scroll={scrollWithOffset}
                 onClick={() => setOpen(false)}
                 className="block rounded-md px-3 py-2 text-base font-dm-sans font-semibold text-gray-900 hover:text-[#b30086] transition-colors"
               >
                 {l.label}
-              </a>
+              </HashLink>
             ))}
           </nav>
           <div className="px-4 pb-4">
-            {/* Mobile CTA (visible on mobile) */}
-            <a
-              href="#contact"
+            {/* Mobile CTA */}
+            <HashLink
+              smooth
+              to="/#contact"
+              scroll={scrollWithOffset}
               onClick={() => setOpen(false)}
               className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md 
                          text-sm font-medium h-10 px-4 py-2 shadow-xs transition-colors
                          bg-[#b30086] hover:bg-[#990074] text-white font-dm-sans"
             >
               Get Free Quote
-            </a>
+            </HashLink>
           </div>
         </div>
       )}
