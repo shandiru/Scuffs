@@ -64,9 +64,8 @@ const FindUs = () => {
       {/* ✅ Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <FaMapMarkerAlt className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
-        <FaPhoneAlt className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
-        <FaEnvelope className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
-        <FaRegClock className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
+      
+        <FaPhoneAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "5s" }} />
       </div>
 
       {/* ✅ Main content */}
