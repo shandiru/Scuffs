@@ -1,5 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
+import { FaShieldAlt, FaTools } from "react-icons/fa";
 
 const WarrantyClaimSection = () => {
   const PINK = "#E066E6";
@@ -14,8 +15,65 @@ const WarrantyClaimSection = () => {
   };
 
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: `${LIME}30` }}>
-      <div className="max-w-5xl mx-auto text-center">
+    <section
+      className="relative py-16 px-4 overflow-hidden"
+      style={{ backgroundColor: `${LIME}30` }}
+    >
+      {/* 🔹 Background styles */}
+      <style>
+        {`
+          @keyframes spinSlow {
+            0%   { transform: rotate(0deg); opacity: 0.25; }
+            100% { transform: rotate(360deg); opacity: 0.25; }
+          }
+          .bg-icon {
+            position: absolute;
+            color: ${PINK};
+            animation: spinSlow 42s linear infinite;
+            filter: drop-shadow(0 0 12px rgba(224,102,230,0.4));
+            z-index: 0;
+            pointer-events: none;
+          }
+          @media (max-width: 768px) {
+            .bg-icon {
+              width: 2rem !important;
+              height: 2rem !important;
+              animation-duration: 24s;
+              opacity: 0.15;
+            }
+          }
+        `}
+      </style>
+
+      {/* ✅ Dotted lime background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          maskImage:
+            "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+        }}
+      />
+
+      {/* ✅ Floating background icons */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <FaShieldAlt
+          className="bg-icon w-24 h-24 top-10 left-12"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaTools
+          className="bg-icon w-20 h-20 bottom-14 right-14"
+          style={{ animationDelay: "10s" }}
+        />
+      </div>
+
+      {/* ✅ Foreground content */}
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900">
           Warranty Claims & Support
