@@ -59,17 +59,10 @@ const PanelRestoration = () => {
           className="bg-icon w-24 h-24 top-8 left-8"
           style={{ animationDelay: "0s" }}
         />
-        <FaTools
-          className="bg-icon w-20 h-20 top-1/3 right-10"
-          style={{ animationDelay: "6s" }}
-        />
-        <FaHammer
-          className="bg-icon w-20 h-20 bottom-1/3 left-12"
-          style={{ animationDelay: "12s" }}
-        />
+      
         <FaRulerCombined
           className="bg-icon w-24 h-24 bottom-8 right-8"
-          style={{ animationDelay: "18s" }}
+          style={{ animationDelay: "4s" }}
         />
       </div>
 

@@ -54,13 +54,10 @@ const PanelTransformation = () => {
 
       {/* ✅ Background icons (2 only) */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaClipboardCheck
-          className="bg-icon w-20 h-20 top-12 left-12"
-          style={{ animationDelay: "0s" }}
-        />
+       
         <FaPhoneAlt
           className="bg-icon w-24 h-24 bottom-10 right-12"
-          style={{ animationDelay: "12s" }}
+          style={{ animationDelay: "4s" }}
         />
       </div>
 

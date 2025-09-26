@@ -99,21 +99,14 @@ const PanelRepairs = () => {
 
       {/* ✅ Animated panel-repair themed icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaCarCrash
+        <FaTools
           className="bg-icon w-24 h-24 top-12 left-10"
           style={{ animationDelay: "0s" }}
         />
-        <FaTools
-          className="bg-icon w-20 h-20 top-1/3 right-12"
-          style={{ animationDelay: "6s" }}
-        />
+       
         <FaHammer
-          className="bg-icon w-20 h-20 bottom-1/3 left-14"
-          style={{ animationDelay: "12s" }}
-        />
-        <FaRulerCombined
           className="bg-icon w-24 h-24 bottom-10 right-8"
-          style={{ animationDelay: "18s" }}
+          style={{ animationDelay: "4s" }}
         />
       </div>
 

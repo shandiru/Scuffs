@@ -54,14 +54,11 @@ const ServiceCards = () => {
 
       {/* ✅ Only 2 animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaTools
+        <FaCarCrash
           className="bg-icon w-20 h-20 top-10 left-10"
           style={{ animationDelay: "0s" }}
         />
-        <FaCarCrash
-          className="bg-icon w-24 h-24 bottom-12 right-12"
-          style={{ animationDelay: "10s" }}
-        />
+       
       </div>
 
       {/* ✅ Content */}
