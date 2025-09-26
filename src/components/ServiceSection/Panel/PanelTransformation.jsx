@@ -1,11 +1,20 @@
 // File: PanelTransformation.jsx
 "use client";
 import React from "react";
-import { FaPhoneAlt, FaClipboardCheck } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { HashLink } from "react-router-hash-link";
 
 const PanelTransformation = () => {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // Offset so the fixed header doesn’t overlap the contact form
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if your header height is different
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section
@@ -52,9 +61,8 @@ const PanelTransformation = () => {
         }}
       />
 
-      {/* ✅ Background icons (2 only) */}
+      {/* ✅ Background icon */}
       <div className="absolute inset-0 overflow-hidden z-0">
-       
         <FaPhoneAlt
           className="bg-icon w-24 h-24 bottom-10 right-12"
           style={{ animationDelay: "4s" }}
@@ -63,7 +71,6 @@ const PanelTransformation = () => {
 
       {/* ✅ Content */}
       <div className="relative max-w-4xl mx-auto text-center z-10">
-        {/* Heading */}
         <h2 className="text-3xl font-bold mb-4 text-gray-900">
           Professional Panel Repair Services
         </h2>
@@ -73,9 +80,12 @@ const PanelTransformation = () => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Primary CTA */}
-          <button
-            className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md px-8 py-3 text-lg shadow-sm transition-all"
+          {/* Primary CTA → scrolls to Contact */}
+          <HashLink
+            smooth
+            to="/#contact"
+            scroll={scrollWithOffset}
+            className="inline-flex items-center justify-center gap-2 font-medium h-12 rounded-md px-8 text-lg shadow-sm transition-all"
             style={{ backgroundColor: PINK, color: "#fff" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = LIME;
@@ -87,12 +97,12 @@ const PanelTransformation = () => {
             }}
           >
             Book Inspection
-          </button>
+          </HashLink>
 
           {/* Secondary CTA */}
           <a
             href="tel:+447776300300"
-            className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md px-8 py-3 text-lg border transition-all shadow-sm"
+            className="inline-flex items-center justify-center gap-2 font-medium h-12 rounded-md text-lg px-8 border transition-all shadow-sm"
             style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = LIME;

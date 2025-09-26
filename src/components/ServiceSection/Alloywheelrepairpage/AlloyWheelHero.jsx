@@ -2,10 +2,19 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 export default function AlloyWheelHero() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // custom scroll offset so header doesn't cover section
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if header height changes
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="w-full bg-white mt-25">
@@ -44,8 +53,11 @@ export default function AlloyWheelHero() {
           Professional restoration of damaged alloy wheels, from minor scuffs to major damage
         </p>
 
-        {/* CTA Button */}
-        <button
+        {/* CTA Button → scrolls to contact */}
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
           className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md text-lg px-8 py-3 transition"
           style={{
             backgroundColor: LIME,
@@ -63,7 +75,7 @@ export default function AlloyWheelHero() {
           }}
         >
           Get Free Quote
-        </button>
+        </HashLink>
       </div>
     </section>
   );

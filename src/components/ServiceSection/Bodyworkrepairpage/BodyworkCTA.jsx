@@ -1,7 +1,18 @@
 // File: BodyworkCTA.jsx
+"use client";
+import { HashLink } from "react-router-hash-link";
+
 export default function BodyworkCTA() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset for header
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if header height changes
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F1FAF1" }}>
@@ -18,9 +29,12 @@ export default function BodyworkCTA() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Book Assessment Button */}
-          <button
-            className="font-semibold px-8 py-3 rounded-md text-lg transition shadow-sm"
+          {/* Book Assessment Button → scrolls to contact */}
+          <HashLink
+            smooth
+            to="/#contact"
+            scroll={scrollWithOffset}
+            className="font-semibold rounded-md text-lg px-8 h-12 flex items-center justify-center transition shadow-sm"
             style={{
               backgroundColor: PINK,
               color: "#fff",
@@ -35,12 +49,12 @@ export default function BodyworkCTA() {
             }}
           >
             Book Assessment
-          </button>
+          </HashLink>
 
           {/* Call Button */}
           <a
             href="tel:+447776300300"
-            className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md text-lg px-8 py-3 border transition shadow-sm"
+            className="inline-flex items-center justify-center gap-2 font-medium rounded-md text-lg px-8 h-12 border transition shadow-sm"
             style={{
               borderColor: PINK,
               color: PINK,

@@ -1,11 +1,20 @@
-// src/components/AlloyWheelHero.jsx
+// src/components/AlloyWheelHero.jsx (actually PanelHeader)
 "use client";
 
 import { ArrowLeft } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 export default function PanelHeader() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset so fixed header doesn’t overlap contact form
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if header height changes
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="w-full bg-white mt-25">
@@ -41,9 +50,12 @@ export default function PanelHeader() {
           Comprehensive panel repair services for all types of vehicle damage
         </p>
 
-        {/* CTA Button */}
-        <button
-          className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md text-lg px-8 py-3 transition shadow-sm"
+        {/* CTA Button → scrolls to Contact */}
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
+          className="inline-flex items-center justify-center gap-2 font-medium text-lg px-8 h-12 rounded-md transition shadow-sm"
           style={{ backgroundColor: LIME, color: "#000" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "#fff";
@@ -57,7 +69,7 @@ export default function PanelHeader() {
           }}
         >
           Schedule Inspection
-        </button>
+        </HashLink>
       </div>
     </section>
   );

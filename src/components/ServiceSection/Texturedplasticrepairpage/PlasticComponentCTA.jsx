@@ -1,7 +1,18 @@
 // File: PlasticComponentCTA.jsx
+"use client";
+import { HashLink } from "react-router-hash-link";
+
 export default function PlasticComponentCTA() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset so fixed header doesn’t overlap
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if header height changes
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F3FBF3" }}>
@@ -16,9 +27,12 @@ export default function PlasticComponentCTA() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Get Quote Button */}
-          <button
-            className="inline-flex items-center justify-center gap-2 font-medium transition-all h-10 rounded-md text-lg px-8 py-3 shadow-sm"
+          {/* Get Quote Button → scrolls to Contact */}
+          <HashLink
+            smooth
+            to="/#contact"
+            scroll={scrollWithOffset}
+            className="inline-flex items-center justify-center gap-2 font-medium transition-all h-12 rounded-md text-lg px-8 shadow-sm"
             style={{ backgroundColor: PINK, color: "#fff" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = LIME;
@@ -30,12 +44,12 @@ export default function PlasticComponentCTA() {
             }}
           >
             Get Quote
-          </button>
+          </HashLink>
 
           {/* Call Button */}
           <a
             href="tel:+447776300300"
-            className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md text-lg px-8 py-3 border transition-all shadow-sm"
+            className="inline-flex items-center justify-center gap-2 font-medium h-12 rounded-md text-lg px-8 border transition-all shadow-sm"
             style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = LIME;

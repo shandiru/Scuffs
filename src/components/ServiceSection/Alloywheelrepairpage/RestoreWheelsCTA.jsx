@@ -1,7 +1,18 @@
 // File: RestoreWheelsCTA.jsx
+"use client";
+import { HashLink } from "react-router-hash-link";
+
 export default function RestoreWheelsCTA() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset so header doesn’t cover section
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust to match your header height
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F5FFF7" }}>
@@ -14,8 +25,11 @@ export default function RestoreWheelsCTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Free Quote Button */}
-          <button
+          {/* Free Quote Button → scrolls to contact */}
+          <HashLink
+            smooth
+            to="/#contact"
+            scroll={scrollWithOffset}
             className="inline-flex items-center justify-center gap-2 font-medium shadow-sm transition h-10 rounded-md text-lg px-8 py-3"
             style={{
               backgroundColor: PINK,
@@ -31,7 +45,7 @@ export default function RestoreWheelsCTA() {
             }}
           >
             Get Free Quote
-          </button>
+          </HashLink>
 
           {/* Call Button */}
           <a

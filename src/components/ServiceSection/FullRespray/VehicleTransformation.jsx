@@ -37,7 +37,7 @@ const VehicleTransformation = () => {
         `}
       </style>
 
-      {/* ✅ Dotted overlay background */}
+      {/* ✅ Dotted overlay */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
         style={{
@@ -52,7 +52,7 @@ const VehicleTransformation = () => {
         }}
       />
 
-      {/* ✅ Background icons (content-related) */}
+      {/* ✅ Floating icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <FaPalette
           className="bg-icon w-24 h-24 top-12 left-12"
@@ -66,7 +66,6 @@ const VehicleTransformation = () => {
 
       {/* ✅ Foreground content */}
       <div className="relative max-w-4xl mx-auto text-center z-10">
-        {/* Heading */}
         <h2 className="text-3xl font-bold mb-4 text-gray-900">
           Transform Your Vehicle Today
         </h2>
@@ -74,18 +73,20 @@ const VehicleTransformation = () => {
           Professional full respray services with color consultation
         </p>
 
-        {/* CTA Buttons */}
+        {/* ✅ CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Book Consultation */}
           <button
-            className="inline-flex items-center justify-center gap-2 font-medium h-10 rounded-md px-8 py-3 text-lg text-white shadow-md transition-all duration-300"
-            style={{ backgroundColor: PINK }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#c850c0")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = PINK)
-            }
+            className="inline-flex items-center justify-center gap-2 font-semibold rounded-md px-8 h-12 text-lg shadow-md transition-all duration-300"
+            style={{ backgroundColor: PINK, color: "#fff" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = PINK;
+              e.currentTarget.style.color = "#fff";
+            }}
           >
             Book Consultation
           </button>
@@ -93,8 +94,16 @@ const VehicleTransformation = () => {
           {/* Call Button */}
           <a
             href="tel:+447776300300"
-            className="inline-flex items-center justify-center gap-2 font-medium border bg-white text-gray-800 hover:bg-gray-100 transition h-10 rounded-md text-lg px-8 py-3 shadow-sm"
-            style={{ borderColor: PINK }}
+            className="inline-flex items-center justify-center gap-2 font-medium rounded-md px-8 h-12 text-lg border transition-all shadow-sm"
+            style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#fff";
+              e.currentTarget.style.color = PINK;
+            }}
           >
             <FaPhoneAlt className="text-[#E066E6]" /> Call +44 7776 300300
           </a>

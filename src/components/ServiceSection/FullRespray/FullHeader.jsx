@@ -1,9 +1,20 @@
+// File: FullHeader.jsx
+"use client";
+
 import React from "react";
 import { ArrowLeft } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 export default function FullHeader() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // Offset so sticky header doesn’t overlap contact form
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust this if your navbar height differs
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="w-full bg-white mt-25">
@@ -41,10 +52,12 @@ export default function FullHeader() {
           Complete vehicle respraying services with professional paint matching
         </p>
 
-        {/* Button */}
-        <a
-          href="#quote"
-          className="inline-block font-semibold px-6 py-3 rounded-md shadow-md transition"
+        {/* CTA Button → scroll to Contact */}
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
+          className="inline-flex items-center justify-center font-semibold rounded-md shadow-md transition-all px-8 h-12 text-lg"
           style={{ backgroundColor: LIME, color: "#000" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "#fff";
@@ -58,7 +71,7 @@ export default function FullHeader() {
           }}
         >
           Get Color Consultation
-        </a>
+        </HashLink>
       </div>
     </section>
   );

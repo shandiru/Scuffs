@@ -1,9 +1,18 @@
 import { ArrowLeft } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 // File: TexturedPlasticRepairs.jsx
 export default function TexturedPlasticRepairs() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset so fixed header doesn’t overlap
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust based on header height
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="w-full bg-white mt-25">
@@ -42,9 +51,12 @@ export default function TexturedPlasticRepairs() {
           Specialized repair and restoration of textured plastic components and trim
         </p>
 
-        {/* Button */}
-        <button
-          className="font-semibold px-8 py-3 rounded-md text-lg transition shadow-sm"
+        {/* CTA Button → scrolls to Contact */}
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
+          className="font-semibold text-lg px-8 h-12 rounded-md transition shadow-sm inline-flex items-center justify-center"
           style={{
             backgroundColor: LIME,
             color: "#000",
@@ -61,7 +73,7 @@ export default function TexturedPlasticRepairs() {
           }}
         >
           Get Expert Quote
-        </button>
+        </HashLink>
       </div>
     </section>
   );

@@ -1,8 +1,17 @@
-import React from 'react';
+import React from "react";
+import { HashLink } from "react-router-hash-link";
 
 const WarrantyClaimSection = () => {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // Offset so sticky header doesn’t overlap
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust if your header height differs
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="py-16 px-4" style={{ backgroundColor: `${LIME}30` }}>
@@ -18,19 +27,38 @@ const WarrantyClaimSection = () => {
 
         {/* Actions */}
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-          <button
-            className="bg-pink-600 text-white font-medium py-3 px-8 rounded-md shadow-md 
-                       hover:bg-pink-700 hover:scale-105 transition-all"
-            style={{ backgroundColor: PINK }}
+          {/* File Claim → goes to Contact section */}
+          <HashLink
+            smooth
+            to="/#contact"
+            scroll={scrollWithOffset}
+            className="inline-flex items-center justify-center font-semibold rounded-md shadow-md transition-all px-8 h-12 text-lg"
+            style={{ backgroundColor: PINK, color: "#fff" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = PINK;
+              e.currentTarget.style.color = "#fff";
+            }}
           >
             File Warranty Claim
-          </button>
+          </HashLink>
 
+          {/* Call Button */}
           <a
             href="tel:+447776300300"
-            className="inline-flex items-center justify-center gap-2 font-medium 
-                       border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 
-                       hover:scale-105 transition-all rounded-md text-lg px-8 py-3 shadow-sm"
+            className="inline-flex items-center justify-center gap-2 font-medium rounded-md border shadow-sm transition-all px-8 h-12 text-lg"
+            style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = LIME;
+              e.currentTarget.style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#fff";
+              e.currentTarget.style.color = PINK;
+            }}
           >
             Call +44 7776 300300
           </a>

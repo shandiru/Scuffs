@@ -1,9 +1,18 @@
 import { ArrowLeft } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 // File: BodyworkRepairHero.jsx
 export default function BodyworkRepairHero() {
   const PINK = "#E066E6";
   const LIME = "#CCFF66";
+
+  // offset so fixed header doesn’t overlap
+  const scrollWithOffset = (el) => {
+    const yOffset = -80; // adjust to match your header height
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <section className="text-white mt-25">
@@ -43,9 +52,12 @@ export default function BodyworkRepairHero() {
           original condition
         </p>
 
-        {/* CTA Button */}
-        <button
-          className="font-semibold text-lg px-8 py-3 rounded-md transition"
+        {/* CTA Button → scroll to Contact */}
+        <HashLink
+          smooth
+          to="/#contact"
+          scroll={scrollWithOffset}
+          className="font-semibold text-lg px-8 py-3 rounded-md transition inline-flex items-center justify-center"
           style={{
             backgroundColor: LIME,
             color: "#000",
@@ -62,7 +74,7 @@ export default function BodyworkRepairHero() {
           }}
         >
           Get Free Assessment
-        </button>
+        </HashLink>
       </div>
     </section>
   );

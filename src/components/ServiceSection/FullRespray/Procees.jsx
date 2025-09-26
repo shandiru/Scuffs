@@ -62,11 +62,11 @@ const PaintProcess = () => {
 
       {/* ✅ Background icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaPalette
+        < FaShieldAlt
           className="bg-icon w-24 h-24 top-10 left-12"
           style={{ animationDelay: "0s" }}
         />
-        <FaShieldAlt
+        <FaPalette
           className="bg-icon w-20 h-20 bottom-10 right-12"
           style={{ animationDelay: "8s" }}
         />
