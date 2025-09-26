@@ -11,6 +11,7 @@ export default function GallerySection() {
     { before: "/s1-before.jpeg", after: "/s1-after.jpeg" },
     { before: "/s2-before.jpeg", after: "/s2-after.jpeg" },
     { before: "/s3-before.jpeg", after: "/s3-after.jpeg" },
+    { before: "/before.jpg", after: "/after.jpg" },
   ];
 
   const [index, setIndex] = useState(0);

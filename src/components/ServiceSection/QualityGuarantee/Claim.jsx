@@ -91,18 +91,19 @@ const WarrantyClaimSection = () => {
             to="/#contact"
             scroll={scrollWithOffset}
             className="inline-flex items-center justify-center font-semibold rounded-md shadow-md transition-all px-8 h-12 text-lg"
-            style={{ backgroundColor: PINK, color: "#fff" }}
+            style={{ backgroundColor: LIME, color: "#000" }}  // Initial state with LIME background and black text
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = LIME;
-              e.currentTarget.style.color = "#000";
+              e.currentTarget.style.backgroundColor = PINK;  // On hover, change background to PINK
+              e.currentTarget.style.color = "#fff";           // On hover, change text color to white
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = PINK;
-              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.backgroundColor = LIME;  // On mouse leave, change background back to LIME
+              e.currentTarget.style.color = "#000";           // On mouse leave, change text color back to black
             }}
           >
             File Warranty Claim
           </HashLink>
+
 
           {/* Call Button */}
           <a

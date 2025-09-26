@@ -1,37 +1,63 @@
 import React from "react";
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
   const PINK = "#E066E6"; // brand pink/purple
 
   return (
-    <footer className="py-12 text-white" style={{ backgroundColor: PINK }}>
+    <footer className="py-12 text-black bg-[#CCFF66]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo & About */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img
-                alt="Scuffs ETC Logo"
-                loading="lazy"
-                width={50}
-                height={50}
-                className="rounded-full"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-04%20at%2010.17.28-7BtJyWo0GqimugLwXkylWWH2UjhT9F.jpeg"
-              />
-              <div>
-                <h3 className="font-space-grotesk font-bold text-xl">Scuffs ETC</h3>
-                <p className="font-dm-sans text-sm opacity-90">
-                  Vehicle Body Repair Specialist
-                </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <img
+                  alt="Scuffs ETC Logo"
+                  loading="lazy"
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-04%20at%2010.17.28-7BtJyWo0GqimugLwXkylWWH2UjhT9F.jpeg"
+                />
+                <div>
+                  <h3 className="font-space-grotesk font-bold text-xl">Scuffs ETC</h3>
+                  <p className="font-dm-sans text-sm opacity-90">
+                    Vehicle Body Repair Specialist
+                  </p>
+                </div>
+              </div>
+
+              <p className="font-dm-sans text-sm opacity-90 max-w-sm leading-6">
+                Professional vehicle body repair services in Sheffield. Restoring your
+                vehicle to perfection with quality craftsmanship and attention to detail.
+              </p>
+
+              {/* Social Media Icons */}
+              <div className="flex mt-4 gap-4">
+                {/* Facebook Icon */}
+                <a
+                  href="https://web.facebook.com/scuffs.etc?_rdc=1&_rdr#" // Replace with actual Facebook page URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white bg-[#E066E6] p-3 rounded-full hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaFacebookF size={24} />
+                </a>
+
+                {/* Instagram Icon */}
+                <a
+                  href="https://www.instagram.com/scuffs_etc_ltd" // Replace with actual Instagram page URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white bg-[#E066E6] p-3 rounded-full hover:text-pink-600 transition-colors duration-200"
+                >
+                  <FaInstagram size={24} />
+                </a>
               </div>
             </div>
 
-            <p className="font-dm-sans text-sm opacity-90 max-w-sm leading-6">
-              Professional vehicle body repair services in Sheffield. Restoring your
-              vehicle to perfection with quality craftsmanship and attention to detail.
-            </p>
           </div>
-
           {/* Services */}
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Services</h4>
@@ -77,8 +103,9 @@ export default function Footer() {
                   info@scuffsetc.co.uk
                 </a>
               </p>
-              <p>Mon–Fri: 8AM–6PM</p>
-              <p>Sat: 9AM–4PM</p>
+              <p>Mon–Fri: 7:30 AM–5:00 PM</p>
+              <p>Sat: Closed</p>
+              <p>Sun: Closed</p>
             </address>
           </div>
         </div>

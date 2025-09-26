@@ -33,18 +33,22 @@ export default function PlasticComponentCTA() {
             to="/#contact"
             scroll={scrollWithOffset}
             className="inline-flex items-center justify-center gap-2 font-medium transition-all h-12 rounded-md text-lg px-8 shadow-sm"
-            style={{ backgroundColor: PINK, color: "#fff" }}
+            style={{
+              backgroundColor: LIME,  // Start with LIME as the background color
+              color: "#000",          // Start with black text color
+            }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = LIME;
-              e.currentTarget.style.color = "#000";
+              e.currentTarget.style.backgroundColor = PINK;  // On hover, change background to PINK
+              e.currentTarget.style.color = "#fff";           // On hover, change text color to white
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = PINK;
-              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.backgroundColor = LIME;  // On mouse leave, change background back to LIME
+              e.currentTarget.style.color = "#000";           // On mouse leave, change text color back to black
             }}
           >
             Get Quote
           </HashLink>
+
 
           {/* Call Button */}
           <a
