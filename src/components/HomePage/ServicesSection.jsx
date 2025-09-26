@@ -196,13 +196,14 @@ export default function OurServices() {
                   <button
                     type="button"
                     className="w-full h-9 px-4 py-2 inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium
-                               bg-[#E066E6] text-white shadow-sm transition-all duration-200 hover:bg-[#CCFF66] hover:text-black hover:scale-[1.02]
+                               bg-[#CCFF66] text-black shadow-sm transition-all duration-200 hover:bg-[#E066E6] hover:text-white hover:scale-[1.02]
                                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E066E6]/40"
                   >
                     Learn More
                   </button>
                 </a>
               </div>
+             
             </article>
           ))}
         </div>
