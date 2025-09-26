@@ -32,7 +32,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Services (link to sections on the page) */}
+          {/* Services */}
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Services</h4>
             <ul className="font-dm-sans text-sm space-y-2 opacity-90">
@@ -49,7 +49,6 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-space-grotesk font-bold text-lg">Contact</h4>
             <address className="not-italic font-dm-sans text-sm space-y-2 opacity-90">
-              {/* Link to Google Maps */}
               <p>
                 <a
                   href="https://www.google.com/maps?q=Unit+7%2CElliot+Business+Park%2C+Chambers+Ln%2C+Sheffield+S4+8DA%2C+United+Kingdom"
@@ -60,8 +59,6 @@ export default function Footer() {
                   Unit 7, Elliot Business Park, Chambers Ln, Sheffield S4 8DA, United Kingdom
                 </a>
               </p>
-
-              {/* Phone (clickable) */}
               <p>
                 <a
                   href="tel:+44 7776 300300"
@@ -71,8 +68,6 @@ export default function Footer() {
                   +44 7776 300300
                 </a>
               </p>
-
-              {/* Email (clickable) */}
               <p>
                 <a
                   href="mailto:info@scuffsetc.co.uk"
@@ -82,7 +77,6 @@ export default function Footer() {
                   info@scuffsetc.co.uk
                 </a>
               </p>
-
               <p>Mon–Fri: 8AM–6PM</p>
               <p>Sat: 9AM–4PM</p>
             </address>
@@ -91,11 +85,22 @@ export default function Footer() {
 
         {/* Divider & bottom note */}
         <div
-          className="mt-8 pt-8 text-center"
+          className="mt-8 pt-8 text-center space-y-2"
           style={{ borderTop: "1px solid rgba(255,255,255,0.2)" }}
         >
           <p className="font-dm-sans text-sm opacity-90">
             © 2025 Scuffs ETC. All rights reserved. | Vehicle Body Repair Specialist
+          </p>
+          <p className="font-dm-sans text-sm opacity-90">
+            Powered by{" "}
+            <a
+              href="https://www.ansely.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 hover:text-gray-200 transition-colors"
+            >
+              Ansely
+            </a>
           </p>
         </div>
       </div>

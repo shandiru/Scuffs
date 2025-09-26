@@ -105,9 +105,15 @@ export default function GallerySection() {
       />
 
       {/* ✅ Floating animated icons */}
+       <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
       <div className="absolute inset-0 overflow-hidden z-0">
-        <FaWrench className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
-        <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+        <img
+          src="/spray.png"
+          alt="Spray Gun Background"
+          className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
+          style={{ animationDelay: "0s" }}
+        />
+       
         <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
         <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>

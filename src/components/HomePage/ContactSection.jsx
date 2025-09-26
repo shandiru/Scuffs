@@ -29,8 +29,8 @@ export default function ContactSection() {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
-      once: false, // run every time
-      mirror: true, // also on scroll up
+      once: false,
+      mirror: true,
     });
   }, []);
 
@@ -63,11 +63,19 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 bg-background relative overflow-hidden"
-    >
-      {/* ✅ Background styles */}
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* 🎨 Fix blue hover on <option> */}
+      <style>
+        {`
+          select option:hover,
+          select option:focus {
+            background-color: ${PINK} !important;
+            color: #fff !important;
+          }
+        `}
+      </style>
+
+      {/* 🎨 Floating background effect */}
       <style>
         {`
           @keyframes pulseSpin {
@@ -95,7 +103,7 @@ export default function ContactSection() {
         `}
       </style>
 
-      {/* ✅ Dotted background */}
+      {/* 🟢 Dotted pattern */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
         style={{
@@ -110,7 +118,7 @@ export default function ContactSection() {
         }}
       />
 
-      {/* ✅ Floating animated icons */}
+      {/* ✨ Floating icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <FaPhoneAlt className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
         <FaEnvelope className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
@@ -118,29 +126,24 @@ export default function ContactSection() {
         <FaRegClock className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
-      {/* ✅ Main content above background */}
+      {/* Main content */}
       <div className="container mx-auto px-4 md:px-20 relative z-10">
         <div className="text-center mb-16">
           <h2
             className="font-bold text-4xl md:text-5xl mb-4"
             style={{ color: PINK }}
-            data-aos="fade-up"
           >
             Get In Touch
           </h2>
-          <p
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to restore your vehicle? Contact us for a free quote and
             professional consultation.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info Card */}
-          <div className="space-y-6" data-aos="fade-right">
+          {/* Info card */}
+          <div className="space-y-6">
             {[
               {
                 label: "Phone",
@@ -164,32 +167,29 @@ export default function ContactSection() {
                 label: "Hours",
                 icon: <FaRegClock />,
                 value: "Mon–Fri: 8AM–6PM, Sat: 9AM–4PM",
-                href: null,
               },
             ].map((item, i) => (
-              <div key={i} className="flex items-center space-x-4" data-aos="fade-up" data-aos-delay={i * 150}>
+              <div key={i} className="flex items-center space-x-4">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: `${LIME}55` }}
+                  style={{ backgroundColor: `${LIME}40` }}
                 >
                   <div style={{ color: PINK }}>{item.icon}</div>
                 </div>
                 <div>
-                  <p className="font-semibold text-card-foreground">
-                    {item.label}
-                  </p>
+                  <p className="font-semibold text-gray-800">{item.label}</p>
                   {item.href ? (
                     <a
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:underline"
                       style={{ color: PINK }}
+                      className="hover:underline"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-muted-foreground">{item.value}</p>
+                    <p className="text-gray-600">{item.value}</p>
                   )}
                 </div>
               </div>
@@ -197,80 +197,81 @@ export default function ContactSection() {
           </div>
 
           {/* Form */}
-          <div
-            className="rounded-xl border p-6 shadow-sm bg-card"
-            style={{ borderColor: PINK }}
-            data-aos="fade-left"
-          >
+          <div className="rounded-xl p-8 shadow-xl bg-white/95 backdrop-blur-sm">
             <h3 className="text-2xl font-bold mb-4">
               Request a Quote <br />
-              <span className="text-base font-normal">
+              <span className="text-base font-normal text-gray-500">
                 Pop by between 9 AM and 1 PM to get a free quote!
               </span>
             </h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div data-aos="fade-up">
-                  <label>First Name*</label>
+                <div>
+                  <label className="text-sm font-medium">First Name*</label>
                   <input
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
                     placeholder="John"
-                    className="w-full border rounded px-3 py-2"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                   />
                   {errors.firstName && (
                     <p className="text-red-500 text-sm">{errors.firstName}</p>
                   )}
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                  <label>Last Name*</label>
+                <div>
+                  <label className="text-sm font-medium">Last Name*</label>
                   <input
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
                     placeholder="Doe"
-                    className="w-full border rounded px-3 py-2"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                   />
                   {errors.lastName && (
                     <p className="text-red-500 text-sm">{errors.lastName}</p>
                   )}
                 </div>
               </div>
-              <div data-aos="fade-up" data-aos-delay="200">
-                <label>Email*</label>
+
+              <div>
+                <label className="text-sm font-medium">Email*</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">{errors.email}</p>
                 )}
               </div>
-              <div data-aos="fade-up" data-aos-delay="300">
-                <label>Phone*</label>
+
+              <div>
+                <label className="text-sm font-medium">Phone*</label>
                 <input
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm">{errors.phone}</p>
                 )}
               </div>
-              <div data-aos="fade-up" data-aos-delay="400">
-                <label>Service Required*</label>
+
+              <div>
+                <label className="text-sm font-medium">Service Required*</label>
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border border-gray-300 rounded px-3 py-2 
+                             focus:outline-none focus:ring-2 focus:ring-[#E066E6] 
+                             bg-white text-gray-800"
                 >
-                  <option>Select a service</option>
+                  <option value="">Select a service</option>
                   <option>Alloy Wheel Repair</option>
                   <option>Bodywork Scuffs, Cracks and Dents</option>
                   <option>Textured Plastic Repairs</option>
@@ -281,33 +282,28 @@ export default function ContactSection() {
                   <p className="text-red-500 text-sm">{errors.service}</p>
                 )}
               </div>
-              <div data-aos="fade-up" data-aos-delay="500">
-                <label>Message*</label>
+
+              <div>
+                <label className="text-sm font-medium">Message*</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm">{errors.message}</p>
                 )}
               </div>
+
               <button
                 type="submit"
-                className="w-full py-2 rounded-md font-medium"
-                style={{ backgroundColor: PINK, color: "#fff" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = LIME;
-                  e.currentTarget.style.color = "#000";
+                className="w-full py-3 rounded-md font-semibold transition-all duration-300"
+                style={{
+                  backgroundImage: `linear-gradient(90deg, ${PINK}, ${LIME})`,
+                  color: "#000",
                 }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = PINK;
-                  e.currentTarget.style.color = "#fff";
-                }}
-                data-aos="zoom-in"
-                data-aos-delay="600"
               >
                 Send via WhatsApp
               </button>
