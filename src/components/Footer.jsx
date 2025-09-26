@@ -92,6 +92,15 @@ export default function Footer() {
             © 2025 Scuffs ETC. All rights reserved. | Vehicle Body Repair Specialist
           </p>
           <p className="font-dm-sans text-sm opacity-90">
+            <a href="/terms-conditions" className="underline underline-offset-4 hover:text-gray-200 transition-colors">
+              Terms &amp; Conditions
+            </a>{" "}
+            |{" "}
+            <a href="/privacy-policy" className="underline underline-offset-4 hover:text-gray-200 transition-colors">
+              Privacy Policy
+            </a>
+          </p>
+          <p className="font-dm-sans text-sm opacity-90">
             Powered by{" "}
             <a
               href="https://www.ansely.co.uk/"

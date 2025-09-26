@@ -9,7 +9,10 @@ import FullRespray from "./page/FullRespray";
 import Bodywork from "./page/Bodyworkrepairpage";
 import Textured from "./page/Texturedplasticrepairpage";
 import PanelDamage from "./page/PanelDamage";
+import TermsConditions from "./components/Term";
 
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <Router>
@@ -23,6 +26,8 @@ function App() {
           <Route path="/services/panel-damage" element={<PanelDamage />} />
           <Route path="/services/full-respray" element={<FullRespray />} />
           <Route path="/services/quality-guarantee" element={<Quality />} />
+           <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />
