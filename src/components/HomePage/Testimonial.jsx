@@ -163,7 +163,7 @@ const Testimonials = () => {
       {/* Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div
-          className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 bg-lime-400 rounded-full flex items-center justify-center"
+          className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52  rounded-full flex items-center justify-center"
           style={{ animationDelay: "0s" }}
         >
           <FaMagic className="w-1/2 h-1/2 text-pink-500" />

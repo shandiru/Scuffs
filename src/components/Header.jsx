@@ -13,16 +13,15 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onResize = () => window.innerWidth >= 768 && setOpen(false);
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Custom scroll offset so fixed header doesn't overlap the section
+  // Custom scroll offset so fixed header doesn't overlap section
   const scrollWithOffset = (el) => {
     const yOffset = -80; // adjust based on header height
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
@@ -52,7 +51,7 @@ export default function Header() {
         </div>
 
         {/* Center: Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-8">
           {LINKS.map((l) => (
             <HashLink
               key={l.href}
@@ -71,32 +70,28 @@ export default function Header() {
           smooth
           to="/#contact"
           scroll={scrollWithOffset}
-          className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md 
+          className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md 
                      text-sm font-medium h-9 px-4 py-2 shadow-xs transition-colors
                      bg-[#b30086] hover:bg-[#990074] text-white font-dm-sans"
         >
           Get Free Quote
         </HashLink>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger (shows below 1024px) */}
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md
+          className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md
                      text-gray-700 hover:bg-gray-100 focus-visible:outline-none
                      focus-visible:ring-2 focus-visible:ring-[#d34ab6]"
         >
-          {open ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="lg:hidden border-t border-gray-200 bg-white">
           <nav className="px-4 py-3 flex flex-col space-y-1">
             {LINKS.map((l) => (
               <HashLink
