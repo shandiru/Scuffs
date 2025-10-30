@@ -42,7 +42,7 @@ export default function Header() {
           />
           <div>
             <h1 className="font-space-grotesk font-bold text-xl text-gray-900">
-              Scuffs ETC
+              Scuffs LTD
             </h1>
             <p className="font-dm-sans text-sm text-gray-500">
               Vehicle Body Repair Specialist

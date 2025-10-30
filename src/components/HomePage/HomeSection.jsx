@@ -34,9 +34,9 @@ export default function HomeSection() {
           data-aos="zoom-in"
           data-aos-delay="200"
         >
-          Revive Your Ride with{" "}
+         
           <span className="text-[#CCFF66]">Scuffs</span>{" "}
-          <span className="text-[#E066E6]">ETC</span>
+          <span className="text-[#E066E6]">LTD</span>
         </h1>
 
         <p

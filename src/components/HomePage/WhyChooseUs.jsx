@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { FaCarCrash } from "react-icons/fa";
 import { GiCarDoor } from "react-icons/gi";
-import { MdBuild, MdFormatPaint } from "react-icons/md";
+import { MdFormatPaint } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -22,9 +22,9 @@ export default function WhyChooseUs() {
       desc: "Professional paintwork designed to match or refresh your vehicle.",
     },
     {
-      icon: <MdBuild className="text-[40px]" />,
-      title: "Motor Works",
-      desc: "Trusted technicians keeping your car reliable and road-ready.",
+      image: "/spray.png", // ✅ use your image here
+      title: "Spray Gun Works",
+      desc: "Trusted technicians keeping your car in shape.",
     },
     {
       icon: <FaCarCrash className="text-[40px]" />,
@@ -37,8 +37,8 @@ export default function WhyChooseUs() {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
-      once: false, // run every scroll down
-      mirror: true, // run on scroll up
+      once: false,
+      mirror: true,
     });
   }, []);
 
@@ -92,10 +92,14 @@ export default function WhyChooseUs() {
 
       {/* ✅ Floating animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <GiCarDoor className="bg-icon w-20 h-20 top-8 left-8" style={{ animationDelay: "0s" }} />
-        {/* <MdFormatPaint className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
-        <MdBuild className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} /> */}
-        <FaCarCrash className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
+        <GiCarDoor
+          className="bg-icon w-20 h-20 top-8 left-8"
+          style={{ animationDelay: "0s" }}
+        />
+        <FaCarCrash
+          className="bg-icon w-24 h-24 bottom-8 right-8"
+          style={{ animationDelay: "15s" }}
+        />
       </div>
 
       {/* ✅ Main content */}
@@ -129,13 +133,21 @@ export default function WhyChooseUs() {
               data-aos-delay={index * 150}
             >
               <div
-                className="p-4 rounded-full mb-4"
+                className="w-[80px] h-[80px] rounded-full mb-4 flex items-center justify-center"
                 style={{
                   backgroundColor: LIME,
                   color: PINK,
                 }}
               >
-                {service.icon}
+                {service.image ? (
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-[65px] h-[65px] object-contain"
+                  />
+                ) : (
+                  service.icon
+                )}
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {service.title}
