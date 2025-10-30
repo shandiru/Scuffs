@@ -155,7 +155,7 @@ const TermsConditions = () => {
             </p>
             <div className="text-gray-800">
               <p>
-                <strong>Scuffs ETC</strong>
+                <strong>Scuffs LTD</strong>
               </p>
               <p>
                 Email:{" "}

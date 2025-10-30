@@ -131,7 +131,7 @@ const PrivacyPolicy = () => {
             </p>
             <div className="mt-2 text-gray-800">
               <p>
-                <strong>Scuffs ETC</strong>
+                <strong>Scuffs LTD</strong>
               </p>
               <p>
                 Email:{" "}
