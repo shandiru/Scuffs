@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                alt="Scuffs ETC Logo"
+                alt="Scuffs ETC LTD Logo"
                 loading="lazy"
                 width={50}
                 height={50}
@@ -38,7 +38,7 @@ export default function Footer() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-04%20at%2010.17.28-7BtJyWo0GqimugLwXkylWWH2UjhT9F.jpeg"
               />
               <div>
-                <h3 className="font-space-grotesk font-bold text-xl">Scuffs LTD</h3>
+                <h3 className="font-space-grotesk font-bold text-xl">Scuffs ETC LTD</h3>
                 <p className="font-dm-sans text-sm opacity-90">
                   Vehicle Body Repair Specialist
                 </p>
@@ -138,7 +138,7 @@ export default function Footer() {
           style={{ borderTop: "1px solid rgba(0,0,0,0.2)" }}
         >
           <p className="font-dm-sans text-sm opacity-90">
-            © 2025 Scuffs LTD. All rights reserved. | Vehicle Body Repair Specialist
+            © 2025 Scuffs ETC LTD. All rights reserved. | Vehicle Body Repair Specialist
           </p>
           <p className="font-dm-sans text-sm opacity-90">
             <a

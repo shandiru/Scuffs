@@ -35,7 +35,7 @@ export default function HomeSection() {
           data-aos-delay="200"
         >
          
-          <span className="text-[#CCFF66]">Scuffs</span>{" "}
+          <span className="text-[#CCFF66]">Scuffs ETC</span>{" "}
           <span className="text-[#E066E6]">LTD</span>
         </h1>
 

@@ -96,7 +96,7 @@ const TermsConditions = () => {
             <h2 className="text-2xl font-medium">3. Intellectual Property</h2>
             <p className="text-gray-700">
               All content on this website (including text, images, graphics, and
-              logos) is owned by or licensed to Scuffs ETC. You may view,
+              logos) is owned by or licensed to Scuffs ETC LTD. You may view,
               download, and print content for personal use only. You must not
               copy, reproduce, or distribute our website content without prior
               written consent.
@@ -155,7 +155,7 @@ const TermsConditions = () => {
             </p>
             <div className="text-gray-800">
               <p>
-                <strong>Scuffs LTD</strong>
+                <strong>Scuffs ETC LTD</strong>
               </p>
               <p>
                 Email:{" "}

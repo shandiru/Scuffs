@@ -32,7 +32,7 @@ Did a really nice Job of repairing and painting a decent sized scratch and dent 
   },
   {
     name: "Rob Nixon",
-    text: `Went to Scuffs Etc as they were well rated and I wasn't dissapointed. Darren and the team managed to get the dents on either side of my front bumper looking as good as new without having to remove the bumper and incur additional cost. He was friendly and honest about the process and what to expect. Couldn't fault anything and I would 100% reccomend Scuffs Etc.`,
+    text: `Went to Scuffs ETC LTD as they were well rated and I wasn't dissapointed. Darren and the team managed to get the dents on either side of my front bumper looking as good as new without having to remove the bumper and incur additional cost. He was friendly and honest about the process and what to expect. Couldn't fault anything and I would 100% reccomend Scuffs ETC LTD.`,
   },
   {
     name: "Liam Turner",
