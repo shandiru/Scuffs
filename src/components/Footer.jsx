@@ -2,7 +2,25 @@ import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
-  const PINK = "#E066E6"; // Brand accent color
+  const PINK = "#E066E6";
+
+  // 🧩 Combined services list
+  const services = [
+    { name: "Alloy Wheel Repair", link: "/services/alloy-wheel-repair" },
+    { name: "Bodywork Scuffs & Dents", link: "/services/bodywork-repair" },
+    { name: "Textured Plastic Repairs", link: "/services/textured-plastic-repair" },
+    { name: "Panel Damage", link: "/services/panel-damage" },
+    { name: "Full Respray", link: "/services/full-respray" },
+    { name: "Quality Guarantee", link: "/services/quality-guarantee" },
+
+    // 🆕 New services
+    { name: "Smart Repair", link: "/services/bodywork-repair" },
+    { name: "PDR", link: "/services/bodywork-repair" },
+    { name: "Vandal Damage", link: "/services/bodywork-repair" },
+    { name: "Crash Damage", link: "/services/panel-damage" },
+    { name: "Plastic Welding", link: "/services/textured-plastic-repair" },
+    { name: "Texture Repairs", link: "/services/textured-plastic-repair" },
+  ];
 
   return (
     <footer className="py-12 text-black bg-[#CCFF66]">
@@ -32,7 +50,7 @@ export default function Footer() {
               vehicle to perfection with quality craftsmanship and attention to detail.
             </p>
 
-            {/* Social Media Icons */}
+            {/* Social Media */}
             <div className="flex mt-4 gap-4">
               <a
                 href="https://web.facebook.com/scuffs.etc?_rdc=1&_rdr#"
@@ -54,39 +72,31 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services Section */}
+          {/* Services Section (2 columns) */}
           <div className="space-y-5">
-            <h4 className="font-space-grotesk font-bold text-lg">Services</h4>
-            <ul className="font-dm-sans text-sm space-y-3">
-              {[
-                { name: "Alloy Wheel Repair", link: "/services/alloy-wheel-repair" },
-                { name: "Bodywork Scuffs & Dents", link: "/services/bodywork-repair" },
-                { name: "Textured Plastic Repairs", link: "/services/textured-plastic-repair" },
-                { name: "Panel Damage", link: "/services/panel-damage" },
-                { name: "Full Respray", link: "/services/full-respray" },
-                { name: "Quality Guarantee", link: "/services/quality-guarantee" },
-              ].map((service, index) => (
-                <li key={index}>
-                  <a
-                    href={service.link}
-                    className="flex items-center gap-3 group hover:underline underline-offset-4 transition-all"
-                  >
-                    <div className="relative flex-shrink-0 w-7 h-7 flex items-center justify-center">
-                      <img
-                        src="/spray.png"
-                        alt="Spray Gun Icon"
-                        className="w-12 h-12 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                      />
-                      <div
-                        className="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-40 transition duration-300"
-                        style={{ backgroundColor: PINK }}
-                      ></div>
-                    </div>
-                    <span className="text-[15px] leading-none">{service.name}</span>
-                  </a>
-                </li>
+            <h4 className="font-space-grotesk font-bold text-lg text-center">Services</h4>
+            <div className="grid grid-cols-2 gap-x-8">
+              {services.map((service, index) => (
+                <a
+                  key={index}
+                  href={service.link}
+                  className="flex items-center gap-3 group hover:underline underline-offset-4 transition-all py-1"
+                >
+                  <div className="relative flex-shrink-0 w-7 h-7 flex items-center justify-center">
+                    <img
+                      src="/spray.png"
+                      alt="Spray Gun Icon"
+                      className="w-12 h-12 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    />
+                    <div
+                      className="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-40 transition duration-300"
+                      style={{ backgroundColor: PINK }}
+                    ></div>
+                  </div>
+                  <span className="text-[15px] leading-none">{service.name}</span>
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Contact Section */}
