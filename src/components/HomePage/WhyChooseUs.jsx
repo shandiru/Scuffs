@@ -13,12 +13,12 @@ export default function WhyChooseUs() {
   const services = [
     {
       icon: <GiCarDoor className="text-[40px]" />,
-      title: "Dent Removal",
+      title: "Paintless Dent Removal",
       desc: "Flawless, expert repairs to restore your car’s perfect finish.",
     },
     {
       icon: <MdFormatPaint className="text-[40px]" />,
-      title: "Custom Painting",
+      title: "Professional Painting",
       desc: "Professional paintwork designed to match or refresh your vehicle.",
     },
     {

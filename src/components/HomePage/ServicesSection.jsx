@@ -42,7 +42,7 @@ const services = [
     chips: ["Panel Replacement", "Structural Repair", "Alignment", "Reinforcement"],
   },
   {
-    title: "Full Respray",
+    title: " Full/Part Respray",
     desc: "Complete vehicle respraying services with professional paint matching.",
     href: "/services/full-respray",
     icon: <FaPalette className="h-6 w-6 text-[#E066E6]" />,

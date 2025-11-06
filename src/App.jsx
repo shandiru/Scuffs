@@ -10,9 +10,9 @@ import Bodywork from "./page/Bodyworkrepairpage";
 import Textured from "./page/Texturedplasticrepairpage";
 import PanelDamage from "./page/PanelDamage";
 import TermsConditions from "./components/Term";
-
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <Router>

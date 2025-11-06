@@ -15,6 +15,8 @@ export default function ContactSection() {
     lastName: "",
     email: "",
     phone: "",
+    date: "",
+    time: "",
     service: "",
     message: "",
   });
@@ -49,16 +51,45 @@ export default function ContactSection() {
       newErrors.email = "Valid email is required.";
     if (!formData.phone || !phoneRegex.test(formData.phone))
       newErrors.phone = "Valid UK phone number is required.";
+    if (!formData.date) newErrors.date = "Preferred date is required.";
+    if (!formData.time) newErrors.time = "Preferred time is required.";
     if (!formData.service || formData.service === "Select a service")
       newErrors.service = "Service selection is required.";
     if (!formData.message) newErrors.message = "Message is required.";
 
     setErrors(newErrors);
+
     if (Object.keys(newErrors).length === 0) {
-      const message = `*Quote Request*\n\n*Name:* ${formData.firstName} ${formData.lastName}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
+      const message =
+        `*Quote Request*\n\n` +
+        `*Name:* ${formData.firstName} ${formData.lastName}\n` +
+        `*Email:* ${formData.email}\n` +
+        `*Phone:* ${formData.phone}\n` +
+        `*Preferred Date:* ${formData.date}\n` +
+        `*Preferred Time:* ${formData.time}\n` +
+        `*Service:* ${formData.service}\n` +
+        `*Message:* ${formData.message}`;
+
       const encodedMsg = encodeURIComponent(message);
       const phoneNumber = "447776300300";
-      window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`);
+
+      // ✅ Open WhatsApp in a new tab
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, "_blank");
+
+      // ✅ Clear form after successful submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        date: "",
+        time: "",
+        service: "",
+        message: "",
+      });
+
+      // ✅ Clear error messages
+      setErrors({});
     }
   };
 
@@ -198,13 +229,12 @@ export default function ContactSection() {
 
           {/* Form */}
           <div className="rounded-xl p-8 shadow-xl bg-white/95 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold mb-4">
-              Request a Quote <br />
-              <span className="text-base font-normal text-gray-500">
-                Pop by between 9 AM and 1 PM to get a free quote!
-              </span>
-            </h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <h3 className="text-2xl font-bold mb-2">Book Your Free Quote</h3>
+            <span className="text-base font-normal text-gray-500 ">
+              Bring your car in for an in-person quote - choose a time between 9 AM and 1 PM that suits you best.
+            </span>
+
+            <form className="space-y-6 mt-3" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium">First Name*</label>
@@ -261,6 +291,34 @@ export default function ContactSection() {
                 )}
               </div>
 
+              {/* Date & Time (single row) */}
+              <div>
+                <label className="text-sm font-medium">Preferred Date & Time*</label>
+                <div className="grid grid-cols-2 gap-4">
+                  <input
+                    type="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                  />
+                  <input
+                    type="time"
+                    name="time"
+                    value={formData.time}
+                    min="09:00"
+                    max="13:00"
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                  />
+                </div>
+                {(errors.date || errors.time) && (
+                  <p className="text-red-500 text-sm">
+                    {errors.date || errors.time}
+                  </p>
+                )}
+              </div>
+
               <div>
                 <label className="text-sm font-medium">Service Required*</label>
                 <select
@@ -277,6 +335,7 @@ export default function ContactSection() {
                   <option>Textured Plastic Repairs</option>
                   <option>Panel Damage</option>
                   <option>Full Respray</option>
+                  <option>Quality Guarantee</option>
                 </select>
                 {errors.service && (
                   <p className="text-red-500 text-sm">{errors.service}</p>
@@ -289,7 +348,7 @@ export default function ContactSection() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={4}
+                  rows={3}
                   className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
                 {errors.message && (
@@ -305,7 +364,7 @@ export default function ContactSection() {
                   color: "#000",
                 }}
               >
-                Send via WhatsApp
+                Book My Quote
               </button>
             </form>
           </div>
