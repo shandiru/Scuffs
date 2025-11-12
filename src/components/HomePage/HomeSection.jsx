@@ -16,13 +16,20 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-muted to-background"
+      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Background image overlay */}
-      <div
-        className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] bg-cover bg-center opacity-20"
-        aria-hidden="true"
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/herovideo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
       />
+
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
       {/* Content */}
       <div
@@ -30,17 +37,16 @@ export default function HomeSection() {
         data-aos="fade-up"
       >
         <h1
-          className="font-space-grotesk font-bold text-5xl md:text-7xl text-foreground mb-6"
+          className="font-space-grotesk font-bold text-5xl md:text-7xl text-white mb-6"
           data-aos="zoom-in"
           data-aos-delay="200"
         >
-         
           <span className="text-[#CCFF66]">Scuffs ETC</span>{" "}
           <span className="text-[#E066E6]">LTD</span>
         </h1>
 
         <p
-          className="font-dm-sans text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="font-dm-sans text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto"
           data-aos="fade-up"
           data-aos-delay="400"
         >
@@ -54,7 +60,6 @@ export default function HomeSection() {
           data-aos="fade-up"
           data-aos-delay="600"
         >
-          {/* Scroll to #contact */}
           <a
             href="#contact"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all
@@ -64,7 +69,6 @@ export default function HomeSection() {
             Get a Free Quote
           </a>
 
-          {/* Scroll to #gallery */}
           <a
             href="#gallery"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all
