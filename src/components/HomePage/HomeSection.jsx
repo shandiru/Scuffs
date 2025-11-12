@@ -16,7 +16,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background video */}
       <video
