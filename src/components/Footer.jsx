@@ -75,7 +75,7 @@ export default function Footer() {
 
               {/* TikTok */}
               <a
-                href="https://www.tiktok.com/@scuffs_etc_ltd"
+                href="https://www.tiktok.com/@scuffsetc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white bg-[#E066E6] p-3 rounded-full hover:scale-110 transition-transform duration-200"
