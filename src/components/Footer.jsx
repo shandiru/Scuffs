@@ -19,13 +19,13 @@ export default function Footer() {
     { name: "Vandal Damage", link: "/services/bodywork-repair" },
     { name: "Crash Damage", link: "/services/panel-damage" },
     { name: "Plastic Welding", link: "/services/textured-plastic-repair" },
-    { name: "Texture Repairs", link: "/services/textured-plastic-repair" },
   ];
 
   return (
     <footer className="py-12 text-black bg-[#CCFF66]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          
           {/* Logo & About */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -52,6 +52,8 @@ export default function Footer() {
 
             {/* Social Media */}
             <div className="flex mt-4 gap-4">
+
+              {/* Facebook */}
               <a
                 href="https://web.facebook.com/scuffs.etc?_rdc=1&_rdr#"
                 target="_blank"
@@ -61,6 +63,7 @@ export default function Footer() {
                 <FaFacebookF size={22} />
               </a>
 
+              {/* Instagram */}
               <a
                 href="https://www.instagram.com/scuffs_etc_ltd"
                 target="_blank"
@@ -69,10 +72,27 @@ export default function Footer() {
               >
                 <FaInstagram size={22} />
               </a>
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@scuffs_etc_ltd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white bg-[#E066E6] p-3 rounded-full hover:scale-110 transition-transform duration-200"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M12.5 2c.41 2.53 2.17 4.24 4.67 4.38v3.07c-1.64.16-3.1-.45-4.67-1.52v6.59c0 3.06-2.52 5.52-5.63 5.52A5.6 5.6 0 011 14.42c0-3.06 2.52-5.52 5.63-5.52.48 0 .93.07 1.37.2v3.27a3 3 0 00-1.37-.33c-1.52 0-2.75 1.21-2.75 2.7s1.23 2.7 2.75 2.7c1.52 0 2.75-1.21 2.75-2.7V2h3.12z"/>
+                </svg>
+              </a>
+
             </div>
           </div>
 
-          {/* Services Section (2 columns) */}
+          {/* Services Section */}
           <div className="space-y-5">
             <h4 className="font-space-grotesk font-bold text-lg text-center">Services</h4>
             <div className="grid grid-cols-2 gap-x-8">

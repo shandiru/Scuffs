@@ -167,7 +167,7 @@ export default function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to restore your vehicle? Contact us for a free quote and
+            Ready to restore your vehicle? Contact us to arrange a free quote and
             professional consultation.
           </p>
         </div>
@@ -197,7 +197,7 @@ export default function ContactSection() {
               {
                 label: "Hours",
                 icon: <FaRegClock />,
-                value: "Mon–Fri: 8AM–6PM, Sat: 9AM–4PM",
+                value: "Mon–Fri: 8AM–6PM, Sat: 9AM–5pm",
               },
             ].map((item, i) => (
               <div key={i} className="flex items-center space-x-4">

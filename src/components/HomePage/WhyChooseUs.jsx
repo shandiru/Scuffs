@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
       desc: "Flawless, expert repairs to restore your car’s perfect finish.",
     },
     {
-      icon: <MdFormatPaint className="text-[40px]" />,
+       image: "/spray.png", // ✅ use your image here
       title: "Professional Painting",
       desc: "Professional paintwork designed to match or refresh your vehicle.",
     },

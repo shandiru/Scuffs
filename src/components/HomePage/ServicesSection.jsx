@@ -5,7 +5,6 @@ import {
   FaCar,
   FaMagic,
   FaShieldAlt,
-  FaPalette,
   FaCheckCircle,
   FaWrench,
 } from "react-icons/fa";
@@ -42,10 +41,10 @@ const services = [
     chips: ["Panel Replacement", "Structural Repair", "Alignment", "Reinforcement"],
   },
   {
-    title: " Full/Part Respray",
+    title: "Full/Part Respray",
     desc: "Complete vehicle respraying services with professional paint matching.",
     href: "/services/full-respray",
-    icon: <FaPalette className="h-6 w-6 text-[#E066E6]" />,
+    image: "/spray.png", // service with image instead of icon
     chips: ["Color Matching", "Multi-coat System", "Primer Application", "Clear Coat Finish"],
   },
   {
@@ -69,11 +68,12 @@ export default function OurServices() {
 
   return (
     <section id="services" className="relative py-16 px-4 scroll-m-10 overflow-hidden">
+      {/* Background animations + dotted overlay */}
       <style>
         {`
           @keyframes pulseSpin {
             0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-            40%  { transform: rotate(180deg) scale(1.6); opacity: 1; } /* bigger zoom */
+            40%  { transform: rotate(180deg) scale(1.6); opacity: 1; }
             70%  { transform: rotate(270deg) scale(1.2); opacity: 0.7; }
             100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
           }
@@ -85,7 +85,6 @@ export default function OurServices() {
             z-index: 0;
             pointer-events: none;
           }
-          /* ✅ Make spray gun bigger on mobile */
           .spray-icon {
             position: absolute;
             animation: pulseSpin 25s ease-in-out infinite;
@@ -93,24 +92,10 @@ export default function OurServices() {
             z-index: 0;
             pointer-events: none;
           }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 18s;
-              opacity: 0.15;
-            }
-            .spray-icon {
-              width: 6rem !important;   /* ~96px on mobile */
-              height: 6rem !important;
-              opacity: 0.3;
-              animation-duration: 18s;
-            }
-          }
         `}
       </style>
 
-      {/* ✅ Dotted background */}
+      {/* dotted BG */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
         style={{
@@ -125,33 +110,24 @@ export default function OurServices() {
         }}
       />
 
-      {/* ✅ Animated background icons */}
+      {/* animated icons */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        {/* ✅ Spray Gun stays bigger on mobile */}
-        <img
-          src="/spray.png"
-          alt="Spray Gun Background"
-          className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
-          style={{ animationDelay: "0s" }}
-        />
-
-        <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
-        <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
-        <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
+        <img src="/spray.png" className="spray-icon top-8 left-8 w-36 h-36" />
+        <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" />
+        <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" />
+        <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" />
       </div>
 
-      {/* ✅ Content */}
+      {/* MAIN CONTENT */}
       <div className="relative max-w-6xl mx-auto z-10">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Our Services
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Services</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            From minor touch-ups to complete restorations, we provide
-            comprehensive automotive repair solutions
+            From minor touch-ups to complete restorations, we provide comprehensive automotive solutions.
           </p>
         </div>
 
+        {/* SERVICE CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <article
@@ -162,28 +138,44 @@ export default function OurServices() {
               data-aos="zoom-in-up"
               data-aos-delay={i * 100}
             >
+              {/* top section */}
               <div className="grid auto-rows-min items-start gap-1.5 px-6 py-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#CCFF66]/40 rounded-lg transition-all duration-300 group-hover:bg-[#CCFF66]/60 group-hover:scale-110">
-                    {s.icon}
+                  <div className="p-2 bg-[#CCFF66]/40 rounded-lg group-hover:bg-[#CCFF66]/60 group-hover:scale-110 transition-all">
+
+                    {/* FIX — if service has image, show that instead of icon */}
+                    {s.image ? (
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="h-7 w-7 object-contain"
+                      />
+                    ) : (
+                      s.icon
+                    )}
+
                   </div>
+
                   <span className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium bg-[#E066E6] text-white">
                     Professional
                   </span>
                 </div>
-                <h3 className="text-xl font-bold transition-colors group-hover:text-[#E066E6]">
+
+                <h3 className="text-xl font-bold group-hover:text-[#E066E6] transition-colors">
                   {s.title}
                 </h3>
+
                 <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
 
+              {/* chips */}
               <div className="flex-grow px-6">
                 <div className="flex flex-wrap gap-2 pb-6">
                   {s.chips.map((c) => (
                     <span
                       key={c}
                       className="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium
-                                 text-gray-900 border-[#E066E6]/40 hover:bg-[#CCFF66]/40 transition-transform hover:scale-105"
+                                 text-gray-900 border-[#E066E6]/40 hover:bg-[#CCFF66]/40 hover:scale-105 transition-transform"
                     >
                       {c}
                     </span>
@@ -191,19 +183,20 @@ export default function OurServices() {
                 </div>
               </div>
 
+              {/* button */}
               <div className="px-6 pb-6 mt-auto">
                 <a href={s.href} className="block">
                   <button
                     type="button"
-                    className="w-full h-9 px-4 py-2 inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium
-                               bg-[#CCFF66] text-black shadow-sm transition-all duration-200 hover:bg-[#E066E6] hover:text-white hover:scale-[1.02]
+                    className="w-full h-9 px-4 py-2 inline-flex items-center justify-center rounded-md text-sm font-medium
+                               bg-[#CCFF66] text-black hover:bg-[#E066E6] hover:text-white hover:scale-[1.02] transition-all
                                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E066E6]/40"
                   >
                     Learn More
                   </button>
                 </a>
               </div>
-             
+
             </article>
           ))}
         </div>
