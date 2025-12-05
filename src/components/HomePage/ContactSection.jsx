@@ -53,8 +53,7 @@ export default function ContactSection() {
       newErrors.phone = "Valid UK phone number is required.";
     if (!formData.date) newErrors.date = "Preferred date is required.";
     if (!formData.time) newErrors.time = "Preferred time is required.";
-    if (!formData.service || formData.service === "Select a service")
-      newErrors.service = "Service selection is required.";
+    if (!formData.service) newErrors.service = "Service selection is required.";
     if (!formData.message) newErrors.message = "Message is required.";
 
     setErrors(newErrors);
@@ -73,10 +72,8 @@ export default function ContactSection() {
       const encodedMsg = encodeURIComponent(message);
       const phoneNumber = "447776300300";
 
-      // ✅ Open WhatsApp in a new tab
       window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, "_blank");
 
-      // ✅ Clear form after successful submission
       setFormData({
         firstName: "",
         lastName: "",
@@ -88,51 +85,47 @@ export default function ContactSection() {
         message: "",
       });
 
-      // ✅ Clear error messages
       setErrors({});
     }
   };
 
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
-      {/* 🎨 Fix blue hover on <option> */}
-      <style>
-        {`
-          select option:hover,
-          select option:focus {
-            background-color: ${PINK} !important;
-            color: #fff !important;
-          }
-        `}
-      </style>
+      {/* 🎨 GLOBAL FIXES */}
+      <style>{`
+        /* Fix blue highlight on option */
+        select option:hover,
+        select option:focus {
+          background-color: ${PINK} !important;
+          color: #fff !important;
+        }
 
-      {/* 🎨 Floating background effect */}
-      <style>
-        {`
-          @keyframes pulseSpin {
-            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
-            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
-          }
+        /* Floating Icon Animation */
+        @keyframes pulseSpin {
+          0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
+          40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
+          70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+          100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
+        }
+
+        .bg-icon {
+          position: absolute;
+          color: ${PINK} !important;
+          animation: pulseSpin 25s ease-in-out infinite;
+          filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
           .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: pulseSpin 25s ease-in-out infinite;
-            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
-            z-index: 0;
-            pointer-events: none;
+            width: 2rem !important;
+            height: 2rem !important;
+            animation-duration: 18s;
+            opacity: 0.15;
           }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 18s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
+        }
+      `}</style>
 
       {/* 🟢 Dotted pattern */}
       <div
@@ -140,12 +133,8 @@ export default function ContactSection() {
         style={{
           WebkitMaskImage:
             "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "cover",
           maskImage:
             "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
-          maskRepeat: "no-repeat",
-          maskSize: "cover",
         }}
       />
 
@@ -157,7 +146,7 @@ export default function ContactSection() {
         <FaRegClock className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
-      {/* Main content */}
+      {/* Main section */}
       <div className="container mx-auto px-4 md:px-20 relative z-10">
         <div className="text-center mb-16">
           <h2
@@ -197,30 +186,35 @@ export default function ContactSection() {
               {
                 label: "Hours",
                 icon: <FaRegClock />,
-                value: "Mon–Fri: 8AM–6PM, Sat: 9AM–5pm",
+                value: "Mon–Fri: 8AM–6PM\nSat: 9AM–5PM",
+                multiLine: true,
               },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center space-x-4">
+            ].map((item, index) => (
+              <div key={index} className="flex items-center space-x-4">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: `${LIME}40` }}
                 >
                   <div style={{ color: PINK }}>{item.icon}</div>
                 </div>
+
                 <div>
                   <p className="font-semibold text-gray-800">{item.label}</p>
+
                   {item.href ? (
                     <a
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
+                      className="hover:underline whitespace-pre-line"
                       style={{ color: PINK }}
-                      className="hover:underline"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-gray-600">{item.value}</p>
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {item.value}
+                    </p>
                   )}
                 </div>
               </div>
@@ -230,11 +224,13 @@ export default function ContactSection() {
           {/* Form */}
           <div className="rounded-xl p-8 shadow-xl bg-white/95 backdrop-blur-sm">
             <h3 className="text-2xl font-bold mb-2">Book Your Free Quote</h3>
-            <span className="text-base font-normal text-gray-500 ">
-              Bring your car in for an in-person quote - choose a time between 9 AM and 1 PM that suits you best.
+            <span className="text-base font-normal text-gray-500">
+              Bring your car in for an in-person quote - choose a time between 9 AM and
+              1 PM that suits you best.
             </span>
 
             <form className="space-y-6 mt-3" onSubmit={handleSubmit}>
+              {/* Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium">First Name*</label>
@@ -245,10 +241,9 @@ export default function ContactSection() {
                     placeholder="John"
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                   />
-                  {errors.firstName && (
-                    <p className="text-red-500 text-sm">{errors.firstName}</p>
-                  )}
+                  {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                 </div>
+
                 <div>
                   <label className="text-sm font-medium">Last Name*</label>
                   <input
@@ -258,12 +253,11 @@ export default function ContactSection() {
                     placeholder="Doe"
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                   />
-                  {errors.lastName && (
-                    <p className="text-red-500 text-sm">{errors.lastName}</p>
-                  )}
+                  {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                 </div>
               </div>
 
+              {/* Email */}
               <div>
                 <label className="text-sm font-medium">Email*</label>
                 <input
@@ -273,11 +267,10 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm">{errors.email}</p>
-                )}
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
 
+              {/* Phone */}
               <div>
                 <label className="text-sm font-medium">Phone*</label>
                 <input
@@ -286,12 +279,10 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm">{errors.phone}</p>
-                )}
+                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
 
-              {/* Date & Time (single row) */}
+              {/* Date & Time */}
               <div>
                 <label className="text-sm font-medium">Preferred Date & Time*</label>
                 <div className="grid grid-cols-2 gap-4">
@@ -312,6 +303,7 @@ export default function ContactSection() {
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                   />
                 </div>
+
                 {(errors.date || errors.time) && (
                   <p className="text-red-500 text-sm">
                     {errors.date || errors.time}
@@ -319,15 +311,14 @@ export default function ContactSection() {
                 )}
               </div>
 
+              {/* Service */}
               <div>
                 <label className="text-sm font-medium">Service Required*</label>
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2 
-                             focus:outline-none focus:ring-2 focus:ring-[#E066E6] 
-                             bg-white text-gray-800"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6] bg-white text-gray-800"
                 >
                   <option value="">Select a service</option>
                   <option>Alloy Wheel Repair</option>
@@ -337,11 +328,10 @@ export default function ContactSection() {
                   <option>Full Respray</option>
                   <option>Quality Guarantee</option>
                 </select>
-                {errors.service && (
-                  <p className="text-red-500 text-sm">{errors.service}</p>
-                )}
+                {errors.service && <p className="text-red-500 text-sm">{errors.service}</p>}
               </div>
 
+              {/* Message */}
               <div>
                 <label className="text-sm font-medium">Message*</label>
                 <textarea
@@ -351,11 +341,10 @@ export default function ContactSection() {
                   rows={3}
                   className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
                 />
-                {errors.message && (
-                  <p className="text-red-500 text-sm">{errors.message}</p>
-                )}
+                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
 
+              {/* Button */}
               <button
                 type="submit"
                 className="w-full py-3 rounded-md font-semibold transition-all duration-300"
@@ -366,7 +355,10 @@ export default function ContactSection() {
               >
                 Book My Quote
               </button>
-                <p className="text-xs text-center dark:text-gray-300">By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.</p>
+
+              <p className="text-xs text-center dark:text-gray-300">
+                By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.
+              </p>
             </form>
           </div>
         </div>

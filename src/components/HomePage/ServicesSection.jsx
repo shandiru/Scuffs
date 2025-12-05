@@ -8,6 +8,7 @@ import {
   FaCheckCircle,
   FaWrench,
 } from "react-icons/fa";
+import { GiCarWheel } from "react-icons/gi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,7 +17,7 @@ const services = [
     title: "Alloy Wheel Repair",
     desc: "Professional restoration of damaged alloy wheels, from minor scuffs to major damage.",
     href: "/services/alloy-wheel-repair",
-    icon: <FaWrench className="h-6 w-6 text-[#E066E6]" />,
+    icon: <GiCarWheel  className="h-6 w-6 text-[#E066E6]" />,
     chips: ["Scuff Repair", "Crack Welding", "Diamond Cut Cosmetic", "Color Matching"],
   },
   {

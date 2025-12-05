@@ -6,10 +6,10 @@ import "aos/dist/aos.css";
 export default function HomeSection() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration
-      easing: "ease-out-cubic", // easing style
-      once: true, // animate only once
-      mirror: false, // disable animation when scrolling back up
+      duration: 1000,
+      easing: "ease-out-cubic",
+      once: true,
+      mirror: false,
     });
   }, []);
 
@@ -28,14 +28,22 @@ export default function HomeSection() {
         playsInline
       />
 
-      {/* Overlay for better readability */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
       {/* Content */}
       <div
-        className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20"
+        className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-16"
         data-aos="fade-up"
       >
+        {/* LOGO */}
+        <img
+          src="/bgblack-removebg-preview.png"
+          alt="Scuffs ETC LTD Logo"
+          className="mx-auto mb-6 w-40 md:w-56"
+          data-aos="fade-down"
+        />
+
         <h1
           className="font-space-grotesk font-bold text-5xl md:text-7xl text-white mb-6"
           data-aos="zoom-in"
