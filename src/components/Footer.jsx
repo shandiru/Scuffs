@@ -145,9 +145,10 @@ export default function Footer() {
                   info@scuffsetc.co.uk
                 </a>
               </p>
-              <p>Mon–Fri: 7:30 AM–5:00 PM</p>
-              <p>Sat: Closed</p>
-              <p>Sun: Closed</p>
+              <p>Mon–Thu 8 am–3 pm</p>
+<p>Fri 8 am–3 am</p>
+<p>Sat–Sun Closed</p>
+
             </address>
           </div>
         </div>
