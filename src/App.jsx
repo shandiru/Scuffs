@@ -12,7 +12,7 @@ import PanelDamage from "./page/PanelDamage";
 import TermsConditions from "./components/Term";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
-
+import GDPRConsent from "./components/GDPRButton";
 function App() {
   return (
     <Router>
@@ -31,6 +31,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <GDPRConsent />
     </Router>
   );
 }
