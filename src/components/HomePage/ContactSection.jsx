@@ -186,7 +186,8 @@ export default function ContactSection() {
               {
                 label: "Hours",
                 icon: <FaRegClock />,
-                value: "Mon–Fri: 8AM–6PM\nSat: 9AM–5PM",
+               value: "Mon–Thu: 8AM–3PM\nFri: 8AM–3AM\nSat: Closed\nSun: Closed",
+
                 multiLine: true,
               },
             ].map((item, index) => (
