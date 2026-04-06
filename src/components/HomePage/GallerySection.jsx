@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaWrench, FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
 
 export default function GallerySection() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
   const SLIDES = [
     { before: "/s-before.jpeg", after: "/s-after.jpeg" },
     { before: "/s1-before.jpeg", after: "/s1-after.jpeg" },
@@ -26,7 +22,6 @@ export default function GallerySection() {
     timer.current && clearInterval(timer.current);
     timer.current = setInterval(next, 5000);
     return () => timer.current && clearInterval(timer.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
   useEffect(() => {
@@ -50,49 +45,14 @@ export default function GallerySection() {
 
   const slide = SLIDES[index];
 
-  // ✅ Init AOS
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false, // run every time
-      mirror: true, // ✅ animate on scroll up too
-    });
-  }, []);
-
   return (
-    <section id="gallery" className="py-20 bg-background scroll-m-10 relative overflow-hidden">
-      {/* ✅ Background styles */}
-      <style>
-        {`
-          @keyframes pulseSpin {
-            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
-            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: pulseSpin 25s ease-in-out infinite;
-            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 18s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
-
-      {/* ✅ Dotted background */}
+    <section
+      id="gallery"
+      className="py-20 bg-background scroll-m-10 relative overflow-hidden"
+    >
+      {/* Dotted background */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
+        className="absolute inset-0 bg-[radial-gradient(var(--color-lime)_2px,transparent_2px)] [background-size:20px_20px]"
         style={{
           WebkitMaskImage:
             "linear-gradient(135deg, black 0%, transparent 40%, transparent 60%, black 100%)",
@@ -105,28 +65,26 @@ export default function GallerySection() {
         }}
       />
 
-      {/* ✅ Floating animated icons */}
-       <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
+      {/* Floating icons */}
+      <FaCar className="bg-icon w-24 h-24 top-1/4 right-8" style={{ animationDelay: "5s" }} />
       <div className="absolute inset-0 overflow-hidden z-0">
         <img
           src="/spray.png"
           alt="Spray Gun Background"
+          loading="lazy"
           className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
           style={{ animationDelay: "0s" }}
         />
-       
         <FaMagic className="bg-icon w-20 h-20 bottom-1/4 left-8" style={{ animationDelay: "10s" }} />
         <FaShieldAlt className="bg-icon w-24 h-24 bottom-8 right-8" style={{ animationDelay: "15s" }} />
       </div>
 
-      {/* ✅ Main content stays above */}
+      {/* Main content */}
       <div className="relative z-10">
         <div className="container mx-auto px-4">
+          {/* Heading */}
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2
-              className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
-              style={{ color: PINK }}
-            >
+            <h2 className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4 text-pink">
               Our Work Gallery
             </h2>
             <p
@@ -134,12 +92,11 @@ export default function GallerySection() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              See the transformation - before and after examples of our
-              professional repair work.
+              See the transformation - before and after examples of our professional repair work.
             </p>
           </div>
 
-          {/* ✅ Gallery Content */}
+          {/* Gallery */}
           <div
             className="relative max-w-6xl mx-auto"
             data-aos="zoom-in-up"
@@ -149,25 +106,12 @@ export default function GallerySection() {
               className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md p-6 transition-all duration-500"
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
-              style={{ border: "2px solid transparent" }}
             >
-              <div
-                className="transition-all duration-500 rounded-2xl"
-                style={{ border: "2px solid transparent" }}
-              >
-                <style jsx>{`
-                  .group:hover {
-                    border-color: ${PINK};
-                    box-shadow: 0 0 25px ${PINK};
-                  }
-                `}</style>
-
+              <div className="transition-all duration-500 rounded-2xl border-2 border-transparent group-hover:border-pink group-hover:shadow-[0_0_25px_var(--color-pink)]">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Before */}
                   <div className="text-center" data-aos="fade-right">
-                    <h4
-                      className="font-dm-sans font-semibold text-lg mb-4"
-                      style={{ color: LIME }}
-                    >
+                    <h4 className="font-dm-sans font-semibold text-lg mb-4 text-lime">
                       Before
                     </h4>
                     <div className="relative aspect-[3/2] rounded-xl overflow-hidden shadow-md">
@@ -179,11 +123,10 @@ export default function GallerySection() {
                       />
                     </div>
                   </div>
+
+                  {/* After */}
                   <div className="text-center" data-aos="fade-left">
-                    <h4
-                      className="font-dm-sans font-semibold text-lg mb-4"
-                      style={{ color: LIME }}
-                    >
+                    <h4 className="font-dm-sans font-semibold text-lg mb-4 text-lime">
                       After
                     </h4>
                     <div className="relative aspect-[3/2] rounded-xl overflow-hidden shadow-md">
@@ -199,30 +142,45 @@ export default function GallerySection() {
               </div>
             </div>
 
-            {/* Prev / Next */}
+            {/* Prev / Next Buttons */}
             <button
               aria-label="Previous"
               onClick={prev}
               className="inline-flex items-center justify-center size-9 absolute left-4 top-1/2 -translate-y-1/2
-                        rounded-md shadow-md bg-background/80 backdrop-blur-sm transition"
-              style={{ color: PINK }}
+                         rounded-md shadow-md bg-background/80 backdrop-blur-sm transition text-pink"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
+
             <button
               aria-label="Next"
               onClick={next}
               className="inline-flex items-center justify-center size-9 absolute right-4 top-1/2 -translate-y-1/2
-                        rounded-md shadow-md bg-background/80 backdrop-blur-sm transition"
-              style={{ color: PINK }}
+                         rounded-md shadow-md bg-background/80 backdrop-blur-sm transition text-pink"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
@@ -234,11 +192,9 @@ export default function GallerySection() {
                   key={i}
                   aria-label={`Go to slide ${i + 1}`}
                   onClick={() => goTo(i)}
-                  className="w-3 h-3 rounded-full transition"
-                  style={{
-                    backgroundColor: i === index ? PINK : LIME,
-                    opacity: i === index ? 1 : 0.5,
-                  }}
+                  className={`w-3 h-3 rounded-full transition ${
+                    i === index ? "bg-pink opacity-100" : "bg-lime opacity-50"
+                  }`}
                 />
               ))}
             </div>

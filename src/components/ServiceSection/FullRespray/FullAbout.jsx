@@ -1,43 +1,19 @@
 // File: FullRespray.jsx
-"use client";
+
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaPalette, FaShieldAlt } from "react-icons/fa";
-
+import { COLORS } from "../../../theme/colors";
 const FullRespray = () => {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
   return (
     <section
       className="relative py-12 px-6 overflow-hidden"
       style={{ backgroundColor: `${LIME}20` }}
     >
-      <style>
-        {`
-          @keyframes spinIcon {
-            0%   { transform: rotate(0deg); opacity: 0.3; }
-            100% { transform: rotate(360deg); opacity: 0.3; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: spinIcon 25s linear infinite;
-            filter: drop-shadow(0 0 14px rgba(224,102,230,0.6));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 15s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
-
+      
       {/* ✅ Dotted overlay background */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
@@ -104,6 +80,7 @@ const FullRespray = () => {
         {/* Right Image */}
         <div className="flex-1">
           <img
+             loading="lazy"
             src="/full.png" // Replace with your actual image
             alt="Vehicle Transformation"
             className="w-full h-72 object-cover rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"

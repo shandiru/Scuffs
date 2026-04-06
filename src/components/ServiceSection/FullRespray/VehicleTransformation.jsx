@@ -1,41 +1,20 @@
 // File: VehicleTransformation.jsx
-"use client";
+
 import React from "react";
 import { FaPalette, FaStar, FaPhoneAlt } from "react-icons/fa";
-
+import { PHONE_NUMBER, PHONE_NUMBER_FORMATTED } from '../../../Data/contact';
+import { COLORS } from "../../../theme/colors";
 const VehicleTransformation = () => {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
+  
 
   return (
     <section
       className="relative py-16 px-4 overflow-hidden"
       style={{ backgroundColor: `${LIME}20` }}
     >
-      <style>
-        {`
-          @keyframes spinIcon {
-            0%   { transform: rotate(0deg); opacity: 0.25; }
-            100% { transform: rotate(360deg); opacity: 0.25; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: spinIcon 28s linear infinite;
-            filter: drop-shadow(0 0 14px rgba(224,102,230,0.5));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 16s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
+     
 
       {/* ✅ Dotted overlay */}
       <div
@@ -94,7 +73,7 @@ const VehicleTransformation = () => {
 
           {/* Call Button */}
           <a
-            href="tel:+447776300300"
+            href={`tel:${PHONE_NUMBER}`}
             className="inline-flex items-center justify-center gap-2 font-medium rounded-md px-8 h-12 text-lg border transition-all shadow-sm"
             style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
             onMouseEnter={(e) => {
@@ -106,7 +85,7 @@ const VehicleTransformation = () => {
               e.currentTarget.style.color = PINK;
             }}
           >
-            <FaPhoneAlt className="text-[#E066E6]" /> Call +44 7776 300300
+            <FaPhoneAlt className="text-[${COLORS.primary}]" /> Call {PHONE_NUMBER_FORMATTED}
           </a>
         </div>
       </div>

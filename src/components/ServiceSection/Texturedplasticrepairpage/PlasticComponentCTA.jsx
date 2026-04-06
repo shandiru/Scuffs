@@ -1,18 +1,13 @@
 // File: PlasticComponentCTA.jsx
-"use client";
+
 import { HashLink } from "react-router-hash-link";
-
+import { PHONE_NUMBER, PHONE_NUMBER_FORMATTED } from '../../../Data/contact';
+import { scrollWithOffset } from '../../../utils/scrollWithOffset';
+import { COLORS } from "../../../theme/colors";
 export default function PlasticComponentCTA() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
-  // offset so fixed header doesn’t overlap
-  const scrollWithOffset = (el) => {
-    const yOffset = -80; // adjust if header height changes
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
 
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#F3FBF3" }}>
@@ -52,7 +47,7 @@ export default function PlasticComponentCTA() {
 
           {/* Call Button */}
           <a
-            href="tel:+447776300300"
+            href={`tel:${PHONE_NUMBER}`}
             className="inline-flex items-center justify-center gap-2 font-medium h-12 rounded-md text-lg px-8 border transition-all shadow-sm"
             style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
             onMouseEnter={(e) => {
@@ -64,7 +59,7 @@ export default function PlasticComponentCTA() {
               e.currentTarget.style.color = PINK;
             }}
           >
-            Call +44 7776 300300
+            Call {PHONE_NUMBER_FORMATTED}
           </a>
         </div>
       </div>

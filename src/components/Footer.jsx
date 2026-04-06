@@ -1,10 +1,10 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-
+import { COLORS } from "../theme/colors";
 export default function Footer() {
-  const PINK = "#E066E6";
-
-  // 🧩 Combined services list
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
+  
   const services = [
     { name: "Alloy Wheel Repair", link: "/services/alloy-wheel-repair" },
     { name: "Bodywork Scuffs & Dents", link: "/services/bodywork-repair" },
@@ -22,7 +22,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-12 text-black bg-[#CCFF66]">
+    <footer className="py-12 text-black bg-[#CCFF66] relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           
@@ -106,6 +106,7 @@ export default function Footer() {
                     <img
                       src="/spray.png"
                       alt="Spray Gun Icon"
+                      loading="lazy"
                       className="w-12 h-12 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     />
                     <div

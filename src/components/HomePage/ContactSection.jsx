@@ -1,13 +1,13 @@
-"use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
   FaRegClock,
 } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+import { PHONE_NUMBER, PHONE_NUMBER_FORMATTED, PHONE_NUMBER_RAW } from '../../Data/contact';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -23,18 +23,11 @@ export default function ContactSection() {
 
   const [errors, setErrors] = useState({});
 
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+
+
   const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false,
-      mirror: true,
-    });
-  }, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +63,8 @@ export default function ContactSection() {
         `*Message:* ${formData.message}`;
 
       const encodedMsg = encodeURIComponent(message);
-      const phoneNumber = "447776300300";
+      // Use the imported phone number variable instead of hardcoded value
+      const phoneNumber = PHONE_NUMBER_RAW;
 
       window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, "_blank");
 
@@ -91,41 +85,8 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
-      {/* 🎨 GLOBAL FIXES */}
-      <style>{`
-        /* Fix blue highlight on option */
-        select option:hover,
-        select option:focus {
-          background-color: ${PINK} !important;
-          color: #fff !important;
-        }
 
-        /* Floating Icon Animation */
-        @keyframes pulseSpin {
-          0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-          40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-          70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
-          100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
-        }
 
-        .bg-icon {
-          position: absolute;
-          color: ${PINK} !important;
-          animation: pulseSpin 25s ease-in-out infinite;
-          filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
-          z-index: 0;
-          pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-          .bg-icon {
-            width: 2rem !important;
-            height: 2rem !important;
-            animation-duration: 18s;
-            opacity: 0.15;
-          }
-        }
-      `}</style>
 
       {/* 🟢 Dotted pattern */}
       <div
@@ -150,8 +111,8 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 md:px-20 relative z-10">
         <div className="text-center mb-16">
           <h2
-            className="font-bold text-4xl md:text-5xl mb-4"
-            style={{ color: PINK }}
+            className="font-bold text-4xl md:text-5xl mb-4 text-pink"
+
           >
             Get In Touch
           </h2>
@@ -168,8 +129,8 @@ export default function ContactSection() {
               {
                 label: "Phone",
                 icon: <FaPhoneAlt />,
-                value: "+44 7776 300300",
-                href: "tel:+447776300300",
+                value: PHONE_NUMBER_FORMATTED,
+                href: `tel:${PHONE_NUMBER}`,
               },
               {
                 label: "Email",
@@ -186,17 +147,17 @@ export default function ContactSection() {
               {
                 label: "Hours",
                 icon: <FaRegClock />,
-               value: "Mon–Thu: 8AM–3PM\nFri: 8AM–3AM\nSat: Closed\nSun: Closed",
+                value: "Mon–Thu: 8AM–3PM\nFri: 8AM–3AM\nSat: Closed\nSun: Closed",
 
                 multiLine: true,
               },
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-4">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: `${LIME}40` }}
+                  className="w-10 h-10 rounded-lg flex items-center justify-center bg-lime/40"
+
                 >
-                  <div style={{ color: PINK }}>{item.icon}</div>
+                  <div className="text-pink">{item.icon}</div>
                 </div>
 
                 <div>
@@ -207,8 +168,8 @@ export default function ContactSection() {
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:underline whitespace-pre-line"
-                      style={{ color: PINK }}
+                      className="hover:underline whitespace-pre-line text-pink"
+
                     >
                       {item.value}
                     </a>
@@ -240,7 +201,7 @@ export default function ContactSection() {
                     value={formData.firstName}
                     onChange={handleChange}
                     placeholder="John"
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                   />
                   {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                 </div>
@@ -252,7 +213,7 @@ export default function ContactSection() {
                     value={formData.lastName}
                     onChange={handleChange}
                     placeholder="Doe"
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                   />
                   {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                 </div>
@@ -266,7 +227,7 @@ export default function ContactSection() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                 />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
@@ -278,7 +239,7 @@ export default function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                 />
                 {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
@@ -292,7 +253,7 @@ export default function ContactSection() {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                   />
                   <input
                     type="time"
@@ -301,7 +262,7 @@ export default function ContactSection() {
                     min="09:00"
                     max="13:00"
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                   />
                 </div>
 
@@ -319,7 +280,7 @@ export default function ContactSection() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6] bg-white text-gray-800"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink bg-white text-gray-800"
                 >
                   <option value="">Select a service</option>
                   <option>Alloy Wheel Repair</option>
@@ -340,7 +301,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E066E6]"
+                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink"
                 />
                 {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
@@ -348,14 +309,15 @@ export default function ContactSection() {
               {/* Button */}
               <button
                 type="submit"
-                className="w-full py-3 rounded-md font-semibold transition-all duration-300"
-                style={{
-                  backgroundImage: `linear-gradient(90deg, ${PINK}, ${LIME})`,
-                  color: "#000",
-                }}
+                className="
+    w-full py-3 rounded-md font-semibold transition-all duration-300
+    bg-gradient-to-r from-pink to-lime
+    text-black
+  "
               >
                 Book My Quote
               </button>
+
 
               <p className="text-xs text-center dark:text-gray-300">
                 By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.

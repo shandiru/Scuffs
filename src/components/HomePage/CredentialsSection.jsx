@@ -1,54 +1,21 @@
-"use client";
-import React, { useEffect } from "react";
-import { FaWrench, FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+
+import { FaCar, FaMagic, FaShieldAlt } from "react-icons/fa";
+import { COLORS } from "../../theme/colors";
 
 export default function CredentialsSection() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false, // animate every scroll
-      mirror: true, // ✅ re-animate when scrolling up
-    });
-  }, []);
+
+
 
   return (
     <section
       id="credentials"
       className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-muted scroll-m-10 relative overflow-hidden"
     >
-      {/* ✅ Background styles */}
-      <style>
-        {`
-          @keyframes pulseSpin {
-            0%   { transform: rotate(0deg) scale(0.8); opacity: 0.2; }
-            40%  { transform: rotate(180deg) scale(1.4); opacity: 1; }
-            70%  { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
-            100% { transform: rotate(360deg) scale(0.8); opacity: 0.2; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: pulseSpin 25s ease-in-out infinite;
-            filter: drop-shadow(0 0 18px rgba(224,102,230,0.8));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 18s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
+     
 
       {/* ✅ Dotted background */}
       <div
@@ -70,6 +37,7 @@ export default function CredentialsSection() {
       <img
           src="/spray.png"
           alt="Spray Gun Background"
+          loading="lazy"
           className="spray-icon top-8 left-8 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
           style={{ animationDelay: "0s" }}
         />
@@ -83,8 +51,8 @@ export default function CredentialsSection() {
         {/* Section Title */}
         <div className="text-center mb-16" data-aos="fade-up">
           <h2
-            className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4"
-            style={{ color: PINK }}
+            className="font-space-grotesk font-bold text-4xl md:text-5xl mb-4 text-pink"
+           
           >
             Our Credentials
           </h2>
@@ -104,8 +72,8 @@ export default function CredentialsSection() {
           <div className="space-y-8">
             {/* Card 1 */}
             <div
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
-              style={{ borderColor: PINK }}
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border border-pink py-6 shadow-sm bg-card"
+          
               data-aos="fade-right"
             >
               <div className="p-6">
@@ -150,8 +118,8 @@ export default function CredentialsSection() {
 
             {/* Card 2 */}
             <div
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
-              style={{ borderColor: PINK }}
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border border-pink py-6 shadow-sm bg-card"
+             
               data-aos="fade-right"
               data-aos-delay="150"
             >
@@ -168,7 +136,7 @@ export default function CredentialsSection() {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={PINK}
+                      stroke="[var(--color-pink)]"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -195,8 +163,8 @@ export default function CredentialsSection() {
 
             {/* Card 3 */}
             <div
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm bg-card"
-              style={{ borderColor: PINK }}
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border border-pink py-6 shadow-sm bg-card"
+              
               data-aos="fade-right"
               data-aos-delay="300"
             >
@@ -213,7 +181,7 @@ export default function CredentialsSection() {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={PINK}
+                      stroke="[var(--color-pink)]"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -247,36 +215,38 @@ export default function CredentialsSection() {
             data-aos-delay="200"
           >
             <div
-              className="bg-card rounded-lg p-6 shadow-lg border"
-              style={{ borderColor: PINK }}
+              className="bg-card rounded-lg p-6 shadow-lg border border-pink"
+             
             >
               <h3
-                className="font-space-grotesk font-bold text-xl text-center mb-4"
-                style={{ color: PINK }}
+                className="font-space-grotesk font-bold text-xl text-center mb-4  text-pink"
+               
               >
                 Official Certifications
               </h3>
               <div className="space-y-6">
                 <div
-                  className="relative aspect-[4/3] rounded-lg overflow-hidden border"
-                  style={{ borderColor: LIME }}
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden border border-lime"
+                 
                   data-aos="zoom-in"
                 >
                   <img
                     alt="Best Business of 2025 - ThreeBest Rated Excellence Award"
                     className="object-contain w-full h-full"
+                    loading="lazy"
                     src="/certificate1.png"
                   />
                 </div>
                 <div
-                  className="relative aspect-[4/3] rounded-lg overflow-hidden border"
-                  style={{ borderColor: LIME }}
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden border border-lime"
+                  
                   data-aos="zoom-in"
                   data-aos-delay="200"
                 >
                   <img
                     alt="Certificate of Excellence 2025 - Top 3 Car Body Shops Sheffield"
                     className="object-contain w-full h-full"
+                    loading="lazy"
                     src="/certificate2.png"
                   />
                 </div>

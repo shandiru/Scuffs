@@ -1,5 +1,5 @@
 // File: AlloyWheelRepair.jsx
-"use client";
+
 import {
   FaCheckCircle,
   FaClock,
@@ -10,40 +10,17 @@ import {
   FaCompactDisc,
   FaCircleNotch,
 } from "react-icons/fa";
-
+import { COLORS } from "../../../theme/colors";
 export default function AlloyWheelRepair() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
   return (
     <section
       className="relative py-16 px-4 overflow-hidden"
       style={{ backgroundColor: "#F5FFF7" }}
     >
-      <style>
-        {`
-          @keyframes wheelSpin {
-            0%   { transform: rotate(0deg); opacity: 0.4; }
-            100% { transform: rotate(360deg); opacity: 0.4; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: wheelSpin 30s linear infinite;
-            filter: drop-shadow(0 0 18px rgba(224,102,230,0.6));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 18s;
-              opacity: 0.2;
-            }
-          }
-        `}
-      </style>
+    
 
       {/* ✅ Dotted background */}
       <div
@@ -112,6 +89,7 @@ export default function AlloyWheelRepair() {
 
           <div className="bg-gray-100 rounded-lg p-8">
             <img
+               loading="lazy"
               alt="Alloy wheel repair process"
               className="w-full h-64 object-cover rounded-lg"
               src="/alloy.jpg"

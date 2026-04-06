@@ -1,50 +1,22 @@
 // File: PanelTransformation.jsx
-"use client";
+
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HashLink } from "react-router-hash-link";
-
+import { PHONE_NUMBER, PHONE_NUMBER_FORMATTED } from '../../../Data/contact';
+import { scrollWithOffset } from '../../../utils/scrollWithOffset';
+import { COLORS } from "../../../theme/colors";
 const PanelTransformation = () => {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
-  // Offset so the fixed header doesn’t overlap the contact form
-  const scrollWithOffset = (el) => {
-    const yOffset = -80; // adjust if your header height is different
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
 
   return (
     <section
       className="relative w-full py-16 px-4 overflow-hidden"
       style={{ backgroundColor: "#F8FFF8" }}
     >
-      <style>
-        {`
-          @keyframes spinSlow {
-            0%   { transform: rotate(0deg); opacity: 0.3; }
-            100% { transform: rotate(360deg); opacity: 0.3; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: spinSlow 42s linear infinite;
-            filter: drop-shadow(0 0 12px rgba(224,102,230,0.4));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 24s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
+     
 
       {/* ✅ Dotted background */}
       <div
@@ -105,7 +77,7 @@ const PanelTransformation = () => {
 
           {/* Secondary CTA */}
           <a
-            href="tel:+447776300300"
+            href={`tel:${PHONE_NUMBER}`}
             className="inline-flex items-center justify-center gap-2 font-medium h-12 rounded-md text-lg px-8 border transition-all shadow-sm"
             style={{ borderColor: PINK, color: PINK, backgroundColor: "#fff" }}
             onMouseEnter={(e) => {
@@ -117,7 +89,7 @@ const PanelTransformation = () => {
               e.currentTarget.style.color = PINK;
             }}
           >
-            Call +44 7776 300300
+            Call {PHONE_NUMBER_FORMATTED}
           </a>
         </div>
       </div>

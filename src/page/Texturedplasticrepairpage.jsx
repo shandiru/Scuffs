@@ -1,13 +1,14 @@
 import React from 'react'
-import TexturedPlasticRepairs from '../components/ServiceSection/Texturedplasticrepairpage/TexturedPlasticRepairs'
+import Hero from '../common/Hero'
 import TexturedPlasticRestoration from '../components/ServiceSection/Texturedplasticrepairpage/TexturedPlasticRestoration'
 import PlasticComponentCTA from '../components/ServiceSection/Texturedplasticrepairpage/PlasticComponentCTA'
 
+import { HeroData } from '../Data/Texturedplasticrepairpage/Data'
 
 const Textured = () => {
   return (
     <div>
-   <TexturedPlasticRepairs  />
+   <Hero {...HeroData} />
    <TexturedPlasticRestoration />
    <PlasticComponentCTA />
     </div>

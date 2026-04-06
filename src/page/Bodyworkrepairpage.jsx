@@ -1,17 +1,17 @@
 import React from 'react'
-import BodyworkRepairHero from '../components/ServiceSection/Bodyworkrepairpage/BodyworkRepairHero'
+import Hero from '../common/Hero'
 import BodyworkRestoration from '../components/ServiceSection/Bodyworkrepairpage/BodyworkRestoration'
 import BodyworkCTA from '../components/ServiceSection/Bodyworkrepairpage/BodyworkCTA'
 
-
-const Bodywork = () => {
+import { HeroData } from '../Data/Bodyworkrepairpage/Data'
+const BodyworkRepairPage = () => {
   return (
     <div>
-    <BodyworkRepairHero />
+    <Hero {...HeroData}/>
     <BodyworkRestoration />
     <BodyworkCTA />
     </div>
   )
 }
 
-export default Bodywork
+export default BodyworkRepairPage

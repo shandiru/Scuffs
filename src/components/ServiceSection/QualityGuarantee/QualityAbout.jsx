@@ -1,40 +1,16 @@
 import React from "react";
 import { FaShieldAlt, FaAward, FaThumbsUp, FaCheckCircle } from "react-icons/fa";
-
+import { COLORS } from "../../../theme/colors";
 const QualityAbout = () => {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
   return (
     <section
       className="relative px-4 py-16 overflow-hidden"
       style={{ backgroundColor: "#fff" }}
     >
-      <style>
-        {`
-          @keyframes spinSlow {
-            0%   { transform: rotate(0deg); opacity: 0.25; }
-            100% { transform: rotate(360deg); opacity: 0.25; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK};
-            animation: spinSlow 40s linear infinite;
-            filter: drop-shadow(0 0 14px rgba(224,102,230,0.4));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 20s;
-              opacity: 0.15;
-            }
-          }
-        `}
-      </style>
-
+     
       {/* ✅ Dotted background */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#CCFF66_2px,transparent_2px)] [background-size:20px_20px]"
@@ -155,6 +131,7 @@ const QualityAbout = () => {
             style={{ backgroundColor: `${LIME}20` }}
           >
             <img
+               loading="lazy"
               alt="Quality guarantee documentation"
               className="w-full h-74 object-cover rounded-lg shadow-md"
               src="/quality.png"

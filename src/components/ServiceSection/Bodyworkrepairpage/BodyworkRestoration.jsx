@@ -1,5 +1,5 @@
 // File: BodyworkRestoration.jsx
-"use client";
+
 import {
   FaCheckCircle,
   FaClock,
@@ -10,10 +10,10 @@ import {
   FaHammer,
   FaPaintBrush,
 } from "react-icons/fa";
-
+import { COLORS } from "../../../theme/colors";
 export default function BodyworkRestoration() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
   return (
     <section
@@ -117,6 +117,7 @@ export default function BodyworkRestoration() {
             style={{ backgroundColor: `${LIME}30` }}
           >
             <img
+               loading="lazy"
               src="/body.png"
               alt="Bodywork repair process"
               className="w-full h-64 object-cover rounded-lg"

@@ -1,5 +1,5 @@
 // File: TexturedPlasticRestoration.jsx
-"use client";
+
 import {
   FaCheckCircle,
   FaClock,
@@ -10,40 +10,17 @@ import {
   FaPuzzlePiece,
   FaMagic,
 } from "react-icons/fa";
-
+import { COLORS } from "../../../theme/colors";
 export default function TexturedPlasticRestoration() {
-  const PINK = "#E066E6";
-  const LIME = "#CCFF66";
+  const PINK = COLORS.primary;
+  const LIME = COLORS.secondary;
 
   return (
     <section
       className="relative py-16 px-4 overflow-hidden"
       style={{ backgroundColor: "#F1FAF1" }}
     >
-      <style>
-        {`
-          @keyframes plasticSpin {
-            0%   { transform: rotate(0deg); opacity: 0.4; }
-            100% { transform: rotate(360deg); opacity: 0.4; }
-          }
-          .bg-icon {
-            position: absolute;
-            color: ${PINK} !important;
-            animation: plasticSpin 32s linear infinite;
-            filter: drop-shadow(0 0 15px rgba(224,102,230,0.5));
-            z-index: 0;
-            pointer-events: none;
-          }
-          @media (max-width: 768px) {
-            .bg-icon {
-              width: 2rem !important;
-              height: 2rem !important;
-              animation-duration: 20s;
-              opacity: 0.2;
-            }
-          }
-        `}
-      </style>
+      
 
       {/* ✅ Dotted background */}
       <div
@@ -116,6 +93,7 @@ export default function TexturedPlasticRestoration() {
             style={{ backgroundColor: `${LIME}30` }}
           >
             <img
+               loading="lazy"
               src="/textured.png"
               alt="Textured plastic repair process"
               className="w-full h-64 object-cover rounded-lg"
